@@ -19,10 +19,11 @@ public class GameCatalogDummyImpl implements GameCatalog {
 
     private final ConnectFourGameFactory connectFourGameFactory = new ConnectFourGameFactory();
 
-    private final List<String> ids = new ArrayList<>();
+    private List<String> ids;
 
     @Override
     public Collection<String> getGameIdentifiers() {
+        ids = new ArrayList<>();
         ids.add(ticTacToeGameFactory.getGameId());
         ids.add(taquinGameFactory.getGameId());
         ids.add(connectFourGameFactory.getGameId());
