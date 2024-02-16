@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 public class RandomHeartbeat implements HeartbeatSensor{
     @Override
     public int get() {
-        return 420;
+        return (int) (Math.random() * 250);
     }
 
 }
