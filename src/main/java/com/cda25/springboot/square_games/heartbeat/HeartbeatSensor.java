@@ -1,5 +1,5 @@
 package com.cda25.springboot.square_games.heartbeat;
 
-public interface HeartBeatSensor {
+public interface HeartbeatSensor {
     int get();
 }
