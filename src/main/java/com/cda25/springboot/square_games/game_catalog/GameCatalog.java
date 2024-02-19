@@ -6,4 +6,5 @@ public interface GameCatalog {
 
     Collection<String> getGameIdentifiers();
 
+    String getGameIdentifier(String game);
 }

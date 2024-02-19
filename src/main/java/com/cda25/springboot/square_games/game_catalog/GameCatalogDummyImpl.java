@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
+import java.util.HashSet;
 import java.util.List;
 
 @Service
@@ -19,18 +19,26 @@ public class GameCatalogDummyImpl implements GameCatalog {
 
     private final ConnectFourGameFactory connectFourGameFactory = new ConnectFourGameFactory();
 
-    private List<String> ids;
+    private HashSet<String> ids;
 
     @Override
     public Collection<String> getGameIdentifiers() {
-        ids = new ArrayList<>();
-        ids.add(ticTacToeGameFactory.getGameId());
-        ids.add(taquinGameFactory.getGameId());
-        ids.add(connectFourGameFactory.getGameId());
+        fillHashSet();
         return ids;
     }
 
+    @Override
+    public String getGameIdentifier(String game) {
+        fillHashSet();
+        return ids.contains(game) ? "true" : "false";
+    }
 
+    private void fillHashSet() {
+        ids = new HashSet<>();
+        ids.add(ticTacToeGameFactory.getGameId());
+        ids.add(taquinGameFactory.getGameId());
+        ids.add(connectFourGameFactory.getGameId());
+    }
 
 
 }
