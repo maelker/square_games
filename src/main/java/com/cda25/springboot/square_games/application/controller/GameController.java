@@ -67,7 +67,7 @@ public class GameController {
         Collection<TokenDTO> tokens = new ArrayList<>();
         Game game = gameService.getGame(game_id);
         if (game != null){
-            tokens = GameDTO.createGameDTO(game).availableTokens();
+            tokens = Objects.requireNonNull(GameDTO.createGameDTO(game)).availableTokens();
         }
         return tokens;
     }
