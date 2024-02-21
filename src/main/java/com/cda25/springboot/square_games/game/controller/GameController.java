@@ -1,10 +1,13 @@
 package com.cda25.springboot.square_games.game.controller;
 
 import com.cda25.springboot.square_games.game.controller.DTO.*;
+import com.cda25.springboot.square_games.game.controller.parameters.GameParams;
+import com.cda25.springboot.square_games.game.controller.parameters.TokenPosMove;
 import com.cda25.springboot.square_games.game.services.GameService;
 import com.cda25.springboot.square_games.game.services.GameServiceImpl;
 import fr.le_campus_numerique.square_games.engine.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
@@ -14,6 +17,9 @@ public class GameController {
 
     @Autowired
     private GameService gameService = new GameServiceImpl();
+
+    @Autowired
+    private MessageSource msg;
 
     @PostMapping("/game")
     public GameCreatedDTO createGame(@RequestBody GameParams gameCreationParams) {
@@ -38,18 +44,8 @@ public class GameController {
     }
 
     @PutMapping("/games/{game_id}")
-    public GameDTO makeMove(@PathVariable String game_id, @RequestBody TokenPosMove posMoves) {
-        Game game = gameService.getGame(game_id);
-        try {
-            if(posMoves.initPos() == null && !game.getRemainingTokens().isEmpty()) {
-                game.getRemainingTokens().iterator().next().moveTo(posMoves.finalPos());
-            } else if (posMoves.initPos() != null && !game.getBoard().isEmpty()){
-                game.getBoard().get(posMoves.initPos()).moveTo(posMoves.finalPos());
-            }
-        } catch (InvalidPositionException e) {
-            throw new RuntimeException(e);
-        }
-        return GameDTO.createGameDTO(game);
+    public GameDTO makeMove(@PathVariable String game_id, @RequestBody TokenPosMove tokenPosMove) {
+        return GameDTO.createGameDTO(gameService.makeMove(game_id, tokenPosMove));
     }
 
     @DeleteMapping("/games/{game_id}")

@@ -1,6 +1,7 @@
 package com.cda25.springboot.square_games.game.services;
 
-import com.cda25.springboot.square_games.game.controller.GameParams;
+import com.cda25.springboot.square_games.game.controller.parameters.GameParams;
+import com.cda25.springboot.square_games.game.controller.parameters.TokenPosMove;
 import fr.le_campus_numerique.square_games.engine.Game;
 
 import java.util.Collection;
@@ -12,6 +13,8 @@ public interface GameService {
     Collection<String> getGamesIdentifiers();
 
     Game getGame(String gameId);
+
+    Game makeMove(String game_id, TokenPosMove tokenPosMove);
 
     boolean deleteGame(String gameId);
 

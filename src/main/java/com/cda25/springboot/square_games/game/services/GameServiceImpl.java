@@ -1,9 +1,11 @@
 package com.cda25.springboot.square_games.game.services;
 
-import com.cda25.springboot.square_games.game.controller.GameParams;
-import com.cda25.springboot.square_games.game.services.game_catalog.GameCatalog;
+import com.cda25.springboot.square_games.game.controller.parameters.GameParams;
+import com.cda25.springboot.square_games.game.controller.parameters.TokenPosMove;
+import com.cda25.springboot.square_games.game.plugin.GamePlugin;
 import fr.le_campus_numerique.square_games.engine.Game;
 import fr.le_campus_numerique.square_games.engine.GameFactory;
+import fr.le_campus_numerique.square_games.engine.InvalidPositionException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,15 +16,16 @@ import java.util.Map;
 @Service
 public class GameServiceImpl implements GameService{
 
+
     @Autowired
-    private GameCatalog gameCatalog;
+    private GamePlugin gamePlugin;
 
     private final Map<String, Game> games = new HashMap<String, Game>();
 
     @Override
     public Game createGame(GameParams gameCreationParams){
         Game game = null;
-        GameFactory gameFactory = gameCatalog.getGameFactory(gameCreationParams.game());
+        GameFactory gameFactory = gamePlugin.getGameCatalog().getGameFactory(gameCreationParams.game());
         if (gameFactory != null ) {
             game = gameFactory.createGame(gameCreationParams.playerCount(), gameCreationParams.boardSize());
             games.put(game.getId().toString(), game);
@@ -32,7 +35,7 @@ public class GameServiceImpl implements GameService{
 
     @Override
     public Collection<String> getGamesIdentifiers() {
-         return gameCatalog.getGameIdentifiers();
+         return gamePlugin.getGameCatalog().getGameIdentifiers();
     }
 
     @Override
@@ -48,6 +51,22 @@ public class GameServiceImpl implements GameService{
         }
         return gameFromId;
     }
+
+    @Override
+    public Game makeMove(String game_id, TokenPosMove tokenPosMove) {
+        Game game = getGame(game_id);
+        try {
+            if(tokenPosMove.initPos() == null && !game.getRemainingTokens().isEmpty()) {
+                game.getRemainingTokens().iterator().next().moveTo(tokenPosMove.finalPos());
+            } else if (tokenPosMove.initPos() != null && !game.getBoard().isEmpty()){
+                game.getBoard().get(tokenPosMove.initPos()).moveTo(tokenPosMove.finalPos());
+            }
+        } catch (InvalidPositionException e) {
+            throw new RuntimeException(e);
+        }
+        return game;
+    }
+
 
     @Override
     public boolean deleteGame(String gameId) {
