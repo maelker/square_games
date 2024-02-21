@@ -8,7 +8,7 @@ $.getJSON(square_gamesAPI, {
             $.each(data, function (key, val) {
                 for (let v = 0; v < val.length; v++) {
                     items.push("<a id='" + val[v] + "'" +
-                        " class='text-white h1 bg-primary border border-2 rounded p-2 m-2 text-center'" +
+                        " class='text-white h1 bg-primary border border-2 rounded p-3 text-center'" +
                         " type='button'" +
                         " onclick='createGame(" + val[v] + ")'" +
                         ">" +
@@ -19,18 +19,38 @@ $.getJSON(square_gamesAPI, {
 
             $("<div/>", {
                 "id": "games",
-                "class": "bg-primary border border-2 rounded text-center",
+                "class": "text-center",
                 html: items.join("")
             }).appendTo("#gamesCatalog");
         }
     });
 
-function createGame(gameParam) {
+function createGame(gameId) {
+    $("<div/>").change(function(){
+        $('#newGame').removeAttr('hidden');
+    });
     const square_gamesAPI_create_game = "http://localhost:8080/games";
     $("#gamesCatalog").hide();
-    $.post( square_gamesAPI_create_game,{
-        game : gameParam,
-        playerCount : "2",
-        boardSize : "3"
-    });
+    $.post(square_gamesAPI_create_game, {
+        game: gameId,
+        playerCount: "2",
+        boardSize: "3"
+    })
+        .done(function (data) {
+            if (!$("#newGame").length) {
+                let item;
+                $.each(data, function (key, val) {
+                    items.push("<p id='" + key + "'" +
+                        " class='text-white h1 bg-primary border border-2 rounded p-3 text-center'>" +
+                        "<span>" + val + "</span>" +
+                        "</p>");
+                });
+
+                $("<div/>", {
+                    "id": "gameIn",
+                    "class": "text-center",
+                    html: items.join("")
+                }).appendTo("#game");
+            }
+        });
 }
