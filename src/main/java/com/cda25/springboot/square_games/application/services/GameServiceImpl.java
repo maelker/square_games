@@ -1,31 +1,37 @@
-package com.cda25.springboot.square_games.game.services;
+package com.cda25.springboot.square_games.application.services;
 
-import com.cda25.springboot.square_games.game.controller.parameters.GameParams;
-import com.cda25.springboot.square_games.game.controller.parameters.TokenPosMove;
-import com.cda25.springboot.square_games.game.plugin.GamePlugin;
+import com.cda25.springboot.square_games.application.controller.parameters.GameParams;
+import com.cda25.springboot.square_games.application.controller.parameters.TokenPosMove;
+import com.cda25.springboot.square_games.application.plugin.GamePlugin;
+import com.cda25.springboot.square_games.application.services.game_catalog.GameCatalog;
 import fr.le_campus_numerique.square_games.engine.Game;
 import fr.le_campus_numerique.square_games.engine.GameFactory;
 import fr.le_campus_numerique.square_games.engine.InvalidPositionException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class GameServiceImpl implements GameService{
 
+    @Autowired
+    private GameCatalog gameCatalog;
 
     @Autowired
-    private GamePlugin gamePlugin;
+    private List<GamePlugin> gamePlugins;
 
     private final Map<String, Game> games = new HashMap<String, Game>();
 
     @Override
+    public String getInterName(Locale locale) {
+        return gamePlugins.iterator().next().getName(locale);
+    }
+
+    @Override
     public Game createGame(GameParams gameCreationParams){
         Game game = null;
-        GameFactory gameFactory = gamePlugin.getGameCatalog().getGameFactory(gameCreationParams.game());
+        GameFactory gameFactory = gameCatalog.getGameFactory(gameCreationParams.game());
         if (gameFactory != null ) {
             game = gameFactory.createGame(gameCreationParams.playerCount(), gameCreationParams.boardSize());
             games.put(game.getId().toString(), game);
@@ -35,7 +41,7 @@ public class GameServiceImpl implements GameService{
 
     @Override
     public Collection<String> getGamesIdentifiers() {
-         return gamePlugin.getGameCatalog().getGameIdentifiers();
+         return gameCatalog.getGameIdentifiers();
     }
 
     @Override

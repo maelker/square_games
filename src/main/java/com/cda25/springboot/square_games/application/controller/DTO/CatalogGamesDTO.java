@@ -1,4 +1,4 @@
-package com.cda25.springboot.square_games.game.controller.DTO;
+package com.cda25.springboot.square_games.application.controller.DTO;
 
 import java.util.Collection;
 

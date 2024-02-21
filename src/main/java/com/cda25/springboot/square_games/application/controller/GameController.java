@@ -1,10 +1,10 @@
-package com.cda25.springboot.square_games.game.controller;
+package com.cda25.springboot.square_games.application.controller;
 
-import com.cda25.springboot.square_games.game.controller.DTO.*;
-import com.cda25.springboot.square_games.game.controller.parameters.GameParams;
-import com.cda25.springboot.square_games.game.controller.parameters.TokenPosMove;
-import com.cda25.springboot.square_games.game.services.GameService;
-import com.cda25.springboot.square_games.game.services.GameServiceImpl;
+import com.cda25.springboot.square_games.application.controller.DTO.*;
+import com.cda25.springboot.square_games.application.controller.parameters.GameParams;
+import com.cda25.springboot.square_games.application.controller.parameters.TokenPosMove;
+import com.cda25.springboot.square_games.application.services.GameService;
+import com.cda25.springboot.square_games.application.services.GameServiceImpl;
 import fr.le_campus_numerique.square_games.engine.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -70,6 +70,10 @@ public class GameController {
             tokens = GameDTO.createGameDTO(game).availableTokens();
         }
         return tokens;
+    }
+    @GetMapping("/test")
+    public String getTest(@RequestHeader("Accept-Language") Locale locale) {
+        return gameService.getInterName(locale);
     }
 
 }
