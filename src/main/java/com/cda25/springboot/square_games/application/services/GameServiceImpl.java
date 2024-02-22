@@ -3,9 +3,7 @@ package com.cda25.springboot.square_games.application.services;
 import com.cda25.springboot.square_games.application.controller.parameters.GameParams;
 import com.cda25.springboot.square_games.application.controller.parameters.TokenPosMove;
 import com.cda25.springboot.square_games.application.plugin.GamePlugin;
-import com.cda25.springboot.square_games.application.services.game_catalog.GameCatalog;
 import fr.le_campus_numerique.square_games.engine.Game;
-import fr.le_campus_numerique.square_games.engine.GameFactory;
 import fr.le_campus_numerique.square_games.engine.GameStatus;
 import fr.le_campus_numerique.square_games.engine.InvalidPositionException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,19 +37,23 @@ public class GameServiceImpl implements GameService{
 
     @Override
     public Game createGame(GameParams gameCreationParams){
+        GamePlugin gamePlugin = getGamePluginFromId(gameCreationParams.game());
         Game game = null;
-        GameFactory gameFactory = gamePlugins.stream()
-                .filter(
-                        gamePlugin -> Objects.equals(gamePlugin.getGameFactory().getGameFactoryId(), gameCreationParams.game())
-                )
-                .toList()
-                .getFirst()
-                .getGameFactory();
-        if (gameFactory != null) {
-            game = gameFactory.createGame(gameCreationParams.playerCount(), gameCreationParams.boardSize());
+        if (gamePlugin != null) {
+            game = gamePlugin.createGame();
             games.put(game.getId().toString(), game);
         }
         return game;
+    }
+
+    @Override
+    public GamePlugin getGamePluginFromId(String game_id) {
+        return gamePlugins.stream()
+                .filter(
+                        gamePlugin -> Objects.equals(gamePlugin.getGameFactory().getGameFactoryId(), game_id)
+                )
+                .toList()
+                .getFirst();
     }
 
     @Override

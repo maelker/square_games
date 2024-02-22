@@ -25,7 +25,7 @@ public class GameController {
     @PostMapping("/game")
     public GameCreatedDTO createGame(@RequestBody GameParams gameCreationParams) {
         Game game = gameService.createGame(gameCreationParams);
-        return new GameCreatedDTO(game.getId().toString(), new GameParams(game.getFactoryId(), game.getPlayerIds().size(), game.getBoardSize()));
+        return game == null ? null : new GameCreatedDTO(game.getId().toString(), new GameParams(game.getFactoryId(), game.getPlayerIds().size(), game.getBoardSize()));
     }
 
     @GetMapping("/games")
