@@ -11,6 +11,8 @@ import java.util.Map;
 public interface GameService {
     String getInterName(Locale locale);
 
+    String getDefaultValues(String game_id, Locale locale);
+
     Game createGame(GameParams gameCreationParams);
 
     Collection<String> getGamesIdentifiers();
@@ -22,5 +24,7 @@ public interface GameService {
     boolean deleteGame(String gameId);
 
     Map<String, Game> getGamesOngoing();
+
+    Map<String, Game> getGamesFinished();
 
 }

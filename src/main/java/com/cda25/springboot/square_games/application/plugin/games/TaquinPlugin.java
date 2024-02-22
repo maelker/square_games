@@ -1,26 +1,28 @@
 package com.cda25.springboot.square_games.application.plugin.games;
 
-import com.cda25.springboot.square_games.application.plugin.GamePlugin;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.MessageSource;
+import com.cda25.springboot.square_games.application.plugin.GamePluginImpl;
+import fr.le_campus_numerique.square_games.engine.taquin.TaquinGameFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.util.Locale;
 
 @Component
-public class TaquinPlugin implements GamePlugin {
+public class TaquinPlugin extends GamePluginImpl {
 
-    @Autowired
-    private MessageSource messageSource;
 
-//    @Value("game.taquin.default-player-count")
-//    private int defaultPlayerCount;
-//    @Value("game.taquin.board-size")
-//    private int defaultBoardSize;
+    @Value("${game.taquin.default-player-count}")
+    private String defaultPlayerCount;
+    @Value("${game.taquin.default-board-size}")
+    private String defaultBoardSize;
+
+    public TaquinPlugin() {
+        super(new TaquinGameFactory());
+    }
 
     @Override
     public String getName(Locale locale) {
-        return messageSource.getMessage("game.taquin.factory-id", null, locale);
+        return getMessageSource().getMessage("game.taquin.factory-id", null, locale);
     }
 
 }

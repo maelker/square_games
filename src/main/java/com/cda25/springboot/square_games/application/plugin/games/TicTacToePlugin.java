@@ -1,26 +1,30 @@
 package com.cda25.springboot.square_games.application.plugin.games;
 
-import com.cda25.springboot.square_games.application.plugin.GamePlugin;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.MessageSource;
+import com.cda25.springboot.square_games.application.plugin.GamePluginImpl;
+import fr.le_campus_numerique.square_games.engine.tictactoe.TicTacToeGameFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.util.Locale;
 
 @Component
-public class TicTacToePlugin implements GamePlugin {
+public class TicTacToePlugin extends GamePluginImpl {
 
-    @Autowired
-    private MessageSource messageSource;
 
-//    @Value("game.tictactoe.default-player-count")
-//    private int defaultPlayerCount;
-//    @Value("game.tictactoe.board-size")
-//    private int defaultBoardSize;
+
+    @Value("${game.tictactoe.default-player-count}")
+    private String defaultPlayerCount;
+    @Value("${game.tictactoe.default-board-size}")
+    private String defaultBoardSize;
+
+    public TicTacToePlugin() {
+        super(new TicTacToeGameFactory());
+    }
 
     @Override
     public String getName(Locale locale) {
-        return messageSource.getMessage("game.tictactoe.factory-id", null, locale);
+        return getMessageSource().getMessage("game.tictactoe.factory-id", null, locale);
     }
+
 
 }

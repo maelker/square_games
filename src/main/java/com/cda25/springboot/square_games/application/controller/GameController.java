@@ -34,9 +34,13 @@ public class GameController {
     }
 
     @GetMapping("/games/ongoing")
-    public OngoingGamesDTO getGamesOngoing() {
-        Map<String, Game> games = gameService.getGamesOngoing();
-        return OngoingGamesDTO.createGamesOngoingGames(games);
+    public OngoingOrFinishedGamesDTO getGamesOngoing() {
+        return OngoingOrFinishedGamesDTO.createGamesOngoingOrFinishedGames(gameService.getGamesOngoing());
+    }
+
+    @GetMapping("/games/finished")
+    public OngoingOrFinishedGamesDTO getGamesFinished() {
+        return OngoingOrFinishedGamesDTO.createGamesOngoingOrFinishedGames(gameService.getGamesFinished());
     }
 
     @GetMapping("/games/{game_id}")
@@ -45,7 +49,8 @@ public class GameController {
     }
 
     @PutMapping("/games/{game_id}")
-    public GameDTO makeMove(@PathVariable String game_id, @RequestBody TokenPosMove tokenPosMove) {
+    public GameDTO makeMove(@PathVariable String game_id,
+                            @RequestBody TokenPosMove tokenPosMove) {
         return GameDTO.createGameDTO(gameService.makeMove(game_id, tokenPosMove));
     }
 
@@ -63,18 +68,26 @@ public class GameController {
         }
         return result;
     }
+
     @GetMapping("/games/{game_id}/playable_tokens")
     public Collection<TokenDTO> getGameTokens(@PathVariable (value = "game_id") String game_id) {
-        Collection<TokenDTO> tokens = new ArrayList<>();
+        Collection<TokenDTO> tokenDTOs = new ArrayList<>();
         Game game = gameService.getGame(game_id);
         if (game != null){
-            tokens = Objects.requireNonNull(GameDTO.createGameDTO(game)).availableTokens();
+            tokenDTOs = Objects.requireNonNull(GameDTO.createGameDTO(game)).availableTokens();
         }
-        return tokens;
+        return tokenDTOs;
     }
+
     @GetMapping("/test")
-    public String getTest(@RequestHeader("Accept-Language") Locale locale) {
+    public String getTest(@RequestHeader(value = "Accept-Language", required = false) Locale locale) {
         return gameService.getInterName(locale);
+    }
+
+    @GetMapping("/{game_id}")
+    public String getDefault(@RequestHeader(value = "Accept-Language", required = false) Locale locale,
+                             @PathVariable (value = "game_id") String game_id) {
+        return gameService.getDefaultValues(game_id, locale);
     }
 
 }

@@ -6,6 +6,7 @@ import com.cda25.springboot.square_games.application.plugin.GamePlugin;
 import com.cda25.springboot.square_games.application.services.game_catalog.GameCatalog;
 import fr.le_campus_numerique.square_games.engine.Game;
 import fr.le_campus_numerique.square_games.engine.GameFactory;
+import fr.le_campus_numerique.square_games.engine.GameStatus;
 import fr.le_campus_numerique.square_games.engine.InvalidPositionException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,12 +17,9 @@ import java.util.*;
 public class GameServiceImpl implements GameService{
 
     @Autowired
-    private GameCatalog gameCatalog;
-
-    @Autowired
     private List<GamePlugin> gamePlugins;
 
-    private final Map<String, Game> games = new HashMap<String, Game>();
+    private final Map<String, Game> games = new HashMap<>();
 
     @Override
     public String getInterName(Locale locale) {
@@ -29,10 +27,27 @@ public class GameServiceImpl implements GameService{
     }
 
     @Override
+    public String getDefaultValues(String game_id, Locale locale) {
+        return gamePlugins.stream()
+                .filter(
+                        gamePlugin -> Objects.equals(gamePlugin.getGameFactory().getGameFactoryId(), game_id)
+                )
+                .toList()
+                .getFirst()
+                .getDefaultValues(locale);
+    }
+
+    @Override
     public Game createGame(GameParams gameCreationParams){
         Game game = null;
-        GameFactory gameFactory = gameCatalog.getGameFactory(gameCreationParams.game());
-        if (gameFactory != null ) {
+        GameFactory gameFactory = gamePlugins.stream()
+                .filter(
+                        gamePlugin -> Objects.equals(gamePlugin.getGameFactory().getGameFactoryId(), gameCreationParams.game())
+                )
+                .toList()
+                .getFirst()
+                .getGameFactory();
+        if (gameFactory != null) {
             game = gameFactory.createGame(gameCreationParams.playerCount(), gameCreationParams.boardSize());
             games.put(game.getId().toString(), game);
         }
@@ -41,12 +56,29 @@ public class GameServiceImpl implements GameService{
 
     @Override
     public Collection<String> getGamesIdentifiers() {
-         return gameCatalog.getGameIdentifiers();
+         return gamePlugins.stream()
+                 .map(
+                         gamePlugin -> gamePlugin.getGameFactory().getGameFactoryId()
+                 )
+                 .toList();
     }
 
     @Override
     public Map<String, Game> getGamesOngoing() {
-        return games;
+        Map<String, Game> ongoingGames = new HashMap<>();
+        if(!games.isEmpty()){
+            games.forEach((s, game) -> {if (game.getStatus()== GameStatus.ONGOING){ongoingGames.put(s, game);}});
+        }
+        return ongoingGames.isEmpty() ? null : ongoingGames;
+    }
+
+    @Override
+    public Map<String, Game> getGamesFinished() {
+        Map<String, Game> finishedGames = new HashMap<>();
+        if(!games.isEmpty()){
+            games.forEach((s, game) -> {if (game.getStatus()== GameStatus.TERMINATED){finishedGames.put(s, game);}});
+        }
+        return finishedGames.isEmpty() ? null : finishedGames;
     }
 
     @Override

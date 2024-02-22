@@ -7,8 +7,10 @@ import java.util.*;
 
 public record BoardDTO(Collection<TokenDTO> tokens) {
     public static BoardDTO createBoardDTO(Map<CellPosition, Token> board) {
-        Collection<TokenDTO> boardDTO = new ArrayList<TokenDTO>(9);
-        board.forEach((position, token) -> {boardDTO.add(TokenDTO.createTokenDTO(token));});
-        return new BoardDTO(boardDTO);
+        Collection<TokenDTO> boardWithTokenDTO = new ArrayList<TokenDTO>();
+        if(board != null){
+            board.forEach((position, token) -> {boardWithTokenDTO.add(TokenDTO.createTokenDTO(token));});
+        }
+        return board != null ? new BoardDTO(boardWithTokenDTO) : null;
     }
 }
