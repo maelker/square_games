@@ -36,14 +36,12 @@ public class GameServiceImpl implements GameService{
     }
 
     @Override
-    public Game createGame(GameParams gameCreationParams){
-        GamePlugin gamePlugin = getGamePluginFromId(gameCreationParams.game());
-        Game game = null;
-        if (gamePlugin != null) {
-            game = gamePlugin.createGame();
-            games.put(game.getId().toString(), game);
-        }
-        return game;
+    public Collection<String> getGamesIdentifiers() {
+        return gamePlugins.stream()
+                .map(
+                        gamePlugin -> gamePlugin.getGameFactory().getGameFactoryId()
+                )
+                .toList();
     }
 
     @Override
@@ -57,12 +55,23 @@ public class GameServiceImpl implements GameService{
     }
 
     @Override
-    public Collection<String> getGamesIdentifiers() {
-         return gamePlugins.stream()
-                 .map(
-                         gamePlugin -> gamePlugin.getGameFactory().getGameFactoryId()
-                 )
-                 .toList();
+    public Game createGame(GameParams gameCreationParams){
+        GamePlugin gamePlugin = getGamePluginFromId(gameCreationParams.game());
+        Game game = null;
+        if (gamePlugin != null) {
+            game = gamePlugin.createGame();
+            games.put(game.getId().toString(), game);
+        }
+        return game;
+    }
+
+    @Override
+    public Game getGame(String game_id) {
+        Game gameFromId = null;
+        if (games.containsKey(game_id)) {
+            gameFromId = games.get(game_id);
+        }
+        return gameFromId;
     }
 
     @Override
@@ -84,17 +93,8 @@ public class GameServiceImpl implements GameService{
     }
 
     @Override
-    public Game getGame(String game_id) {
-        Game gameFromId = null;
-        if (games.containsKey(game_id)) {
-            gameFromId = games.get(game_id);
-        }
-        return gameFromId;
-    }
-
-    @Override
     public Game makeMove(String game_id, TokenPosMove tokenPosMove) {
-        Game game = getGame(game_id);
+        Game game = getGamesOngoing().get(game_id);
         try {
             if(tokenPosMove.initPos() == null && !game.getRemainingTokens().isEmpty()) {
                 game.getRemainingTokens().iterator().next().moveTo(tokenPosMove.finalPos());
@@ -106,7 +106,6 @@ public class GameServiceImpl implements GameService{
         }
         return game;
     }
-
 
     @Override
     public boolean deleteGame(String gameId) {
