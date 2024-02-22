@@ -85,7 +85,7 @@ public class GameController {
     }
 
     @GetMapping("/{game_id}")
-    public String getDefault(@RequestHeader(value = "Accept-Language", required = false) Locale locale,
+    public String getDefaultValues(@RequestHeader(value = "Accept-Language", required = false) Locale locale,
                              @PathVariable (value = "game_id") String game_id) {
         return gameService.getDefaultValues(game_id, locale);
     }
