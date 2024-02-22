@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.*;
 
 @Service
-public class GameServiceImpl implements GameService{
+public class GameServiceImpl implements GameService {
 
     @Autowired
     private List<GamePlugin> gamePlugins;
@@ -25,10 +25,10 @@ public class GameServiceImpl implements GameService{
     }
 
     @Override
-    public String getDefaultValues(String game_id, Locale locale) {
+    public String getDefaultValues(String gameId, Locale locale) {
         return gamePlugins.stream()
                 .filter(
-                        gamePlugin -> Objects.equals(gamePlugin.getGameFactory().getGameFactoryId(), game_id)
+                        gamePlugin -> Objects.equals(gamePlugin.getGameFactory().getGameFactoryId(), gameId)
                 )
                 .toList()
                 .getFirst()
@@ -45,18 +45,18 @@ public class GameServiceImpl implements GameService{
     }
 
     @Override
-    public GamePlugin getGamePluginFromId(String game_id) {
+    public GamePlugin getGamePluginFromId(String gameId) {
         return gamePlugins.stream()
                 .filter(
-                        gamePlugin -> Objects.equals(gamePlugin.getGameFactory().getGameFactoryId(), game_id)
+                        gamePlugin -> Objects.equals(gamePlugin.getGameFactory().getGameFactoryId(), gameId)
                 )
                 .toList()
                 .getFirst();
     }
 
     @Override
-    public Game createGame(GameParams gameCreationParams){
-        GamePlugin gamePlugin = getGamePluginFromId(gameCreationParams.game());
+    public Game createGame(final GameParams gameCreationParams) {
+        final GamePlugin gamePlugin = getGamePluginFromId(gameCreationParams.game());
         Game game = null;
         if (gamePlugin != null) {
             game = gamePlugin.createGame(gameCreationParams.playerCount(), gameCreationParams.boardSize());
@@ -66,19 +66,23 @@ public class GameServiceImpl implements GameService{
     }
 
     @Override
-    public Game getGame(String game_id) {
+    public Game getGame(String gameId) {
         Game gameFromId = null;
-        if (games.containsKey(game_id)) {
-            gameFromId = games.get(game_id);
+        if (games.containsKey(gameId)) {
+            gameFromId = games.get(gameId);
         }
         return gameFromId;
     }
 
     @Override
     public Map<String, Game> getGamesOngoing() {
-        Map<String, Game> ongoingGames = new HashMap<>();
-        if(!games.isEmpty()){
-            games.forEach((s, game) -> {if (game.getStatus()== GameStatus.ONGOING){ongoingGames.put(s, game);}});
+        final Map<String, Game> ongoingGames = new HashMap<>();
+        if (!games.isEmpty()) {
+            games.forEach((s, game) -> {
+                if (game.getStatus() == GameStatus.ONGOING) {
+                    ongoingGames.put(s, game);
+                }
+            });
         }
         return ongoingGames.isEmpty() ? null : ongoingGames;
     }
@@ -86,19 +90,23 @@ public class GameServiceImpl implements GameService{
     @Override
     public Map<String, Game> getGamesFinished() {
         Map<String, Game> finishedGames = new HashMap<>();
-        if(!games.isEmpty()){
-            games.forEach((s, game) -> {if (game.getStatus()== GameStatus.TERMINATED){finishedGames.put(s, game);}});
+        if (!games.isEmpty()) {
+            games.forEach((s, game) -> {
+                if (game.getStatus() == GameStatus.TERMINATED) {
+                    finishedGames.put(s, game);
+                }
+            });
         }
         return finishedGames.isEmpty() ? null : finishedGames;
     }
 
     @Override
-    public Game makeMove(String game_id, TokenPosMove tokenPosMove) {
-        Game game = getGamesOngoing().get(game_id);
+    public Game makeMove(String gameId, TokenPosMove tokenPosMove) {
+        Game game = getGamesOngoing().get(gameId);
         try {
-            if(tokenPosMove.initPos() == null && !game.getRemainingTokens().isEmpty()) {
+            if (tokenPosMove.initPos() == null && !game.getRemainingTokens().isEmpty()) {
                 game.getRemainingTokens().iterator().next().moveTo(tokenPosMove.finalPos());
-            } else if (tokenPosMove.initPos() != null && !game.getBoard().isEmpty()){
+            } else if (tokenPosMove.initPos() != null && !game.getBoard().isEmpty()) {
                 game.getBoard().get(tokenPosMove.initPos()).moveTo(tokenPosMove.finalPos());
             }
         } catch (InvalidPositionException e) {
@@ -109,7 +117,7 @@ public class GameServiceImpl implements GameService{
 
     @Override
     public boolean deleteGame(String gameId) {
-        return games.remove(gameId, games.get(gameId));
+        return games.remove(gameId) != null;
     }
 
 }

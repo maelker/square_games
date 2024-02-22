@@ -19,10 +19,14 @@ public class ConnectFourPlugin extends GamePluginImpl {
     public String getName(Locale locale) {
         return getMessageSource().getMessage("game.connect4.factory-id", null, locale);
     }
+
+    @Override
     @Value("${game.connect4.default-player-count}")
     public void setPlayerCount(Integer playerCount) {
         this.playerCount = playerCount;
     }
+
+    @Override
     @Value("${game.connect4.default-board-size}")
     public void setBoardSize(Integer boardSize) {
         this.boardSize = boardSize;

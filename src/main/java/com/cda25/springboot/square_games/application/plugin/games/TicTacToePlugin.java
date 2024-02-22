@@ -11,7 +11,6 @@ import java.util.Locale;
 public class TicTacToePlugin extends GamePluginImpl {
 
 
-
     public TicTacToePlugin() {
         super(new TicTacToeGameFactory());
     }
@@ -20,10 +19,14 @@ public class TicTacToePlugin extends GamePluginImpl {
     public String getName(Locale locale) {
         return getMessageSource().getMessage("game.tictactoe.factory-id", null, locale);
     }
+
+    @Override
     @Value("${game.tictactoe.default-player-count}")
     public void setPlayerCount(Integer playerCount) {
         this.playerCount = playerCount;
     }
+
+    @Override
     @Value("${game.tictactoe.default-board-size}")
     public void setBoardSize(Integer boardSize) {
         this.boardSize = boardSize;

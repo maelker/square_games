@@ -8,7 +8,7 @@ import org.springframework.context.MessageSource;
 import java.util.Locale;
 import java.util.Optional;
 
-public abstract class GamePluginImpl implements GamePlugin{
+public abstract class GamePluginImpl implements GamePlugin {
 
     private final GameFactory gameFactory;
     protected Integer playerCount;
@@ -30,18 +30,9 @@ public abstract class GamePluginImpl implements GamePlugin{
         return messageSource;
     }
 
-    public abstract void setPlayerCount(Integer playerCount);
-
-    public abstract void setBoardSize(Integer boardSize);
-
     @Override
     public String getDefaultValues(Locale locale) {
         return "{\n\tgameFactoryId : " + getName(locale) + "\n\tplayerCount : " + playerCount + "\n\tBoardSize : " + boardSize + "\n}";
-    }
-
-    @Override
-    public Game createGame() {
-        return getGameFactory().createGame(playerCount, boardSize);
     }
 
     @Override

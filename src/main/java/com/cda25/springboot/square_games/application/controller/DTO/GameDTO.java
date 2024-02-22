@@ -4,8 +4,10 @@ import fr.le_campus_numerique.square_games.engine.Game;
 import fr.le_campus_numerique.square_games.engine.GameStatus;
 import fr.le_campus_numerique.square_games.engine.Token;
 
-
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Set;
+import java.util.UUID;
 
 public record GameDTO(
         String gameName,
@@ -35,7 +37,7 @@ public record GameDTO(
 
     private static Collection<TokenDTO> findAvailableTokens(Game game) {
         Collection<TokenDTO> availableTokens = new ArrayList<>();
-        if(game != null) {
+        if (game != null) {
             game.getRemainingTokens().stream().filter(Token::canMove).map(TokenDTO::createTokenDTO).forEach(availableTokens::add);
             game.getBoard().values().stream().filter(Token::canMove).map(TokenDTO::createTokenDTO).forEach(availableTokens::add);
             game.getRemovedTokens().stream().filter(Token::canMove).map(TokenDTO::createTokenDTO).forEach(availableTokens::add);

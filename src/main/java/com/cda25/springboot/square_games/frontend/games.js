@@ -26,7 +26,7 @@ $.getJSON(square_gamesAPI, {
     });
 
 function createGame(gameId) {
-    $("<div/>").change(function(){
+    $("<div/>").change(function () {
         $('#newGame').removeAttr('hidden');
     });
     const square_gamesAPI_create_game = "http://localhost:8080/games";

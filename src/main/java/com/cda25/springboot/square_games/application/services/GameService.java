@@ -12,17 +12,15 @@ import java.util.Map;
 public interface GameService {
     String getInterName(Locale locale);
 
-    String getDefaultValues(String game_id, Locale locale);
-
     Game createGame(GameParams gameCreationParams);
 
-    GamePlugin getGamePluginFromId(String game_id);
+    GamePlugin getGamePluginFromId(String gameId);
 
     Collection<String> getGamesIdentifiers();
 
     Game getGame(String gameId);
 
-    Game makeMove(String game_id, TokenPosMove tokenPosMove);
+    Game makeMove(String gameId, TokenPosMove tokenPosMove);
 
     boolean deleteGame(String gameId);
 
@@ -30,4 +28,5 @@ public interface GameService {
 
     Map<String, Game> getGamesFinished();
 
+    String getDefaultValues(String gameId, Locale locale);
 }

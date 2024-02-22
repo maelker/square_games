@@ -9,7 +9,7 @@ import java.util.Map;
 public record OngoingOrFinishedGamesDTO(Map<String, GameParams> games) {
     public static OngoingOrFinishedGamesDTO createGamesOngoingOrFinishedGames(Map<String, Game> games) {
         Map<String, GameParams> gamesToDTO = new HashMap<>();
-        if(games != null) {
+        if (games != null) {
             games.forEach((s, game) -> gamesToDTO.put(s, new GameParams(game.getFactoryId(), game.getPlayerIds().size(), game.getBoardSize())));
         }
         return games == null ? null : new OngoingOrFinishedGamesDTO(gamesToDTO);

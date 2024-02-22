@@ -19,10 +19,14 @@ public class TaquinPlugin extends GamePluginImpl {
     public String getName(Locale locale) {
         return getMessageSource().getMessage("game.taquin.factory-id", null, locale);
     }
+
+    @Override
     @Value("${game.taquin.default-player-count}")
     public void setPlayerCount(Integer playerCount) {
         this.playerCount = playerCount;
     }
+
+    @Override
     @Value("${game.taquin.default-board-size}")
     public void setBoardSize(Integer boardSize) {
         this.boardSize = boardSize;

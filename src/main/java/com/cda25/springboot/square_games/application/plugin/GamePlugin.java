@@ -9,11 +9,13 @@ public interface GamePlugin {
 
     String getName(Locale locale);
 
-    String getDefaultValues(Locale locale);
-
     GameFactory getGameFactory();
 
-    Game createGame();
+    void setPlayerCount(Integer playerCount);
+
+    void setBoardSize(Integer boardSize);
+
+    String getDefaultValues(Locale locale);
 
     Game createGame(Integer playerCount, Integer boardSize);
 

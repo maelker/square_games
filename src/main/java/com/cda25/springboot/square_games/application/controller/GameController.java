@@ -5,12 +5,14 @@ import com.cda25.springboot.square_games.application.controller.parameters.GameP
 import com.cda25.springboot.square_games.application.controller.parameters.TokenPosMove;
 import com.cda25.springboot.square_games.application.services.GameService;
 import com.cda25.springboot.square_games.application.services.GameServiceImpl;
-import fr.le_campus_numerique.square_games.engine.*;
+import fr.le_campus_numerique.square_games.engine.Game;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.MessageSource;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Locale;
+import java.util.Objects;
 
 @CrossOrigin
 @RestController
@@ -40,51 +42,46 @@ public class GameController {
         return OngoingOrFinishedGamesDTO.createGamesOngoingOrFinishedGames(gameService.getGamesFinished());
     }
 
-    @GetMapping("/games/{game_id}")
-    public GameDTO getGame(@PathVariable (value = "game_id") String game_id) {
-        return GameDTO.createGameDTO(gameService.getGame(game_id));
+    @GetMapping("/games/{gameId}")
+    public GameDTO getGame(@PathVariable(value = "gameId") String gameId) {
+        return GameDTO.createGameDTO(gameService.getGame(gameId));
     }
 
-    @PutMapping("/games/{game_id}")
-    public GameDTO makeMove(@PathVariable String game_id,
+    @PutMapping("/games/{gameId}")
+    public GameDTO makeMove(@PathVariable String gameId,
                             @RequestBody TokenPosMove tokenPosMove) {
-        return GameDTO.createGameDTO(gameService.makeMove(game_id, tokenPosMove));
+        return GameDTO.createGameDTO(gameService.makeMove(gameId, tokenPosMove));
     }
 
-    @DeleteMapping("/games/{game_id}")
-    public boolean deleteGame(@PathVariable String game_id) {
-        return gameService.deleteGame(game_id);
+    @DeleteMapping("/games/{gameId}")
+    public boolean deleteGame(@PathVariable String gameId) {
+        return gameService.deleteGame(gameId);
     }
 
-    @GetMapping("/games/{game_id}/board")
-    public BoardDTO getGameBoard(@PathVariable (value = "game_id") String game_id) {
+    @GetMapping("/games/{gameId}/board")
+    public BoardDTO getGameBoard(@PathVariable(value = "gameId") String gameId) {
         BoardDTO result = null;
-        Game game = gameService.getGame(game_id);
-        if (game != null){
+        Game game = gameService.getGame(gameId);
+        if (game != null) {
             result = BoardDTO.createBoardDTO(game.getBoard());
         }
         return result;
     }
 
-    @GetMapping("/games/{game_id}/playable_tokens")
-    public Collection<TokenDTO> getGameTokens(@PathVariable (value = "game_id") String game_id) {
+    @GetMapping("/games/{gameId}/playable_tokens")
+    public Collection<TokenDTO> getGameTokens(@PathVariable(value = "gameId") String gameId) {
         Collection<TokenDTO> tokenDTOs = new ArrayList<>();
-        Game game = gameService.getGame(game_id);
-        if (game != null){
+        Game game = gameService.getGame(gameId);
+        if (game != null) {
             tokenDTOs = Objects.requireNonNull(GameDTO.createGameDTO(game)).availableTokens();
         }
         return tokenDTOs;
     }
 
-    @GetMapping("/test")
-    public String getTest(@RequestHeader(value = "Accept-Language", required = false) Locale locale) {
-        return gameService.getInterName(locale);
-    }
-
-    @GetMapping("/{game_id}")
+    @GetMapping("/{gameId}")
     public String getDefaultValues(@RequestHeader(value = "Accept-Language", required = false) Locale locale,
-                             @PathVariable (value = "game_id") String game_id) {
-        return gameService.getDefaultValues(game_id, locale);
+                                   @PathVariable(value = "gameId") String gameId) {
+        return gameService.getDefaultValues(gameId, locale);
     }
 
 }
