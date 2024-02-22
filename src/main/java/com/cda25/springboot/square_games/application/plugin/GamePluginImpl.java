@@ -6,13 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 
 import java.util.Locale;
-import java.util.Objects;
+import java.util.Optional;
 
 public abstract class GamePluginImpl implements GamePlugin{
 
     private final GameFactory gameFactory;
-    private String playerCount;
-    private String boardSize;
+    protected Integer playerCount;
+    protected Integer boardSize;
 
     @Autowired
     private MessageSource messageSource;
@@ -30,6 +30,10 @@ public abstract class GamePluginImpl implements GamePlugin{
         return messageSource;
     }
 
+    public abstract void setPlayerCount(Integer playerCount);
+
+    public abstract void setBoardSize(Integer boardSize);
+
     @Override
     public String getDefaultValues(Locale locale) {
         return "{\n\tgameFactoryId : " + getName(locale) + "\n\tplayerCount : " + playerCount + "\n\tBoardSize : " + boardSize + "\n}";
@@ -37,7 +41,12 @@ public abstract class GamePluginImpl implements GamePlugin{
 
     @Override
     public Game createGame() {
-        return getGameFactory().createGame(Integer.parseInt(playerCount), Integer.parseInt(boardSize));
+        return getGameFactory().createGame(playerCount, boardSize);
+    }
+
+    @Override
+    public Game createGame(Integer playerCount, Integer boardSize) {
+        return getGameFactory().createGame(playerCount == null ? this.playerCount : playerCount, Optional.ofNullable(boardSize).orElse(this.boardSize));
     }
 
 }

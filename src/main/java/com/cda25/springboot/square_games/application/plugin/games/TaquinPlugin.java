@@ -11,11 +11,6 @@ import java.util.Locale;
 public class TaquinPlugin extends GamePluginImpl {
 
 
-    @Value("${game.taquin.default-player-count}")
-    private String defaultPlayerCount;
-    @Value("${game.taquin.default-board-size}")
-    private String defaultBoardSize;
-
     public TaquinPlugin() {
         super(new TaquinGameFactory());
     }
@@ -23,6 +18,14 @@ public class TaquinPlugin extends GamePluginImpl {
     @Override
     public String getName(Locale locale) {
         return getMessageSource().getMessage("game.taquin.factory-id", null, locale);
+    }
+    @Value("${game.taquin.default-player-count}")
+    public void setPlayerCount(Integer playerCount) {
+        this.playerCount = playerCount;
+    }
+    @Value("${game.taquin.default-board-size}")
+    public void setBoardSize(Integer boardSize) {
+        this.boardSize = boardSize;
     }
 
 }

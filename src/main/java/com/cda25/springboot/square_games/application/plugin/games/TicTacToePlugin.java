@@ -12,11 +12,6 @@ public class TicTacToePlugin extends GamePluginImpl {
 
 
 
-    @Value("${game.tictactoe.default-player-count}")
-    private String defaultPlayerCount;
-    @Value("${game.tictactoe.default-board-size}")
-    private String defaultBoardSize;
-
     public TicTacToePlugin() {
         super(new TicTacToeGameFactory());
     }
@@ -24,6 +19,14 @@ public class TicTacToePlugin extends GamePluginImpl {
     @Override
     public String getName(Locale locale) {
         return getMessageSource().getMessage("game.tictactoe.factory-id", null, locale);
+    }
+    @Value("${game.tictactoe.default-player-count}")
+    public void setPlayerCount(Integer playerCount) {
+        this.playerCount = playerCount;
+    }
+    @Value("${game.tictactoe.default-board-size}")
+    public void setBoardSize(Integer boardSize) {
+        this.boardSize = boardSize;
     }
 
 

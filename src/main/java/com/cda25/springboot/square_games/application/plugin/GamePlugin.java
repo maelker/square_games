@@ -14,4 +14,7 @@ public interface GamePlugin {
     GameFactory getGameFactory();
 
     Game createGame();
+
+    Game createGame(Integer playerCount, Integer boardSize);
+
 }
