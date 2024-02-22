@@ -19,9 +19,6 @@ public class GameController {
     @Autowired
     private GameService gameService = new GameServiceImpl();
 
-    @Autowired
-    private MessageSource msg;
-
     @PostMapping("/game")
     public GameCreatedDTO createGame(@RequestBody GameParams gameCreationParams) {
         Game game = gameService.createGame(gameCreationParams);
