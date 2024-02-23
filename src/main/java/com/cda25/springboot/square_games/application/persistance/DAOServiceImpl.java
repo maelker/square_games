@@ -1,23 +1,33 @@
 package com.cda25.springboot.square_games.application.persistance;
 
 
-import com.cda25.springboot.square_games.application.persistance.dao.user.UserDAO;
-import com.cda25.springboot.square_games.application.persistance.dao.user.UserDAOImpl;
-import com.cda25.springboot.square_games.application.persistance.dao.user.UserSquareGames;
+import com.cda25.springboot.square_games.application.persistance.user.UserApp;
+import com.cda25.springboot.square_games.application.persistance.user.dao.UserDAO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
 @Service
 public class DAOServiceImpl implements DAOService {
 
-    private final Collection<UserDAOImpl> mySQLUserDAOs = new ArrayList<>();
+    @Autowired
+    private UserDAO userDAO;
 
     @Override
-    public UserDAO createUser(UserSquareGames userSquareGames) {
-        mySQLUserDAOs.add(new UserDAOImpl(userSquareGames));
-        return null;
+    public UserApp createUser(UserApp userApp) {
+        userDAO.addUser(userApp);
+        return userDAO.getUserById(userApp.getId());
+    }
+
+    @Override
+    public Collection<UserApp> getAllUsers() {
+        return userDAO.getAllUsers();
+    }
+
+    @Override
+    public UserApp getUserFromId(int userId) {
+        return userDAO.getUserById(userId);
     }
 
 }

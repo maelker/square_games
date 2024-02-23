@@ -3,6 +3,11 @@ package com.cda25.springboot.square_games.application.controller;
 import com.cda25.springboot.square_games.application.controller.DTO.*;
 import com.cda25.springboot.square_games.application.controller.parameters.GameParams;
 import com.cda25.springboot.square_games.application.controller.parameters.TokenPosMove;
+import com.cda25.springboot.square_games.application.persistance.DAOService;
+import com.cda25.springboot.square_games.application.persistance.DAOServiceImpl;
+import com.cda25.springboot.square_games.application.persistance.user.UserImpl;
+import com.cda25.springboot.square_games.application.persistance.user.dto.UserDTO;
+import com.cda25.springboot.square_games.application.persistance.user.dto.UsersDTO;
 import com.cda25.springboot.square_games.application.services.GameService;
 import com.cda25.springboot.square_games.application.services.GameServiceImpl;
 import fr.le_campus_numerique.square_games.engine.Game;
@@ -20,6 +25,9 @@ public class GameController {
 
     @Autowired
     private GameService gameService = new GameServiceImpl();
+
+    @Autowired
+    private DAOService daoService = new DAOServiceImpl();
 
     @GetMapping("/games")
     public CatalogGamesDTO getGameCatalog() {
@@ -52,17 +60,6 @@ public class GameController {
         return GameDTO.createGameDTO(gameService.getGameWithGameId(gameId));
     }
 
-    @PutMapping("/games/{gameId}")
-    public GameDTO makeMove(@PathVariable String gameId,
-                            @RequestBody TokenPosMove tokenPosMove) {
-        return GameDTO.createGameDTO(gameService.makeMove(gameId, tokenPosMove));
-    }
-
-    @DeleteMapping("/games/{gameId}")
-    public GameDTO deleteGame(@PathVariable String gameId) {
-        return GameDTO.createGameDTO(gameService.deleteGame(gameId));
-    }
-
     @GetMapping("/games/{gameId}/board")
     public BoardDTO getGameBoard(@PathVariable(value = "gameId") String gameId) {
         BoardDTO result = null;
@@ -83,11 +80,37 @@ public class GameController {
         return tokenDTOs;
     }
 
+    @PutMapping("/games/{gameId}")
+    public GameDTO makeMove(@PathVariable String gameId,
+                            @RequestBody TokenPosMove tokenPosMove) {
+        return GameDTO.createGameDTO(gameService.makeMove(gameId, tokenPosMove));
+    }
+
+    @DeleteMapping("/games/{gameId}")
+    public GameDTO deleteGame(@PathVariable String gameId) {
+        return GameDTO.createGameDTO(gameService.deleteGame(gameId));
+    }
+
     @GetMapping("/{gameId}")
     public GameParamsDTO getDefaultValues(@RequestHeader(value = "Accept-Language", required = false) Locale locale,
                                    @PathVariable(value = "gameId") String gameId) {
         GameParams gameParams = gameService.getDefaultValues(gameId, locale);
         return new GameParamsDTO(gameParams.game(), gameParams.playerCount(), gameParams.boardSize());
+    }
+
+    @GetMapping("/users")
+    public Collection<UserDTO> getAllUsers() {
+        return UsersDTO.createUsersDTO(daoService.getAllUsers());
+    }
+
+    @PostMapping("/user")
+    public UserDTO createUser(@RequestBody UserDTO userDTO) {
+        return UserDTO.createUsersDTO(daoService.createUser(new UserImpl(userDTO.id(), userDTO.firstName(), userDTO.LastName())));
+    }
+
+    @GetMapping("/user/{userId}")
+    public UserDTO getUserFromId(@PathVariable String userId) {
+        return UserDTO.createUsersDTO(daoService.getUserFromId(Integer.parseInt(userId)));
     }
 
 }

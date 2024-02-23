@@ -3,7 +3,6 @@ package com.cda25.springboot.square_games.application.services;
 import com.cda25.springboot.square_games.application.controller.parameters.GameParams;
 import com.cda25.springboot.square_games.application.controller.parameters.GameParamsWithRange;
 import com.cda25.springboot.square_games.application.controller.parameters.TokenPosMove;
-import com.cda25.springboot.square_games.application.persistance.DAOService;
 import com.cda25.springboot.square_games.application.plugin.GamePlugin;
 import fr.le_campus_numerique.square_games.engine.Game;
 import fr.le_campus_numerique.square_games.engine.GameStatus;
@@ -30,10 +29,6 @@ public class GameServiceImpl implements GameService {
     private List<GamePlugin> gamePlugins;
 
     private final Map<String, Game> games = new HashMap<>();
-
-    @Autowired
-    private DAOService daoService;
-
 
     @Override
     public Game createGame(final GameParams gameCreationParams) {
