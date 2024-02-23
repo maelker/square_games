@@ -4,7 +4,7 @@ import com.cda25.springboot.square_games.application.controller.DTO.*;
 import com.cda25.springboot.square_games.application.controller.parameters.GameParams;
 import com.cda25.springboot.square_games.application.controller.parameters.TokenPosMove;
 import com.cda25.springboot.square_games.application.persistance.DAOService;
-import com.cda25.springboot.square_games.application.persistance.user.UserImpl;
+import com.cda25.springboot.square_games.application.persistance.user.UserR;
 import com.cda25.springboot.square_games.application.persistance.user.dto.UserDTO;
 import com.cda25.springboot.square_games.application.persistance.user.dto.UsersDTO;
 import com.cda25.springboot.square_games.application.services.GameService;
@@ -105,7 +105,9 @@ public class GameController {
 
     @PostMapping("/users/create")
     public UserDTO createUser(@RequestBody UserDTO userDTO) {
-        return UserDTO.createUsersDTO(daoService.createUser(new UserImpl(userDTO.firstName(), userDTO.lastName())));
+        UserR userR = UserR.createUserImpl(userDTO);
+        userR = daoService.createUser(userR);
+        return UserDTO.createUsersDTO(userR);
     }
 
     @GetMapping("/users/{userId}/full")
@@ -116,7 +118,8 @@ public class GameController {
     @PutMapping("/users/{userId}/update")
     public UserDTO updateUser(@PathVariable String userId,
                               @RequestBody UserDTO userDTO) {
-        return UserDTO.createUsersDTO(daoService.updateUser(new UserImpl(userDTO.firstName(), userDTO.lastName()), userId));
+
+        return UserDTO.createUsersDTO(daoService.updateUser(UserR.createUserImpl(userDTO), userId));
     }
 
     @DeleteMapping("/users/{userId}/delete")

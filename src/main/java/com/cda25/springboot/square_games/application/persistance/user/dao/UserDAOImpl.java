@@ -1,6 +1,6 @@
 package com.cda25.springboot.square_games.application.persistance.user.dao;
 
-import com.cda25.springboot.square_games.application.persistance.user.UserApp;
+import com.cda25.springboot.square_games.application.persistance.user.UserR;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -11,32 +11,32 @@ import java.util.Objects;
 @Component
 public class UserDAOImpl implements UserDAO {
 
-    Collection<UserApp> userApps = new ArrayList<>();
+    Collection<UserR> userRS = new ArrayList<>();
 
     @Override
-    public List<UserApp> getAllUsers() {
-        return userApps.stream().toList();
+    public List<UserR> getAllUsers() {
+        return userRS.stream().toList();
     }
 
     @Override
-    public UserApp getUserById(String id) {
-        List<UserApp> userAppList = userApps.stream().filter(userApp -> Objects.equals(userApp.getId().toString(), id)).toList();
-        return userAppList.isEmpty() ? null : userAppList.getFirst();
+    public UserR getUserById(String id) {
+        List<UserR> userRList = userRS.stream().filter(UserImpl -> Objects.equals(UserImpl.id().toString(), id)).toList();
+        return userRList.isEmpty() ? null : userRList.getFirst();
     }
 
     @Override
-    public UserApp addUser(UserApp user) {
-        return userApps.add(user) ? user : null;
+    public UserR addUser(UserR user) {
+        return userRS.add(user) ? user : null;
     }
 
     @Override
-    public UserApp updateUser(UserApp user, String userId) {
-        return userApps.contains(getUserById(userId)) ? userApps.stream().filter(userApp -> Objects.equals(userApp.getId().toString(), userId)).map(userApp -> user).iterator().next() : null;
+    public UserR updateUser(UserR user, String userId) {
+        return userRS.contains(getUserById(userId)) ? userRS.stream().filter(userImpl -> Objects.equals(userImpl.id().toString(), userId)).map(UserImpl -> user).iterator().next() : null;
     }
 
     @Override
-    public UserApp deleteUser(String id) {
-        UserApp userApp = getUserById(id);
-        return userApps.remove(userApp) ? userApp : null;
+    public UserR deleteUser(String id) {
+        UserR UserR = getUserById(id);
+        return userRS.remove(UserR) ? UserR : null;
     }
 }

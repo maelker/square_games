@@ -1,19 +1,19 @@
 package com.cda25.springboot.square_games.application.persistance;
 
-import com.cda25.springboot.square_games.application.persistance.user.UserApp;
-import com.cda25.springboot.square_games.application.persistance.user.UserImpl;
+import com.cda25.springboot.square_games.application.persistance.user.UserR;
 
 import java.util.Collection;
 
 public interface DAOService {
 
-    UserApp createUser(UserApp userApp);
+    UserR createUser(UserR UserR);
 
-    Collection<UserApp> getAllUsers();
+    Collection<UserR> getAllUsers();
 
-    UserApp getUserFromId(String userId);
+    UserR getUserFromId(String userId);
 
-    UserApp deleteUser(String userId);
+    UserR deleteUser(String userId);
 
-    UserApp updateUser(UserImpl user, String userId);
+    UserR updateUser(UserR user, String userId);
+
 }

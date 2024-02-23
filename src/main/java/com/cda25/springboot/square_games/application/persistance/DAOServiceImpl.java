@@ -1,8 +1,7 @@
 package com.cda25.springboot.square_games.application.persistance;
 
 
-import com.cda25.springboot.square_games.application.persistance.user.UserApp;
-import com.cda25.springboot.square_games.application.persistance.user.UserImpl;
+import com.cda25.springboot.square_games.application.persistance.user.UserR;
 import com.cda25.springboot.square_games.application.persistance.user.dao.UserDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,28 +15,28 @@ public class DAOServiceImpl implements DAOService {
     private UserDAO userDAO;
 
     @Override
-    public UserApp createUser(UserApp userApp) {
-        userDAO.addUser(userApp);
-        return userDAO.getUserById(userApp.getId().toString());
+    public UserR createUser(UserR userR) {
+        userDAO.addUser(userR);
+        return userDAO.getUserById(userR.id().toString());
     }
 
     @Override
-    public Collection<UserApp> getAllUsers() {
+    public Collection<UserR> getAllUsers() {
         return userDAO.getAllUsers();
     }
 
     @Override
-    public UserApp getUserFromId(String userId) {
+    public UserR getUserFromId(String userId) {
         return userDAO.getUserById(userId);
     }
 
     @Override
-    public UserApp updateUser(UserImpl user, String userId) {
+    public UserR updateUser(UserR user, String userId) {
         return userDAO.updateUser(user, userId);
     }
 
     @Override
-    public UserApp deleteUser(String userId) {
+    public UserR deleteUser(String userId) {
         return userDAO.deleteUser(userId);
     }
 
