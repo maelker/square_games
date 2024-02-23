@@ -1,5 +1,6 @@
 package com.cda25.springboot.square_games.application.plugin;
 
+import com.cda25.springboot.square_games.application.controller.parameters.GameParams;
 import fr.le_campus_numerique.square_games.engine.Game;
 import fr.le_campus_numerique.square_games.engine.GameFactory;
 
@@ -15,7 +16,7 @@ public interface GamePlugin {
 
     void setBoardSize(Integer boardSize);
 
-    String getDefaultValues(Locale locale);
+    GameParams getDefaultValues(Locale locale);
 
     Game createGame(Integer playerCount, Integer boardSize);
 

@@ -1,6 +1,7 @@
 package com.cda25.springboot.square_games.application.services;
 
 import com.cda25.springboot.square_games.application.controller.parameters.GameParams;
+import com.cda25.springboot.square_games.application.controller.parameters.GameParamsWithRange;
 import com.cda25.springboot.square_games.application.controller.parameters.TokenPosMove;
 import com.cda25.springboot.square_games.application.plugin.GamePlugin;
 import fr.le_campus_numerique.square_games.engine.Game;
@@ -25,7 +26,7 @@ public class GameServiceImpl implements GameService {
     }
 
     @Override
-    public String getDefaultValues(String gameId, Locale locale) {
+    public GameParams getDefaultValues(String gameId, Locale locale) {
         return gamePlugins.stream()
                 .filter(
                         gamePlugin -> Objects.equals(gamePlugin.getGameFactory().getGameFactoryId(), gameId)
@@ -40,6 +41,16 @@ public class GameServiceImpl implements GameService {
         return gamePlugins.stream()
                 .map(
                         gamePlugin -> gamePlugin.getGameFactory().getGameFactoryId()
+                )
+                .toList();
+    }
+    @Override
+    public Collection<GameParamsWithRange> getCatalog() {
+        return gamePlugins.stream()
+                .map(
+                        gamePlugin -> new GameParamsWithRange(gamePlugin.getGameFactory().getGameFactoryId(),
+                                gamePlugin.getGameFactory().getPlayerCountRange(),
+                                gamePlugin.getGameFactory().getBoardSizeRange(gamePlugin.getGameFactory().getPlayerCountRange().min()))
                 )
                 .toList();
     }

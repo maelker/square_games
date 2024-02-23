@@ -1,6 +1,7 @@
 package com.cda25.springboot.square_games.application.services;
 
 import com.cda25.springboot.square_games.application.controller.parameters.GameParams;
+import com.cda25.springboot.square_games.application.controller.parameters.GameParamsWithRange;
 import com.cda25.springboot.square_games.application.controller.parameters.TokenPosMove;
 import com.cda25.springboot.square_games.application.plugin.GamePlugin;
 import fr.le_campus_numerique.square_games.engine.Game;
@@ -28,5 +29,7 @@ public interface GameService {
 
     Map<String, Game> getGamesFinished();
 
-    String getDefaultValues(String gameId, Locale locale);
+    GameParams getDefaultValues(String gameId, Locale locale);
+
+    Collection<GameParamsWithRange> getCatalog();
 }

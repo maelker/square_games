@@ -21,17 +21,22 @@ public class GameController {
     @Autowired
     private GameService gameService = new GameServiceImpl();
 
+    @GetMapping("/games")
+    public CatalogGamesDTO getGameCatalog() {
+        return new CatalogGamesDTO(
+                gameService.getCatalog().stream()
+                        .map(gameParamsWithRange -> new GameParamsWithRangeDTO(gameParamsWithRange.game(), gameParamsWithRange.playerCount(), gameParamsWithRange.boardSize())
+                                )
+                        .toList()
+        );
+    }
+
+
     @PostMapping("/game")
     public GameCreatedDTO createGame(@RequestBody GameParams gameCreationParams) {
         Game game = gameService.createGame(gameCreationParams);
         return game == null ? null : new GameCreatedDTO(game.getId().toString(), new GameParams(game.getFactoryId(), game.getPlayerIds().size(), game.getBoardSize()));
     }
-
-    @GetMapping("/games")
-    public CatalogGamesDTO getGameCatalog() {
-        return new CatalogGamesDTO(gameService.getGamesIdentifiers());
-    }
-
     @GetMapping("/games/ongoing")
     public OngoingOrFinishedGamesDTO getGamesOngoing() {
         return OngoingOrFinishedGamesDTO.createGamesOngoingOrFinishedGames(gameService.getGamesOngoing());
@@ -79,9 +84,10 @@ public class GameController {
     }
 
     @GetMapping("/{gameId}")
-    public String getDefaultValues(@RequestHeader(value = "Accept-Language", required = false) Locale locale,
+    public GameParamsDTO getDefaultValues(@RequestHeader(value = "Accept-Language", required = false) Locale locale,
                                    @PathVariable(value = "gameId") String gameId) {
-        return gameService.getDefaultValues(gameId, locale);
+        GameParams gameParams = gameService.getDefaultValues(gameId, locale);
+        return new GameParamsDTO(gameParams.game(), gameParams.playerCount(), gameParams.boardSize());
     }
 
 }
