@@ -7,6 +7,6 @@ import java.util.Collection;
 public record UsersDTO (Collection<UserDTO> userDTOCollection) {
     public static Collection<UserDTO> createUsersDTO (Collection<UserApp> userApps) {
 
-        return userApps.stream().map(UserDTO::createUsersDTO).toList();
+        return userApps == null ? null : userApps.stream().map(UserDTO::createUsersDTO).toList();
     }
 }

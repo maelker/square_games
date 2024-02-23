@@ -4,12 +4,10 @@ import com.cda25.springboot.square_games.application.controller.DTO.*;
 import com.cda25.springboot.square_games.application.controller.parameters.GameParams;
 import com.cda25.springboot.square_games.application.controller.parameters.TokenPosMove;
 import com.cda25.springboot.square_games.application.persistance.DAOService;
-import com.cda25.springboot.square_games.application.persistance.DAOServiceImpl;
 import com.cda25.springboot.square_games.application.persistance.user.UserImpl;
 import com.cda25.springboot.square_games.application.persistance.user.dto.UserDTO;
 import com.cda25.springboot.square_games.application.persistance.user.dto.UsersDTO;
 import com.cda25.springboot.square_games.application.services.GameService;
-import com.cda25.springboot.square_games.application.services.GameServiceImpl;
 import fr.le_campus_numerique.square_games.engine.Game;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -24,10 +22,10 @@ import java.util.Objects;
 public class GameController {
 
     @Autowired
-    private GameService gameService = new GameServiceImpl();
+    private GameService gameService;
 
     @Autowired
-    private DAOService daoService = new DAOServiceImpl();
+    private DAOService daoService;
 
     @GetMapping("/games")
     public CatalogGamesDTO getGameCatalog() {
@@ -40,11 +38,17 @@ public class GameController {
     }
 
 
-    @PostMapping("/game")
+    @PostMapping("/games/create")
     public GameCreatedDTO createGame(@RequestBody GameParams gameCreationParams) {
         Game game = gameService.createGame(gameCreationParams);
         return game == null ? null : new GameCreatedDTO(game.getId().toString(), new GameParams(game.getFactoryId(), game.getPlayerIds().size(), game.getBoardSize()));
     }
+
+    @GetMapping("/games/{gameId}/full")
+    public GameDTO getGame(@PathVariable(value = "gameId") String gameId) {
+        return GameDTO.createGameDTO(gameService.getGameWithGameId(gameId));
+    }
+
     @GetMapping("/games/ongoing")
     public OngoingOrFinishedGamesDTO getGamesOngoing() {
         return OngoingOrFinishedGamesDTO.createGamesOngoingOrFinishedGames(gameService.getGamesOngoing());
@@ -53,11 +57,6 @@ public class GameController {
     @GetMapping("/games/finished")
     public OngoingOrFinishedGamesDTO getGamesFinished() {
         return OngoingOrFinishedGamesDTO.createGamesOngoingOrFinishedGames(gameService.getGamesFinished());
-    }
-
-    @GetMapping("/games/{gameId}")
-    public GameDTO getGame(@PathVariable(value = "gameId") String gameId) {
-        return GameDTO.createGameDTO(gameService.getGameWithGameId(gameId));
     }
 
     @GetMapping("/games/{gameId}/board")
@@ -80,17 +79,18 @@ public class GameController {
         return tokenDTOs;
     }
 
-    @PutMapping("/games/{gameId}")
+    @PutMapping("/games/{gameId}/update")
     public GameDTO makeMove(@PathVariable String gameId,
                             @RequestBody TokenPosMove tokenPosMove) {
         return GameDTO.createGameDTO(gameService.makeMove(gameId, tokenPosMove));
     }
 
-    @DeleteMapping("/games/{gameId}")
+    @DeleteMapping("/games/{gameId}/delete")
     public GameDTO deleteGame(@PathVariable String gameId) {
         return GameDTO.createGameDTO(gameService.deleteGame(gameId));
     }
 
+    @Deprecated
     @GetMapping("/{gameId}")
     public GameParamsDTO getDefaultValues(@RequestHeader(value = "Accept-Language", required = false) Locale locale,
                                    @PathVariable(value = "gameId") String gameId) {
@@ -103,14 +103,25 @@ public class GameController {
         return UsersDTO.createUsersDTO(daoService.getAllUsers());
     }
 
-    @PostMapping("/user")
+    @PostMapping("/users/create")
     public UserDTO createUser(@RequestBody UserDTO userDTO) {
         return UserDTO.createUsersDTO(daoService.createUser(new UserImpl(userDTO.firstName(), userDTO.lastName())));
     }
 
-    @GetMapping("/user/{userId}")
+    @GetMapping("/users/{userId}/full")
     public UserDTO getUserFromId(@PathVariable String userId) {
         return UserDTO.createUsersDTO(daoService.getUserFromId(userId));
+    }
+
+    @PutMapping("/users/{userId}/update")
+    public UserDTO updateUser(@PathVariable String userId,
+                              @RequestBody UserDTO userDTO) {
+        return UserDTO.createUsersDTO(daoService.updateUser(new UserImpl(userDTO.firstName(), userDTO.lastName()), userId));
+    }
+
+    @DeleteMapping("/users/{userId}/delete")
+    public UserDTO deleteUser(@PathVariable String userId) {
+        return UserDTO.createUsersDTO(daoService.deleteUser(userId));
     }
 
 }

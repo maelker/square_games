@@ -20,21 +20,23 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public UserApp getUserById(String id) {
-        return userApps.stream().filter(userApp -> Objects.equals(userApp.getId().toString(), id)).toList().getFirst();
+        List<UserApp> userAppList = userApps.stream().filter(userApp -> Objects.equals(userApp.getId().toString(), id)).toList();
+        return userAppList.isEmpty() ? null : userAppList.getFirst();
     }
 
     @Override
-    public void addUser(UserApp user) {
-        userApps.add(user);
+    public UserApp addUser(UserApp user) {
+        return userApps.add(user) ? user : null;
     }
 
     @Override
-    public void updateUser(UserApp user) {
-        userApps.stream().filter(userApp -> userApp.getId() == user.getId()).map(userApp -> user);
+    public UserApp updateUser(UserApp user, String userId) {
+        return userApps.contains(getUserById(userId)) ? userApps.stream().filter(userApp -> Objects.equals(userApp.getId().toString(), userId)).map(userApp -> user).iterator().next() : null;
     }
 
     @Override
-    public void deleteUser(String id) {
-        userApps.remove(getUserById(id));
+    public UserApp deleteUser(String id) {
+        UserApp userApp = getUserById(id);
+        return userApps.remove(userApp) ? userApp : null;
     }
 }
