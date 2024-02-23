@@ -3,6 +3,7 @@ package com.cda25.springboot.square_games.application.services;
 import com.cda25.springboot.square_games.application.controller.parameters.GameParams;
 import com.cda25.springboot.square_games.application.controller.parameters.GameParamsWithRange;
 import com.cda25.springboot.square_games.application.controller.parameters.TokenPosMove;
+import com.cda25.springboot.square_games.application.persistance.DAOService;
 import com.cda25.springboot.square_games.application.plugin.GamePlugin;
 import fr.le_campus_numerique.square_games.engine.Game;
 import fr.le_campus_numerique.square_games.engine.GameStatus;
@@ -12,6 +13,16 @@ import org.springframework.stereotype.Service;
 
 import java.util.*;
 
+/**
+ * Service implementation for managing game-related operations.
+ * <p>
+ * This class provides methods for creating games, retrieving game plugins, accessing games by their IDs,
+ * making moves in games, deleting games, retrieving default game parameters, and retrieving catalogs of game parameters.
+ * </p>
+ * <p>
+ * It is annotated with {@code @Service}, indicating that it may be used as a service within a Spring application context.
+ * </p>
+ */
 @Service
 public class GameServiceImpl implements GameService {
 
@@ -20,50 +31,9 @@ public class GameServiceImpl implements GameService {
 
     private final Map<String, Game> games = new HashMap<>();
 
-    @Override
-    public String getInterName(Locale locale) {
-        return gamePlugins.iterator().next().getName(locale);
-    }
+    @Autowired
+    private DAOService daoService;
 
-    @Override
-    public GameParams getDefaultValues(String gameId, Locale locale) {
-        return gamePlugins.stream()
-                .filter(
-                        gamePlugin -> Objects.equals(gamePlugin.getGameFactory().getGameFactoryId(), gameId)
-                )
-                .toList()
-                .getFirst()
-                .getDefaultValues(locale);
-    }
-
-    @Override
-    public Collection<String> getGamesIdentifiers() {
-        return gamePlugins.stream()
-                .map(
-                        gamePlugin -> gamePlugin.getGameFactory().getGameFactoryId()
-                )
-                .toList();
-    }
-    @Override
-    public Collection<GameParamsWithRange> getCatalog() {
-        return gamePlugins.stream()
-                .map(
-                        gamePlugin -> new GameParamsWithRange(gamePlugin.getGameFactory().getGameFactoryId(),
-                                gamePlugin.getGameFactory().getPlayerCountRange(),
-                                gamePlugin.getGameFactory().getBoardSizeRange(gamePlugin.getGameFactory().getPlayerCountRange().min()))
-                )
-                .toList();
-    }
-
-    @Override
-    public GamePlugin getGamePluginFromId(String gameId) {
-        return gamePlugins.stream()
-                .filter(
-                        gamePlugin -> Objects.equals(gamePlugin.getGameFactory().getGameFactoryId(), gameId)
-                )
-                .toList()
-                .getFirst();
-    }
 
     @Override
     public Game createGame(final GameParams gameCreationParams) {
@@ -77,12 +47,54 @@ public class GameServiceImpl implements GameService {
     }
 
     @Override
-    public Game getGame(String gameId) {
+    public GamePlugin getGamePluginFromId(String gameId) {
+        return gamePlugins.stream()
+                .filter(
+                        gamePlugin -> Objects.equals(gamePlugin.getGameFactory().getGameFactoryId(), gameId)
+                )
+                .toList()
+                .getFirst();
+    }
+
+    @Override
+    public Game getGameWithGameId(String gameId) {
         Game gameFromId = null;
         if (games.containsKey(gameId)) {
             gameFromId = games.get(gameId);
         }
         return gameFromId;
+    }
+
+
+
+
+
+
+
+
+
+
+
+    @Override
+    public GameParams getDefaultValues(String gameId, Locale locale) {
+        return gamePlugins.stream()
+                .filter(
+                        gamePlugin -> Objects.equals(gamePlugin.getGameFactory().getGameFactoryId(), gameId)
+                )
+                .toList()
+                .getFirst()
+                .getDefaultValues(locale);
+    }
+
+    @Override
+    public Collection<GameParamsWithRange> getCatalog() {
+        return gamePlugins.stream()
+                .map(
+                        gamePlugin -> new GameParamsWithRange(gamePlugin.getGameFactory().getGameFactoryId(),
+                                gamePlugin.getGameFactory().getPlayerCountRange(),
+                                gamePlugin.getGameFactory().getBoardSizeRange(gamePlugin.getGameFactory().getPlayerCountRange().min()))
+                )
+                .toList();
     }
 
     @Override
@@ -127,8 +139,8 @@ public class GameServiceImpl implements GameService {
     }
 
     @Override
-    public boolean deleteGame(String gameId) {
-        return games.remove(gameId) != null;
+    public Game deleteGame(String gameId) {
+        return games.remove(gameId);
     }
 
 }

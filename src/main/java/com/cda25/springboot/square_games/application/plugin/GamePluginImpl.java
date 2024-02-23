@@ -34,7 +34,6 @@ public abstract class GamePluginImpl implements GamePlugin {
     @Override
     public GameParams getDefaultValues(Locale locale) {
         return new GameParams(getName(locale), playerCount, boardSize);
-        //"{\n\tgameFactoryId : " + getName(locale) + "\n\tplayerCount : " + playerCount + "\n\tBoardSize : " + boardSize + "\n}";
     }
 
     @Override

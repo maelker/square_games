@@ -49,7 +49,7 @@ public class GameController {
 
     @GetMapping("/games/{gameId}")
     public GameDTO getGame(@PathVariable(value = "gameId") String gameId) {
-        return GameDTO.createGameDTO(gameService.getGame(gameId));
+        return GameDTO.createGameDTO(gameService.getGameWithGameId(gameId));
     }
 
     @PutMapping("/games/{gameId}")
@@ -59,14 +59,14 @@ public class GameController {
     }
 
     @DeleteMapping("/games/{gameId}")
-    public boolean deleteGame(@PathVariable String gameId) {
-        return gameService.deleteGame(gameId);
+    public GameDTO deleteGame(@PathVariable String gameId) {
+        return GameDTO.createGameDTO(gameService.deleteGame(gameId));
     }
 
     @GetMapping("/games/{gameId}/board")
     public BoardDTO getGameBoard(@PathVariable(value = "gameId") String gameId) {
         BoardDTO result = null;
-        Game game = gameService.getGame(gameId);
+        Game game = gameService.getGameWithGameId(gameId);
         if (game != null) {
             result = BoardDTO.createBoardDTO(game.getBoard());
         }
@@ -76,7 +76,7 @@ public class GameController {
     @GetMapping("/games/{gameId}/playable_tokens")
     public Collection<TokenDTO> getGameTokens(@PathVariable(value = "gameId") String gameId) {
         Collection<TokenDTO> tokenDTOs = new ArrayList<>();
-        Game game = gameService.getGame(gameId);
+        Game game = gameService.getGameWithGameId(gameId);
         if (game != null) {
             tokenDTOs = Objects.requireNonNull(GameDTO.createGameDTO(game)).availableTokens();
         }
