@@ -26,12 +26,12 @@ public record UserDTO(
     public static UserDTO createUsersDTO (UserR userR) {
 
         return userR == null ? null : new UserDTO(
-                userR.id(),
-                userR.avatar(),
-                userR.birthDate(),
-                userR.creationDate(),
-                userR.favPayment(),
-                userR.idParent(),
+                userR.userMainR().id(),
+                userR.userMainR().avatar(),
+                userR.userMainR().birthDate(),
+                userR.userMainR().creationDate(),
+                userR.userMainR().favPayment(),
+                userR.userMainR().idParent(),
                 userR.userInformation().login(),
                 userR.userInformation().password(),
                 userR.userInformation().mail(),

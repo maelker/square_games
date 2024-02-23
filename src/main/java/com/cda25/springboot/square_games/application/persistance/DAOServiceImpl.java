@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 
+@Deprecated
 @Service
 public class DAOServiceImpl implements DAOService {
 
@@ -17,7 +18,7 @@ public class DAOServiceImpl implements DAOService {
     @Override
     public UserR createUser(UserR userR) {
         userDAO.addUser(userR);
-        return userDAO.getUserById(userR.id().toString());
+        return userDAO.getUserById(userR.userMainR().id().toString());
     }
 
     @Override

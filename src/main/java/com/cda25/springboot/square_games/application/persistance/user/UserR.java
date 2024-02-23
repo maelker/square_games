@@ -1,17 +1,14 @@
 package com.cda25.springboot.square_games.application.persistance.user;
 
 import com.cda25.springboot.square_games.application.persistance.user.dto.UserDTO;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
 import java.util.Date;
 import java.util.UUID;
 
 public record UserR(
-        UUID id,
-        String avatar,
-        Date birthDate,
-        Date creationDate,
-        String favPayment,
-        UUID idParent,
+        UserMainR userMainR,
         UserInformationR userInformation,
         UserAddressR userAddress
 ){
@@ -33,12 +30,14 @@ public record UserR(
             String streetNumber
     ) {
         return new UserR(
-                UUID.randomUUID(),
-                avatar,
-                birthDate,
-                creationDate,
-                favPayment,
-                idParent,
+                new UserMainR(
+                    UUID.randomUUID(),
+                    avatar,
+                    birthDate,
+                    creationDate,
+                    favPayment,
+                    idParent
+                ),
                 new UserInformationR(login,
                         id, password,
                         mail,
@@ -55,12 +54,14 @@ public record UserR(
     }
     public static UserR createUserImpl(UserDTO userDTO) {
         return new UserR(
-                userDTO.id() == null ? UUID.randomUUID() : userDTO.id(),
-                userDTO.avatar(),
-                userDTO.birthDate(),
-                userDTO.creationDate(),
-                userDTO.favPayment(),
-                userDTO.idParent(),
+                new UserMainR(
+                        userDTO.id() == null ? UUID.randomUUID() : userDTO.id(),
+                        userDTO.avatar(),
+                        userDTO.birthDate(),
+                        userDTO.creationDate(),
+                        userDTO.favPayment(),
+                        userDTO.idParent()
+                ),
                 new UserInformationR(
                         userDTO.login(),
                         userDTO.id(),
@@ -79,17 +80,31 @@ public record UserR(
         );
     }
 
-    public static record UserInformationR(
-            String login,
+    @Entity
+    public record UserMainR(
+            @Id UUID id,
+            String avatar,
+            Date birthDate,
+            Date creationDate,
+            String favPayment,
+            UUID idParent
+    ){}
+
+    @Entity
+    public record UserInformationR(
+            @Id String login,
             UUID id,
             String password,
             String mail,
             String firstName,
             String lastName
-    ){}
+    ){
 
-    public static record UserAddressR(
-            UUID id,
+    }
+
+    @Entity
+    public record UserAddressR(
+            @Id UUID id,
             String city,
             String postalCode,
             String streetName,

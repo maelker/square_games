@@ -8,6 +8,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 
+@Deprecated
 @Component
 public class UserDAOImpl implements UserDAO {
 
@@ -20,7 +21,7 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public UserR getUserById(String id) {
-        List<UserR> userRList = userRS.stream().filter(UserImpl -> Objects.equals(UserImpl.id().toString(), id)).toList();
+        List<UserR> userRList = userRS.stream().filter(UserImpl -> Objects.equals(UserImpl.userMainR().id().toString(), id)).toList();
         return userRList.isEmpty() ? null : userRList.getFirst();
     }
 
@@ -31,7 +32,7 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public UserR updateUser(UserR user, String userId) {
-        return userRS.contains(getUserById(userId)) ? userRS.stream().filter(userImpl -> Objects.equals(userImpl.id().toString(), userId)).map(UserImpl -> user).iterator().next() : null;
+        return userRS.contains(getUserById(userId)) ? userRS.stream().filter(userImpl -> Objects.equals(userImpl.userMainR().id().toString(), userId)).map(UserImpl -> user).iterator().next() : null;
     }
 
     @Override

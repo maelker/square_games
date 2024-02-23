@@ -99,7 +99,7 @@ public class GameController {
     }
 
     @GetMapping("/users")
-    public Collection<UserDTO> getAllUsers() {
+    public Iterable<UserDTO> getAllUsers() {
         return UsersDTO.createUsersDTO(daoService.getAllUsers());
     }
 
