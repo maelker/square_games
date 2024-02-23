@@ -3,8 +3,8 @@ package com.cda25.springboot.square_games.application.persistance.user;
 public class UserImpl implements UserApp {
 
     private int id = 0;
-    private String firstName = "Ernest";
-    private String lastName = "Vep";
+    private String firstName;
+    private String lastName;
 
     public UserImpl(int id, String firstName, String lastName) {
         this.id = id;
