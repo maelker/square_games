@@ -10,5 +10,5 @@ public interface DAOService {
 
     Collection<UserApp> getAllUsers();
 
-    UserApp getUserFromId(int userId);
+    UserApp getUserFromId(String userId);
 }

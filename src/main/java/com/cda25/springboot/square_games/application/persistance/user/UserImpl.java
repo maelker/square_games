@@ -1,19 +1,21 @@
 package com.cda25.springboot.square_games.application.persistance.user;
 
+import java.util.UUID;
+
 public class UserImpl implements UserApp {
 
-    private int id = 0;
+    private UUID id;
     private String firstName;
     private String lastName;
 
-    public UserImpl(int id, String firstName, String lastName) {
-        this.id = id;
+    public UserImpl(String firstName, String lastName) {
+        this.id = UUID.randomUUID();
         this.firstName = firstName;
         this.lastName = lastName;
     }
 
     @Override
-    public int getId() {
+    public UUID getId() {
         return id;
     }
 

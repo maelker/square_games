@@ -6,13 +6,12 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 
 @Component
 public class UserDAOImpl implements UserDAO {
 
     Collection<UserApp> userApps = new ArrayList<>();
-
-    public UserDAOImpl(){}
 
     @Override
     public List<UserApp> getAllUsers() {
@@ -20,13 +19,13 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public UserApp getUserById(int id) {
-        return userApps.stream().filter(userApp1 -> userApp1.getId() == id).toList().getFirst();
+    public UserApp getUserById(String id) {
+        return userApps.stream().filter(userApp -> Objects.equals(userApp.getId().toString(), id)).toList().getFirst();
     }
 
     @Override
     public void addUser(UserApp user) {
-        userApps.add(user);;
+        userApps.add(user);
     }
 
     @Override
@@ -35,7 +34,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public void deleteUser(int id) {
+    public void deleteUser(String id) {
         userApps.remove(getUserById(id));
     }
 }

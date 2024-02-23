@@ -105,12 +105,12 @@ public class GameController {
 
     @PostMapping("/user")
     public UserDTO createUser(@RequestBody UserDTO userDTO) {
-        return UserDTO.createUsersDTO(daoService.createUser(new UserImpl(userDTO.id(), userDTO.firstName(), userDTO.LastName())));
+        return UserDTO.createUsersDTO(daoService.createUser(new UserImpl(userDTO.firstName(), userDTO.lastName())));
     }
 
     @GetMapping("/user/{userId}")
     public UserDTO getUserFromId(@PathVariable String userId) {
-        return UserDTO.createUsersDTO(daoService.getUserFromId(Integer.parseInt(userId)));
+        return UserDTO.createUsersDTO(daoService.getUserFromId(userId));
     }
 
 }

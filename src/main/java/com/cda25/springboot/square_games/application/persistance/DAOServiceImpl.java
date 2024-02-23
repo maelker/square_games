@@ -17,7 +17,7 @@ public class DAOServiceImpl implements DAOService {
     @Override
     public UserApp createUser(UserApp userApp) {
         userDAO.addUser(userApp);
-        return userDAO.getUserById(userApp.getId());
+        return userDAO.getUserById(userApp.getId().toString());
     }
 
     @Override
@@ -26,7 +26,7 @@ public class DAOServiceImpl implements DAOService {
     }
 
     @Override
-    public UserApp getUserFromId(int userId) {
+    public UserApp getUserFromId(String userId) {
         return userDAO.getUserById(userId);
     }
 
