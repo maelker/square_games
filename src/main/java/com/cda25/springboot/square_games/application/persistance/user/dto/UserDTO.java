@@ -1,6 +1,6 @@
 package com.cda25.springboot.square_games.application.persistance.user.dto;
 
-import com.cda25.springboot.square_games.application.persistance.user.domainobject.UserR;
+import com.cda25.springboot.square_games.application.persistance.user.domainobject.UserDomObj;
 
 import java.util.Date;
 import java.util.UUID;
@@ -23,24 +23,24 @@ public record UserDTO(
         String streetNumber
 ) {
 
-    public static UserDTO createUsersDTO (UserR userR) {
+    public static UserDTO createUsersDTO (UserDomObj userDomObj) {
 
-        return userR == null ? null : new UserDTO(
-                userR.userMainR().id(),
-                userR.userMainR().avatar(),
-                userR.userMainR().birthDate(),
-                userR.userMainR().creationDate(),
-                userR.userMainR().favPayment(),
-                userR.userMainR().idParent(),
-                userR.userInformation().login(),
-                userR.userInformation().password(),
-                userR.userInformation().mail(),
-                userR.userInformation().firstName(),
-                userR.userInformation().lastName(),
-                userR.userAddress().city(),
-                userR.userAddress().postalCode(),
-                userR.userAddress().streetName(),
-                userR.userAddress().streetNumber()
+        return userDomObj == null ? null : new UserDTO(
+                userDomObj.id(),
+                userDomObj.avatar(),
+                userDomObj.birthDate(),
+                userDomObj.creationDate(),
+                userDomObj.favPayment(),
+                userDomObj.idParent(),
+                userDomObj.login(),
+                userDomObj.password(),
+                userDomObj.mail(),
+                userDomObj.firstName(),
+                userDomObj.lastName(),
+                userDomObj.city(),
+                userDomObj.postalCode(),
+                userDomObj.streetName(),
+                userDomObj.streetNumber()
         );
     }
 }

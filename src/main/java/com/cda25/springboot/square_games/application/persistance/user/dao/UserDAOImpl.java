@@ -1,43 +1,71 @@
 package com.cda25.springboot.square_games.application.persistance.user.dao;
 
-import com.cda25.springboot.square_games.application.persistance.user.domainobject.UserR;
-import org.springframework.stereotype.Component;
+import com.cda25.springboot.square_games.application.persistance.user.domainobject.UserDomObj;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 
-@Deprecated
-@Component
+@Service
 public class UserDAOImpl implements UserDAO {
 
-    Collection<UserR> userRS = new ArrayList<>();
+    Collection<UserDomObj> UserDomObjS = new ArrayList<>();
 
     @Override
-    public List<UserR> getAllUsers() {
-        return userRS.stream().toList();
+    public List<UserDomObj> getAllUsers() {
+        return UserDomObjS
+                .stream()
+                .toList();
     }
 
     @Override
-    public UserR getUserById(String id) {
-        List<UserR> userRList = userRS.stream().filter(UserImpl -> Objects.equals(UserImpl.userMainR().id().toString(), id)).toList();
-        return userRList.isEmpty() ? null : userRList.getFirst();
+    public UserDomObj getUserById(String id) {
+        List<UserDomObj> userDomObj = UserDomObjS
+                .stream()
+                .filter(
+                        UserImpl -> Objects.equals(UserImpl.id().toString(), id)
+                )
+                .toList();
+        return userDomObj.isEmpty()
+                ?
+                null
+                :
+                userDomObj.getFirst();
     }
 
     @Override
-    public UserR addUser(UserR user) {
-        return userRS.add(user) ? user : null;
+    public UserDomObj addUser(UserDomObj userDomObj) {
+        return UserDomObjS.add(userDomObj)
+                ?
+                userDomObj
+                :
+                null;
     }
 
     @Override
-    public UserR updateUser(UserR user, String userId) {
-        return userRS.contains(getUserById(userId)) ? userRS.stream().filter(userImpl -> Objects.equals(userImpl.userMainR().id().toString(), userId)).map(UserImpl -> user).iterator().next() : null;
+    public UserDomObj updateUser(UserDomObj userDomObj, String userId) {
+        return UserDomObjS.contains(getUserById(userId))
+                ?
+                UserDomObjS.stream()
+                        .filter(
+                                userImpl -> Objects.equals(userImpl.id().toString(), userId)
+                        )
+                        .map(UserImpl -> userDomObj)
+                        .iterator()
+                        .next()
+                :
+                null;
     }
 
     @Override
-    public UserR deleteUser(String id) {
-        UserR UserR = getUserById(id);
-        return userRS.remove(UserR) ? UserR : null;
+    public UserDomObj deleteUser(String id) {
+        UserDomObj userDomObj = getUserById(id);
+        return UserDomObjS.remove(userDomObj)
+                ?
+                userDomObj
+                :
+                null;
     }
 }

@@ -1,14 +1,14 @@
 package com.cda25.springboot.square_games.application.persistance.user.dao;
 
-import com.cda25.springboot.square_games.application.persistance.user.domainobject.UserR;
+import com.cda25.springboot.square_games.application.persistance.user.domainobject.UserDomObj;
 
 import java.util.List;
 
 public interface UserDAO {
-    List<UserR> getAllUsers();
-    public UserR getUserById(String id);
-    public UserR addUser(UserR user);
-    public UserR updateUser(UserR user, String userId);
-    public UserR deleteUser(String id);
+    List<UserDomObj> getAllUsers();
+    public UserDomObj getUserById(String id);
+    public UserDomObj addUser(UserDomObj user);
+    public UserDomObj updateUser(UserDomObj user, String userId);
+    public UserDomObj deleteUser(String id);
 
 }
