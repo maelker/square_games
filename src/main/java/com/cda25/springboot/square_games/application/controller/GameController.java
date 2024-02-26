@@ -3,10 +3,6 @@ package com.cda25.springboot.square_games.application.controller;
 import com.cda25.springboot.square_games.application.controller.DTO.*;
 import com.cda25.springboot.square_games.application.controller.parameters.GameParams;
 import com.cda25.springboot.square_games.application.controller.parameters.TokenPosMove;
-import com.cda25.springboot.square_games.application.persistance.DAOService;
-import com.cda25.springboot.square_games.application.persistance.user.domainobject.UserR;
-import com.cda25.springboot.square_games.application.persistance.user.dto.UserDTO;
-import com.cda25.springboot.square_games.application.persistance.user.dto.UsersDTO;
 import com.cda25.springboot.square_games.application.services.GameService;
 import fr.le_campus_numerique.square_games.engine.Game;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +19,6 @@ public class GameController {
 
     @Autowired
     private GameService gameService;
-
-    @Autowired
-    private DAOService daoService;
 
     @GetMapping("/games")
     public CatalogGamesDTO getGameCatalog() {
@@ -96,35 +89,6 @@ public class GameController {
                                    @PathVariable(value = "gameId") String gameId) {
         GameParams gameParams = gameService.getDefaultValues(gameId, locale);
         return new GameParamsDTO(gameParams.game(), gameParams.playerCount(), gameParams.boardSize());
-    }
-
-    @GetMapping("/users")
-    public Iterable<UserDTO> getAllUsers() {
-        return UsersDTO.createUsersDTO(daoService.getAllUsers());
-    }
-
-    @PostMapping("/users/create")
-    public UserDTO createUser(@RequestBody UserDTO userDTO) {
-        UserR userR = UserR.createUserImpl(userDTO);
-        userR = daoService.createUser(userR);
-        return UserDTO.createUsersDTO(userR);
-    }
-
-    @GetMapping("/users/{userId}/full")
-    public UserDTO getUserFromId(@PathVariable String userId) {
-        return UserDTO.createUsersDTO(daoService.getUserFromId(userId));
-    }
-
-    @PutMapping("/users/{userId}/update")
-    public UserDTO updateUser(@PathVariable String userId,
-                              @RequestBody UserDTO userDTO) {
-
-        return UserDTO.createUsersDTO(daoService.updateUser(UserR.createUserImpl(userDTO), userId));
-    }
-
-    @DeleteMapping("/users/{userId}/delete")
-    public UserDTO deleteUser(@PathVariable String userId) {
-        return UserDTO.createUsersDTO(daoService.deleteUser(userId));
     }
 
 }
