@@ -39,7 +39,7 @@ public class MySQLUserDAO implements UserDAO {
 
             while (res.next()) {
                 userDomObjs.add(
-                        UserDomObj.createUserDomObj(
+                        new UserDomObj(
                                 UUID.fromString(res.getString("id")),
                                 res.getString("avatar"),
                                 res.getDate("birthDate"),
@@ -83,7 +83,7 @@ public class MySQLUserDAO implements UserDAO {
             ResultSet res = stmt.executeQuery();
 
             while (res.next()) {
-                userDomObj = UserDomObj.createUserDomObj(
+                userDomObj = new UserDomObj(
                         UUID.fromString(res.getString("id")),
                         res.getString("avatar"),
                         res.getDate("birthDate"),
@@ -119,21 +119,21 @@ public class MySQLUserDAO implements UserDAO {
                     """;
             PreparedStatement stmt = con.prepareStatement(query);
 
-            stmt.setString(1, userDomObj.id() == null ? null : userDomObj.id().toString());
-            stmt.setString(2, userDomObj.avatar() == null ? null : userDomObj.avatar());
-            stmt.setDate(3, userDomObj.birthDate() == null ? null : new java.sql.Date(userDomObj.birthDate().getTime()));
-            stmt.setDate(4, userDomObj.creationDate() == null ? null : new java.sql.Date(userDomObj.creationDate().getTime()));
-            stmt.setString(5, userDomObj.idParent() == null ? null : userDomObj.idParent().toString());
-            stmt.setString(6, userDomObj.login() == null ? null : userDomObj.login());
-            stmt.setString(7, userDomObj.password() == null ? null : userDomObj.password());
-            stmt.setString(8, userDomObj.mail() == null ? null : userDomObj.mail());
-            stmt.setString(9, userDomObj.firstName() == null ? null : userDomObj.firstName());
-            stmt.setString(10, userDomObj.lastName() == null ? null : userDomObj.lastName());
-            stmt.setString(11, userDomObj.favPayment() == null ? null : userDomObj.favPayment());
-            stmt.setString(12, userDomObj.city() == null ? null : userDomObj.city());
-            stmt.setString(13, userDomObj.postalCode() == null ? null : userDomObj.postalCode());
-            stmt.setString(14, userDomObj.birthDate() == null ? null : userDomObj.streetName());
-            stmt.setString(15, userDomObj.streetNumber() == null ? null : userDomObj.streetNumber());
+            stmt.setString(1, userDomObj.getId() == null ? null : userDomObj.getId().toString());
+            stmt.setString(2, userDomObj.getAvatar() == null ? null : userDomObj.getAvatar());
+            stmt.setDate(3, userDomObj.getBirthDate() == null ? null : new java.sql.Date(userDomObj.getBirthDate().getTime()));
+            stmt.setDate(4, userDomObj.getCreationDate() == null ? null : new java.sql.Date(userDomObj.getCreationDate().getTime()));
+            stmt.setString(5, userDomObj.getIdParent() == null ? null : userDomObj.getIdParent().toString());
+            stmt.setString(6, userDomObj.getLogin() == null ? null : userDomObj.getLogin());
+            stmt.setString(7, userDomObj.getPassword() == null ? null : userDomObj.getPassword());
+            stmt.setString(8, userDomObj.getMail() == null ? null : userDomObj.getMail());
+            stmt.setString(9, userDomObj.getFirstName() == null ? null : userDomObj.getFirstName());
+            stmt.setString(10, userDomObj.getLastName() == null ? null : userDomObj.getLastName());
+            stmt.setString(11, userDomObj.getFavPayment() == null ? null : userDomObj.getFavPayment());
+            stmt.setString(12, userDomObj.getCity() == null ? null : userDomObj.getCity());
+            stmt.setString(13, userDomObj.getPostalCode() == null ? null : userDomObj.getPostalCode());
+            stmt.setString(14, userDomObj.getStreetName() == null ? null : userDomObj.getStreetName());
+            stmt.setString(15, userDomObj.getStreetNumber() == null ? null : userDomObj.getStreetNumber());
 
             row = stmt.executeUpdate();
 
@@ -155,9 +155,9 @@ public class MySQLUserDAO implements UserDAO {
                 AND mail = ?
                 """;
             PreparedStatement stmt = con.prepareStatement(update);
-            stmt.setString(1, userDomObj.password());
+            stmt.setString(1, userDomObj.getPassword());
             stmt.setString(2, userId);
-            stmt.setString(3, userDomObj.mail());
+            stmt.setString(3, userDomObj.getMail());
             row = stmt.executeUpdate();
 
         } catch (SQLException e) {

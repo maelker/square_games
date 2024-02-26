@@ -23,24 +23,24 @@ public record UserDTO(
         String streetNumber
 ) {
 
-    public static UserDTO createUsersDTO (UserDomObj userDomObj) {
+    public static UserDTO createUserDTO(UserDomObj userDomObj) {
 
         return userDomObj == null ? null : new UserDTO(
-                userDomObj.id(),
-                userDomObj.avatar(),
-                userDomObj.birthDate(),
-                userDomObj.creationDate(),
-                userDomObj.favPayment(),
-                userDomObj.idParent(),
-                userDomObj.login(),
-                userDomObj.password(),
-                userDomObj.mail(),
-                userDomObj.firstName(),
-                userDomObj.lastName(),
-                userDomObj.city(),
-                userDomObj.postalCode(),
-                userDomObj.streetName(),
-                userDomObj.streetNumber()
+                userDomObj.getId(),
+                userDomObj.getAvatar(),
+                userDomObj.getBirthDate(),
+                userDomObj.getCreationDate(),
+                userDomObj.getFavPayment(),
+                userDomObj.getIdParent(),
+                userDomObj.getLogin(),
+                userDomObj.getPassword(),
+                userDomObj.getMail(),
+                userDomObj.getFirstName(),
+                userDomObj.getLastName(),
+                userDomObj.getCity(),
+                userDomObj.getPostalCode(),
+                userDomObj.getStreetName(),
+                userDomObj.getStreetNumber()
         );
     }
 }
