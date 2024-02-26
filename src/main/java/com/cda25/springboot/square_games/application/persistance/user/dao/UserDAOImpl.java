@@ -1,6 +1,6 @@
 package com.cda25.springboot.square_games.application.persistance.user.dao;
 
-import com.cda25.springboot.square_games.application.persistance.user.UserR;
+import com.cda25.springboot.square_games.application.persistance.user.domainobject.UserR;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;

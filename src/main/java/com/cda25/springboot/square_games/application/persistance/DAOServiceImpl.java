@@ -1,8 +1,8 @@
 package com.cda25.springboot.square_games.application.persistance;
 
 
-import com.cda25.springboot.square_games.application.persistance.user.UserR;
 import com.cda25.springboot.square_games.application.persistance.user.dao.UserDAO;
+import com.cda25.springboot.square_games.application.persistance.user.domainobject.UserR;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

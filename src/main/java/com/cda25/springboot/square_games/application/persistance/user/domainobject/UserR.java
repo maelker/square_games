@@ -1,8 +1,6 @@
-package com.cda25.springboot.square_games.application.persistance.user;
+package com.cda25.springboot.square_games.application.persistance.user.domainobject;
 
 import com.cda25.springboot.square_games.application.persistance.user.dto.UserDTO;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 
 import java.util.Date;
 import java.util.UUID;
@@ -12,6 +10,9 @@ public record UserR(
         UserInformationR userInformation,
         UserAddressR userAddress
 ){
+    public UserR {
+    }
+
     public static UserR createUserImpl(
             UUID id,
             String avatar,
@@ -80,34 +81,8 @@ public record UserR(
         );
     }
 
-    @Entity
-    public record UserMainR(
-            @Id UUID id,
-            String avatar,
-            Date birthDate,
-            Date creationDate,
-            String favPayment,
-            UUID idParent
-    ){}
-
-    @Entity
-    public record UserInformationR(
-            @Id String login,
-            UUID id,
-            String password,
-            String mail,
-            String firstName,
-            String lastName
-    ){
-
+    public static UserR createUserImpl(UserMainR userMainR, UserInformationR userInformations, UserAddressR userAddress) {
+        return new UserR(userMainR, userInformations, userAddress);
     }
 
-    @Entity
-    public record UserAddressR(
-            @Id UUID id,
-            String city,
-            String postalCode,
-            String streetName,
-            String streetNumber
-    ){}
 }

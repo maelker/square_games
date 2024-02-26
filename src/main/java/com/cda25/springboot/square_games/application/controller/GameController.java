@@ -4,7 +4,7 @@ import com.cda25.springboot.square_games.application.controller.DTO.*;
 import com.cda25.springboot.square_games.application.controller.parameters.GameParams;
 import com.cda25.springboot.square_games.application.controller.parameters.TokenPosMove;
 import com.cda25.springboot.square_games.application.persistance.DAOService;
-import com.cda25.springboot.square_games.application.persistance.user.UserR;
+import com.cda25.springboot.square_games.application.persistance.user.domainobject.UserR;
 import com.cda25.springboot.square_games.application.persistance.user.dto.UserDTO;
 import com.cda25.springboot.square_games.application.persistance.user.dto.UsersDTO;
 import com.cda25.springboot.square_games.application.services.GameService;
