@@ -1,9 +1,9 @@
-package com.cda25.springboot.square_games.application.persistance.user;
+package com.cda25.springboot.square_games.application.persistance;
 
-import com.cda25.springboot.square_games.application.persistance.user.dao.UserDAO;
-import com.cda25.springboot.square_games.application.persistance.user.domainobject.UserDomObj;
-import com.cda25.springboot.square_games.application.persistance.user.dto.UserDTO;
-import com.cda25.springboot.square_games.application.persistance.user.dto.UsersDTO;
+import com.cda25.springboot.square_games.application.persistance.dao.UserDAO;
+import com.cda25.springboot.square_games.application.persistance.domainobject.UserDomObj;
+import com.cda25.springboot.square_games.application.persistance.dto.UserDTO;
+import com.cda25.springboot.square_games.application.persistance.dto.UsersDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
