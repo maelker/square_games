@@ -1,6 +1,7 @@
-package com.cda25.springboot.square_games.application.persistance.user.domain_object;
+package com.cda25.springboot.square_games.application.persistance.user.domain_obj;
 
 import com.cda25.springboot.square_games.application.persistance.user.dto.UserDTO;
+import com.cda25.springboot.square_games.application.persistance.user.dto.address.AddressDTO;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -64,7 +65,7 @@ public class UserDomObj {
         this.firstName = userDTO.firstName();
         this.lastName = userDTO.lastName();
         this.favPayment = userDTO.favPayment();
-        this.addressId = userDTO.addressId();
+        this.addressId = userDTO.address().id();
     }
 
     public UUID getId() {
@@ -115,7 +116,7 @@ public class UserDomObj {
         return addressId;
     }
 
-    public void setAll(UserDTO userDTO) {
+    public void setAll(UserDTO userDTO, AddressDTO addressDTO) {
         this.avatar = userDTO.avatar();
         this.birthDate = userDTO.birthDate();
         this.creationDate = userDTO.creationDate();
@@ -126,6 +127,6 @@ public class UserDomObj {
         this.firstName = userDTO.firstName();
         this.lastName = userDTO.lastName();
         this.favPayment = userDTO.favPayment();
-        this.addressId = userDTO.addressId();
+        this.addressId = addressDTO.id();
     }
 }

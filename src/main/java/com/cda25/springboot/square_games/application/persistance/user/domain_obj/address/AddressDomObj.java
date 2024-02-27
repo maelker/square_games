@@ -1,6 +1,6 @@
-package com.cda25.springboot.square_games.application.persistance.user.address.domain_object;
+package com.cda25.springboot.square_games.application.persistance.user.domain_obj.address;
 
-import com.cda25.springboot.square_games.application.persistance.user.address.dto.AddressDTO;
+import com.cda25.springboot.square_games.application.persistance.user.dto.address.AddressDTO;
 import jakarta.persistence.*;
 
 import java.util.UUID;
