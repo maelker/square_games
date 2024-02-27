@@ -1,36 +1,51 @@
 package com.cda25.springboot.square_games.application.persistance.domainobject;
 
 import com.cda25.springboot.square_games.application.persistance.dto.UserDTO;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Date;
 import java.util.UUID;
 
 @Entity
+@Table(name = "users")
 public class UserDomObj {
     @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(name = "id")
     private UUID id;
+    @Column(name = "avatar")
     private String avatar;
+    @Column(name = "birth_date")
     private Date birthDate;
+    @Column(name = "creation_date")
     private Date creationDate;
+    @Column(name = "id_parent")
     private UUID idParent;
+    @Column(name = "login")
     private String login;
+    @Column(name = "password")
     private String password;
+    @Column(name = "mail")
     private String mail;
+    @Column(name = "first_name")
     private String firstName;
+    @Column(name = "last_name")
     private String lastName;
+    @Column(name = "fav_payment")
     private String favPayment;
+    @Column(name = "address_city")
     private String city;
+    @Column(name = "address_postal_code")
     private String postalCode;
+    @Column(name = "address_street_name")
     private String streetName;
+    @Column(name = "address_street_number")
     private String streetNumber;
 
     public UserDomObj() {
     }
 
-    public UserDomObj(UUID id, String avatar, Date birthDate, Date creationDate, UUID idParent, String login, String password, String mail, String firstName, String lastName, String favPayment, String city, String postalCode, String streetName, String streetNumber) {
-        this.id = id == null ? UUID.randomUUID() : id;
+    public UserDomObj(String avatar, Date birthDate, Date creationDate, UUID idParent, String login, String password, String mail, String firstName, String lastName, String favPayment, String city, String postalCode, String streetName, String streetNumber) {
         this.avatar = avatar;
         this.birthDate = birthDate;
         this.creationDate = creationDate;
@@ -48,7 +63,6 @@ public class UserDomObj {
     }
 
     public UserDomObj(UserDTO userDTO) {
-        this.id = userDTO.id() == null ? UUID.randomUUID() : userDTO.id();
         this.avatar = userDTO.avatar();
         this.birthDate = userDTO.birthDate();
         this.creationDate = userDTO.creationDate();
@@ -123,5 +137,26 @@ public class UserDomObj {
 
     public String getStreetNumber() {
         return streetNumber;
+    }
+
+    public void setStreetNumber(String streetNumber) {
+        this.streetNumber = streetNumber;
+    }
+
+    public void setAll(UserDTO userDTO) {
+        this.avatar = userDTO.avatar();
+        this.birthDate = userDTO.birthDate();
+        this.creationDate = userDTO.creationDate();
+        this.idParent = userDTO.idParent();
+        this.login = userDTO.login();
+        this.password = userDTO.password();
+        this.mail = userDTO.mail();
+        this.firstName = userDTO.firstName();
+        this.lastName = userDTO.lastName();
+        this.favPayment = userDTO.favPayment();
+        this.city = userDTO.city();
+        this.postalCode = userDTO.postalCode();
+        this.streetName = userDTO.streetName();
+        this.streetNumber = userDTO.streetNumber();
     }
 }

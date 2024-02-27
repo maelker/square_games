@@ -6,6 +6,9 @@ import com.cda25.springboot.square_games.application.persistance.dto.UsersDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+import java.util.UUID;
+
 @CrossOrigin
 @RestController
 public class UserController {
@@ -21,30 +24,31 @@ public class UserController {
         return UsersDTO.createUsersDTO(userJPA.findAll());
     }
 
-    @PostMapping("/users/create")
+    @PostMapping("/users")
     public UserDTO createUser(@RequestBody UserDTO userDTO) {
         UserDomObj userDomObj = new UserDomObj(userDTO);
         userDomObj = userJPA.save(userDomObj);
         return UserDTO.createUserDTO(userDomObj);
     }
 
-    @GetMapping("/users/{userId}/full")
+    @GetMapping("/users/{userId}")
     public UserDTO getUserFromId(@PathVariable String userId) {
-        return UserDTO.createUserDTO(userJPA.findById(Integer.parseInt(userId)).orElse(null));
+        return UserDTO.createUserDTO(userJPA.findById(UUID.fromString(userId)).orElse(null));
     }
 
-    @PutMapping("/users/{userId}/update")
+    @PutMapping("/users/{userId}")
     public UserDTO updateUser(@PathVariable String userId,
                               @RequestBody UserDTO userDTO) {
-        UserDomObj userDomObj = userJPA.getReferenceById(Integer.parseInt(userId));
-        userDomObj = new UserDomObj(userDTO);
-        return UserDTO.createUserDTO(userDomObj);
+        Optional<UserDomObj> userDomObj = userJPA.findById(UUID.fromString(userId));
+        userDomObj.get().setAll(userDTO);
+        userJPA.save(userDomObj.get());
+        return UserDTO.createUserDTO(userDomObj.get());
     }
 
-    @DeleteMapping("/users/{userId}/delete")
+    @DeleteMapping("/users/{userId}")
     public UserDTO deleteUser(@PathVariable String userId) {
-        UserDomObj userDomObj = userJPA.getReferenceById(Integer.parseInt(userId));
-        userJPA.deleteById(Integer.parseInt(userId));
-        return UserDTO.createUserDTO(userDomObj);
+        Optional<UserDomObj> userDomObj = userJPA.findById(UUID.fromString(userId));
+        userJPA.deleteById(UUID.fromString(userId));
+        return UserDTO.createUserDTO(userDomObj.get());
     }
 }
