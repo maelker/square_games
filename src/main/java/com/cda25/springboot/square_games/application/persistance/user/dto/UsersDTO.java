@@ -1,6 +1,6 @@
-package com.cda25.springboot.square_games.application.persistance.dto;
+package com.cda25.springboot.square_games.application.persistance.user.dto;
 
-import com.cda25.springboot.square_games.application.persistance.domainobject.UserDomObj;
+import com.cda25.springboot.square_games.application.persistance.user.domain_object.UserDomObj;
 
 import java.util.Collection;
 

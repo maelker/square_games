@@ -1,6 +1,6 @@
-package com.cda25.springboot.square_games.application.persistance;
+package com.cda25.springboot.square_games.application.persistance.user;
 
-import com.cda25.springboot.square_games.application.persistance.domainobject.UserDomObj;
+import com.cda25.springboot.square_games.application.persistance.user.domain_object.UserDomObj;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

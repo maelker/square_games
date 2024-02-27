@@ -1,8 +1,8 @@
-package com.cda25.springboot.square_games.application.persistance;
+package com.cda25.springboot.square_games.application.persistance.user;
 
-import com.cda25.springboot.square_games.application.persistance.domainobject.UserDomObj;
-import com.cda25.springboot.square_games.application.persistance.dto.UserDTO;
-import com.cda25.springboot.square_games.application.persistance.dto.UsersDTO;
+import com.cda25.springboot.square_games.application.persistance.user.domain_object.UserDomObj;
+import com.cda25.springboot.square_games.application.persistance.user.dto.UserDTO;
+import com.cda25.springboot.square_games.application.persistance.user.dto.UsersDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,9 +12,6 @@ import java.util.UUID;
 @CrossOrigin
 @RestController
 public class UserController {
-
-//    @Autowired
-//    private UserDAO userDAO;
 
     @Autowired
     private UserRepository userJPA;
@@ -40,15 +37,19 @@ public class UserController {
     public UserDTO updateUser(@PathVariable String userId,
                               @RequestBody UserDTO userDTO) {
         Optional<UserDomObj> userDomObj = userJPA.findById(UUID.fromString(userId));
-        userDomObj.get().setAll(userDTO);
-        userJPA.save(userDomObj.get());
-        return UserDTO.createUserDTO(userDomObj.get());
+        if (userDomObj.isPresent()) {
+            userDomObj.get().setAll(userDTO);
+            userJPA.save(userDomObj.get());
+        }
+        return userDomObj.map(UserDTO::createUserDTO).orElse(null);
     }
 
     @DeleteMapping("/users/{userId}")
     public UserDTO deleteUser(@PathVariable String userId) {
         Optional<UserDomObj> userDomObj = userJPA.findById(UUID.fromString(userId));
-        userJPA.deleteById(UUID.fromString(userId));
-        return UserDTO.createUserDTO(userDomObj.get());
+        if (userDomObj.isPresent()) {
+            userJPA.deleteById(UUID.fromString(userId));
+        }
+        return userDomObj.map(UserDTO::createUserDTO).orElse(null);
     }
 }
