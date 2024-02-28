@@ -7,16 +7,15 @@
             </Pattern>
         </layout>
     </appender>
+
     // Niveau de journalisation personnalisé pour tous les packages “fr.”
     <logger name="com.cda25.springboot.square_games" level="debug" additivity="false">
         <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE" />
     </logger>
 
     <include resource="org/springframework/boot/logging/logback/defaults.xml" />
     <property name="LOG_FILE" value="${LOG_FILE:-${LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}/}spring.log}"/>
     <include resource="org/springframework/boot/logging/logback/file-appender.xml" />
 
-    <root level="info">
-        <appender-ref ref="FILE" />
-    </root>
 </configuration>

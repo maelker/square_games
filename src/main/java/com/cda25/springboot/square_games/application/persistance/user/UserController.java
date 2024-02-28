@@ -22,23 +22,26 @@ public class UserController {
     @GetMapping("/users")
     public Iterable<UserDTO> getAllUsers() {
         Collection<UserDomObj> userDomObj = userRepository.findAll();
-        log.info(userDomObj.iterator().next().getId().toString());
+        log.info("Find All : " + userDomObj.stream().map(UserDomObj::getId).toList());
         return UsersDTO.createUsersDTO(userDomObj);
     }
 
     @PostMapping("/users")
     public UserDTO createUser(@RequestBody UserDTO userDTO) {
+        log.info("Create User : " + userDTO.firstName() + " " + userDTO.lastName());
         return UserDTO.createUserDTO(userRepository.save(new UserDomObj(userDTO)));
     }
 
     @GetMapping("/users/{userId}")
     public UserDTO getUserFromId(@PathVariable String userId) {
+        log.info("Find User By ID : " + userId);
         return UserDTO.createUserDTO(userRepository.findById(UUID.fromString(userId)).orElse(null));
     }
 
     @PutMapping("/users/{userId}")
     public UserDTO updateUser(@PathVariable String userId,
                               @RequestBody UserDTO userDTO) {
+        log.info("Update User By ID : " + userId);
         Optional<UserDomObj> userDomObj = userRepository.findById(UUID.fromString(userId));
         userDomObj.get().setAll(userDTO);
         userRepository.save(userDomObj.get());
@@ -48,6 +51,7 @@ public class UserController {
 
     @DeleteMapping("/users/{userId}")
     public UserDTO deleteUser(@PathVariable String userId) {
+        log.info("Delete User By ID : " + userId);
         Optional<UserDomObj> userDomObj = userRepository.findById(UUID.fromString(userId));
         userRepository.deleteById(UUID.fromString(userId));
         return UserDTO.createUserDTO(userDomObj.get());

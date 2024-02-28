@@ -1,0 +1,13 @@
+2024-02-28T15:53:46.427+01:00  INFO 4324 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Starting SquareGamesApplication using Java 21.0.2 with PID 4324 (C:\Users\molos\Documents\SpringBoot\square_games\target\classes started by molos in C:\Users\molos\Documents\SpringBoot\square_games)
+2024-02-28T15:53:46.429+01:00 DEBUG 4324 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Running with Spring Boot v3.2.2, Spring v6.1.3
+2024-02-28T15:53:46.430+01:00  INFO 4324 --- [restartedMain] c.c.s.s.SquareGamesApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-02-28T15:53:52.609+01:00  INFO 4324 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Started SquareGamesApplication in 6.67 seconds (process running for 7.884)
+2024-02-28T15:53:54.412+01:00  INFO 4324 --- [http-nio-8080-exec-1] c.c.s.s.a.p.user.UserController          : Find All : [39e29f9e-e5e9-4808-8dec-33bcfea374b2, ff6ae0a8-6b90-4714-9754-4008bd40a1eb]
+2024-02-28T15:53:56.306+01:00  INFO 4324 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Starting SquareGamesApplication using Java 21.0.2 with PID 4324 (C:\Users\molos\Documents\SpringBoot\square_games\target\classes started by molos in C:\Users\molos\Documents\SpringBoot\square_games)
+2024-02-28T15:53:56.306+01:00 DEBUG 4324 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Running with Spring Boot v3.2.2, Spring v6.1.3
+2024-02-28T15:53:56.306+01:00  INFO 4324 --- [restartedMain] c.c.s.s.SquareGamesApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-02-28T15:53:57.703+01:00  INFO 4324 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Started SquareGamesApplication in 1.448 seconds (process running for 12.977)
+2024-02-28T15:54:09.694+01:00  INFO 4324 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Starting SquareGamesApplication using Java 21.0.2 with PID 4324 (C:\Users\molos\Documents\SpringBoot\square_games\target\classes started by molos in C:\Users\molos\Documents\SpringBoot\square_games)
+2024-02-28T15:54:09.695+01:00 DEBUG 4324 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Running with Spring Boot v3.2.2, Spring v6.1.3
+2024-02-28T15:54:09.695+01:00  INFO 4324 --- [restartedMain] c.c.s.s.SquareGamesApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-02-28T15:54:10.506+01:00  INFO 4324 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Started SquareGamesApplication in 0.857 seconds (process running for 25.78)
