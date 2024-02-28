@@ -3,14 +3,17 @@ package com.cda25.springboot.square_games.application.persistance.user;
 import com.cda25.springboot.square_games.application.persistance.user.domain_obj.UserDomObj;
 import com.cda25.springboot.square_games.application.persistance.user.dto.UserDTO;
 import com.cda25.springboot.square_games.application.persistance.user.dto.UsersDTO;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collection;
 import java.util.Optional;
 import java.util.UUID;
 
 @CrossOrigin
 @RestController
+@Slf4j
 public class UserController {
 
     @Autowired
@@ -18,7 +21,9 @@ public class UserController {
 
     @GetMapping("/users")
     public Iterable<UserDTO> getAllUsers() {
-        return UsersDTO.createUsersDTO(userRepository.findAll());
+        Collection<UserDomObj> userDomObj = userRepository.findAll();
+        log.info(userDomObj.iterator().next().getId().toString());
+        return UsersDTO.createUsersDTO(userDomObj);
     }
 
     @PostMapping("/users")
@@ -37,6 +42,7 @@ public class UserController {
         Optional<UserDomObj> userDomObj = userRepository.findById(UUID.fromString(userId));
         userDomObj.get().setAll(userDTO);
         userRepository.save(userDomObj.get());
+
         return UserDTO.createUserDTO(userDomObj.get());
     }
 
