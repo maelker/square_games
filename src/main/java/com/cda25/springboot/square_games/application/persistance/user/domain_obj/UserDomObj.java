@@ -1,7 +1,6 @@
 package com.cda25.springboot.square_games.application.persistance.user.domain_obj;
 
 import com.cda25.springboot.square_games.application.persistance.user.dto.UserDTO;
-import com.cda25.springboot.square_games.application.persistance.user.dto.address.AddressDTO;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -34,13 +33,19 @@ public class UserDomObj {
     private String lastName;
     @Column(name = "fav_payment")
     private String favPayment;
-    @Column(name = "address_id")
-    private UUID addressId;
+    @Column(name = "address_city")
+    private String city;
+    @Column(name = "address_postal_code")
+    private String postalCode;
+    @Column(name = "address_street_name")
+    private String streetName;
+    @Column(name = "address_street_number")
+    private String streetNumber;
 
     public UserDomObj() {
     }
 
-    public UserDomObj(String avatar, Date birthDate, Date creationDate, UUID idParent, String login, String password, String mail, String firstName, String lastName, String favPayment, UUID addressId) {
+    public UserDomObj(String avatar, Date birthDate, Date creationDate, UUID idParent, String login, String password, String mail, String firstName, String lastName, String favPayment, String city, String postalCode, String streetName, String streetNumber) {
         this.avatar = avatar;
         this.birthDate = birthDate;
         this.creationDate = creationDate;
@@ -51,7 +56,10 @@ public class UserDomObj {
         this.firstName = firstName;
         this.lastName = lastName;
         this.favPayment = favPayment;
-        this.addressId = addressId;
+        this.city = city;
+        this.postalCode = postalCode;
+        this.streetName = streetName;
+        this.streetNumber = streetNumber;
     }
 
     public UserDomObj(UserDTO userDTO) {
@@ -65,7 +73,10 @@ public class UserDomObj {
         this.firstName = userDTO.firstName();
         this.lastName = userDTO.lastName();
         this.favPayment = userDTO.favPayment();
-        this.addressId = userDTO.address().id();
+        this.city = userDTO.city();
+        this.postalCode = userDTO.postalCode();
+        this.streetName = userDTO.streetName();
+        this.streetNumber = userDTO.streetNumber();
     }
 
     public UUID getId() {
@@ -112,15 +123,27 @@ public class UserDomObj {
         return favPayment;
     }
 
-    public UUID getAddressId() {
-        return addressId;
+    public String getCity() {
+        return city;
     }
 
-    public void setAddressId(UUID addressId) {
-        this.addressId = addressId;
+    public String getPostalCode() {
+        return postalCode;
     }
 
-    public void setAll(UserDTO userDTO, AddressDTO addressDTO) {
+    public String getStreetName() {
+        return streetName;
+    }
+
+    public String getStreetNumber() {
+        return streetNumber;
+    }
+
+    public void setStreetNumber(String streetNumber) {
+        this.streetNumber = streetNumber;
+    }
+
+    public void setAll(UserDTO userDTO) {
         this.avatar = userDTO.avatar();
         this.birthDate = userDTO.birthDate();
         this.creationDate = userDTO.creationDate();
@@ -131,6 +154,9 @@ public class UserDomObj {
         this.firstName = userDTO.firstName();
         this.lastName = userDTO.lastName();
         this.favPayment = userDTO.favPayment();
-        this.addressId = addressDTO.id();
+        this.city = userDTO.city();
+        this.postalCode = userDTO.postalCode();
+        this.streetName = userDTO.streetName();
+        this.streetNumber = userDTO.streetNumber();
     }
 }

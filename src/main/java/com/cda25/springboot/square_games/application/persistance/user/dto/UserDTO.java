@@ -1,8 +1,6 @@
 package com.cda25.springboot.square_games.application.persistance.user.dto;
 
 import com.cda25.springboot.square_games.application.persistance.user.domain_obj.UserDomObj;
-import com.cda25.springboot.square_games.application.persistance.user.domain_obj.address.AddressDomObj;
-import com.cda25.springboot.square_games.application.persistance.user.dto.address.AddressDTO;
 
 import java.util.Date;
 import java.util.UUID;
@@ -19,10 +17,13 @@ public record UserDTO(
         String mail,
         String firstName,
         String lastName,
-        AddressDTO address
+        String city,
+        String postalCode,
+        String streetName,
+        String streetNumber
 ) {
 
-    public static UserDTO createUserDTO(UserDomObj userDomObj, AddressDomObj addressDomObj) {
+    public static UserDTO createUserDTO(UserDomObj userDomObj) {
 
         return userDomObj == null ? null : new UserDTO(
                 userDomObj.getId(),
@@ -36,7 +37,10 @@ public record UserDTO(
                 userDomObj.getMail(),
                 userDomObj.getFirstName(),
                 userDomObj.getLastName(),
-                AddressDTO.createAddressDTO(addressDomObj)
+                userDomObj.getCity(),
+                userDomObj.getPostalCode(),
+                userDomObj.getStreetName(),
+                userDomObj.getStreetNumber()
         );
     }
 }

@@ -1,65 +1,55 @@
 package com.cda25.springboot.square_games.application.persistance.user.controller;
 
+import com.cda25.springboot.square_games.application.persistance.user.UserRepository;
 import com.cda25.springboot.square_games.application.persistance.user.domain_obj.UserDomObj;
-import com.cda25.springboot.square_games.application.persistance.user.domain_obj.address.AddressDomObj;
 import com.cda25.springboot.square_games.application.persistance.user.dto.UserDTO;
 import com.cda25.springboot.square_games.application.persistance.user.dto.UsersDTO;
-import com.cda25.springboot.square_games.application.persistance.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
 import java.util.UUID;
 
 @CrossOrigin
 @RestController
 public class UserController {
 
+//    @Autowired
+//    private UserDAO userDAO;
+
     @Autowired
-    private UserService userService;
+    private UserRepository userJPA;
 
     @GetMapping("/users")
     public Iterable<UserDTO> getAllUsers() {
-        return UsersDTO.createUsersDTO(userService.findAll());
+        return UsersDTO.createUsersDTO(userJPA.findAll());
     }
 
     @PostMapping("/users")
     public UserDTO createUser(@RequestBody UserDTO userDTO) {
         UserDomObj userDomObj = new UserDomObj(userDTO);
-        AddressDomObj addressDomObj = new AddressDomObj(userDTO.address());
-        userDomObj = userService.save(userDomObj, addressDomObj);
-        return UserDTO.createUserDTO(userDomObj, addressDomObj);
+        userDomObj = userJPA.save(userDomObj);
+        return UserDTO.createUserDTO(userDomObj);
     }
 
     @GetMapping("/users/{userId}")
     public UserDTO getUserFromId(@PathVariable String userId) {
-        UserDomObj userDomObj = userService.findUserById(UUID.fromString(userId));
-        assert userDomObj != null;
-        AddressDomObj addressDomObj = userService.findAddressById(userDomObj.getAddressId());
-        return UserDTO.createUserDTO(userDomObj, addressDomObj);
+        return UserDTO.createUserDTO(userJPA.findById(UUID.fromString(userId)).orElse(null));
     }
 
     @PutMapping("/users/{userId}")
     public UserDTO updateUser(@PathVariable String userId,
                               @RequestBody UserDTO userDTO) {
-        UserDomObj userDomObj = userService.findUserById(UUID.fromString(userId));
-        AddressDomObj addressDomObj = new AddressDomObj(userDTO.address());
-        if (userDomObj != null) {
-            userDomObj.setAll(userDTO, userDTO.address());
-            userService.save(userDomObj, addressDomObj);
-        }
-        return userDomObj == null ? null : UserDTO.createUserDTO(userDomObj, addressDomObj);
+        Optional<UserDomObj> userDomObj = userJPA.findById(UUID.fromString(userId));
+        userDomObj.get().setAll(userDTO);
+        userJPA.save(userDomObj.get());
+        return UserDTO.createUserDTO(userDomObj.get());
     }
 
     @DeleteMapping("/users/{userId}")
     public UserDTO deleteUser(@PathVariable String userId) {
-        UserDomObj userDomObj = userService.findUserById(UUID.fromString(userId));
-        AddressDomObj addressDomObj;
-        if (userDomObj != null) {
-            addressDomObj = userService.findAddressById(userDomObj.getAddressId());
-            userService.deleteById(UUID.fromString(userId));
-        } else {
-            addressDomObj = null;
-        }
-        return userDomObj == null ? null : UserDTO.createUserDTO(userDomObj, addressDomObj);
+        Optional<UserDomObj> userDomObj = userJPA.findById(UUID.fromString(userId));
+        userJPA.deleteById(UUID.fromString(userId));
+        return UserDTO.createUserDTO(userDomObj.get());
     }
 }
