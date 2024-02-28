@@ -1,6 +1,5 @@
-package com.cda25.springboot.square_games.application.persistance.user.controller;
+package com.cda25.springboot.square_games.application.persistance.user;
 
-import com.cda25.springboot.square_games.application.persistance.user.UserRepository;
 import com.cda25.springboot.square_games.application.persistance.user.domain_obj.UserDomObj;
 import com.cda25.springboot.square_games.application.persistance.user.dto.UserDTO;
 import com.cda25.springboot.square_games.application.persistance.user.dto.UsersDTO;
@@ -14,42 +13,37 @@ import java.util.UUID;
 @RestController
 public class UserController {
 
-//    @Autowired
-//    private UserDAO userDAO;
-
     @Autowired
-    private UserRepository userJPA;
+    private UserRepository userRepository;
 
     @GetMapping("/users")
     public Iterable<UserDTO> getAllUsers() {
-        return UsersDTO.createUsersDTO(userJPA.findAll());
+        return UsersDTO.createUsersDTO(userRepository.findAll());
     }
 
     @PostMapping("/users")
     public UserDTO createUser(@RequestBody UserDTO userDTO) {
-        UserDomObj userDomObj = new UserDomObj(userDTO);
-        userDomObj = userJPA.save(userDomObj);
-        return UserDTO.createUserDTO(userDomObj);
+        return UserDTO.createUserDTO(userRepository.save(new UserDomObj(userDTO)));
     }
 
     @GetMapping("/users/{userId}")
     public UserDTO getUserFromId(@PathVariable String userId) {
-        return UserDTO.createUserDTO(userJPA.findById(UUID.fromString(userId)).orElse(null));
+        return UserDTO.createUserDTO(userRepository.findById(UUID.fromString(userId)).orElse(null));
     }
 
     @PutMapping("/users/{userId}")
     public UserDTO updateUser(@PathVariable String userId,
                               @RequestBody UserDTO userDTO) {
-        Optional<UserDomObj> userDomObj = userJPA.findById(UUID.fromString(userId));
+        Optional<UserDomObj> userDomObj = userRepository.findById(UUID.fromString(userId));
         userDomObj.get().setAll(userDTO);
-        userJPA.save(userDomObj.get());
+        userRepository.save(userDomObj.get());
         return UserDTO.createUserDTO(userDomObj.get());
     }
 
     @DeleteMapping("/users/{userId}")
     public UserDTO deleteUser(@PathVariable String userId) {
-        Optional<UserDomObj> userDomObj = userJPA.findById(UUID.fromString(userId));
-        userJPA.deleteById(UUID.fromString(userId));
+        Optional<UserDomObj> userDomObj = userRepository.findById(UUID.fromString(userId));
+        userRepository.deleteById(UUID.fromString(userId));
         return UserDTO.createUserDTO(userDomObj.get());
     }
 }
