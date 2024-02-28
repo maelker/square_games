@@ -1,6 +1,6 @@
-package com.cda25.springboot.square_games.application.controller.DTO;
+package com.cda25.springboot.square_games.application.games.controller.DTO;
 
-import com.cda25.springboot.square_games.application.controller.parameters.GameParams;
+import com.cda25.springboot.square_games.application.games.controller.parameters.GameParams;
 import fr.le_campus_numerique.square_games.engine.Game;
 
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package com.cda25.springboot.square_games.application.controller.parameters;
+package com.cda25.springboot.square_games.application.games.controller.parameters;
 
 import fr.le_campus_numerique.square_games.engine.IntRange;
 

@@ -1,9 +1,9 @@
-package com.cda25.springboot.square_games.application.services;
+package com.cda25.springboot.square_games.application.games.services;
 
-import com.cda25.springboot.square_games.application.controller.parameters.GameParams;
-import com.cda25.springboot.square_games.application.controller.parameters.GameParamsWithRange;
-import com.cda25.springboot.square_games.application.controller.parameters.TokenPosMove;
-import com.cda25.springboot.square_games.application.plugin.GamePlugin;
+import com.cda25.springboot.square_games.application.games.controller.parameters.GameParams;
+import com.cda25.springboot.square_games.application.games.controller.parameters.GameParamsWithRange;
+import com.cda25.springboot.square_games.application.games.controller.parameters.TokenPosMove;
+import com.cda25.springboot.square_games.application.games.plugin.GamePlugin;
 import fr.le_campus_numerique.square_games.engine.Game;
 import fr.le_campus_numerique.square_games.engine.InvalidPositionException;
 
@@ -21,7 +21,7 @@ public interface GameService {
      * Retrieves a collection of game parameters along with their corresponding ranges from the registered game plugins.
      *
      * @return A {@link Collection} of {@link GameParamsWithRange} objects representing game parameters and their ranges,
-     *         obtained from the registered game plugins.
+     * obtained from the registered game plugins.
      */
     Collection<GameParamsWithRange> getCatalog();
 
@@ -54,7 +54,7 @@ public interface GameService {
     /**
      * Makes a move in the game identified by the specified game ID using the provided {@link TokenPosMove}.
      *
-     * @param gameId The ID of the game in which the move is to be made.
+     * @param gameId       The ID of the game in which the move is to be made.
      * @param tokenPosMove The {@link TokenPosMove} object representing the move to be made.
      * @return The updated {@link Game} object after the move is made.
      * @throws RuntimeException If an {@link InvalidPositionException} occurs while making the move.
@@ -73,7 +73,7 @@ public interface GameService {
      * Retrieves a map of finished games from the games collection.
      *
      * @return A {@link Map} containing the IDs and corresponding {@link Game} objects of finished games,
-     *         or {@code null} if no games have been marked as finished.
+     * or {@code null} if no games have been marked as finished.
      */
     Map<String, Game> getGamesOngoing();
 
@@ -81,12 +81,13 @@ public interface GameService {
      * Retrieves a map of ongoing games from the games collection.
      *
      * @return A {@link Map} containing the IDs and corresponding {@link Game} objects of ongoing games,
-     *         or {@code null} if no games are currently ongoing.
+     * or {@code null} if no games are currently ongoing.
      */
     Map<String, Game> getGamesFinished();
 
     /**
      * This method takes the language and the gameId from the client and returns the name of the game translated
+     *
      * @param gameId
      * @param locale
      * @return

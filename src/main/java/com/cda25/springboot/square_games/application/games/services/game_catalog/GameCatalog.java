@@ -1,4 +1,4 @@
-package com.cda25.springboot.square_games.application.services.game_catalog;
+package com.cda25.springboot.square_games.application.games.services.game_catalog;
 
 import fr.le_campus_numerique.square_games.engine.GameFactory;
 

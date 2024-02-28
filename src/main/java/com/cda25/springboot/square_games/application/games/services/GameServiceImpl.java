@@ -1,9 +1,9 @@
-package com.cda25.springboot.square_games.application.services;
+package com.cda25.springboot.square_games.application.games.services;
 
-import com.cda25.springboot.square_games.application.controller.parameters.GameParams;
-import com.cda25.springboot.square_games.application.controller.parameters.GameParamsWithRange;
-import com.cda25.springboot.square_games.application.controller.parameters.TokenPosMove;
-import com.cda25.springboot.square_games.application.plugin.GamePlugin;
+import com.cda25.springboot.square_games.application.games.controller.parameters.GameParams;
+import com.cda25.springboot.square_games.application.games.controller.parameters.GameParamsWithRange;
+import com.cda25.springboot.square_games.application.games.controller.parameters.TokenPosMove;
+import com.cda25.springboot.square_games.application.games.plugin.GamePlugin;
 import fr.le_campus_numerique.square_games.engine.Game;
 import fr.le_campus_numerique.square_games.engine.GameStatus;
 import fr.le_campus_numerique.square_games.engine.InvalidPositionException;
@@ -59,15 +59,6 @@ public class GameServiceImpl implements GameService {
         }
         return gameFromId;
     }
-
-
-
-
-
-
-
-
-
 
 
     @Override

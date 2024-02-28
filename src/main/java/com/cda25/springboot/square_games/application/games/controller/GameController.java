@@ -1,9 +1,9 @@
-package com.cda25.springboot.square_games.application.controller;
+package com.cda25.springboot.square_games.application.games.controller;
 
-import com.cda25.springboot.square_games.application.controller.DTO.*;
-import com.cda25.springboot.square_games.application.controller.parameters.GameParams;
-import com.cda25.springboot.square_games.application.controller.parameters.TokenPosMove;
-import com.cda25.springboot.square_games.application.services.GameService;
+import com.cda25.springboot.square_games.application.games.controller.DTO.*;
+import com.cda25.springboot.square_games.application.games.controller.parameters.GameParams;
+import com.cda25.springboot.square_games.application.games.controller.parameters.TokenPosMove;
+import com.cda25.springboot.square_games.application.games.services.GameService;
 import fr.le_campus_numerique.square_games.engine.Game;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -25,7 +25,7 @@ public class GameController {
         return new CatalogGamesDTO(
                 gameService.getCatalog().stream()
                         .map(gameParamsWithRange -> new GameParamsWithRangeDTO(gameParamsWithRange.game(), gameParamsWithRange.playerCount(), gameParamsWithRange.boardSize())
-                                )
+                        )
                         .toList()
         );
     }
@@ -86,7 +86,7 @@ public class GameController {
     @Deprecated
     @GetMapping("/{gameId}")
     public GameParamsDTO getDefaultValues(@RequestHeader(value = "Accept-Language", required = false) Locale locale,
-                                   @PathVariable(value = "gameId") String gameId) {
+                                          @PathVariable(value = "gameId") String gameId) {
         GameParams gameParams = gameService.getDefaultValues(gameId, locale);
         return new GameParamsDTO(gameParams.game(), gameParams.playerCount(), gameParams.boardSize());
     }

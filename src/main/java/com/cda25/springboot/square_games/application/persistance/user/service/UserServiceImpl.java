@@ -13,7 +13,7 @@ import java.util.Map;
 import java.util.UUID;
 
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserRepository userRepository;
@@ -22,7 +22,6 @@ public class UserServiceImpl implements UserService{
 
 
     /**
-     * @return
      */
     @Override
     public Map<UserDomObj, AddressDomObj> findAll() {
@@ -44,8 +43,9 @@ public class UserServiceImpl implements UserService{
      */
     @Override
     public UserDomObj save(UserDomObj userDomObj, AddressDomObj addressDomObj) {
-        addressRepository.save(addressDomObj);
-        return userRepository.save(userDomObj);
+        addressRepository.saveAndFlush(addressDomObj);
+        userDomObj.setAddressId(addressRepository.findAll().getLast().getId());
+        return userRepository.saveAndFlush(userDomObj);
     }
 
     /**

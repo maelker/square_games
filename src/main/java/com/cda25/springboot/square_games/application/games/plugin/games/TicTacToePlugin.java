@@ -1,6 +1,6 @@
-package com.cda25.springboot.square_games.application.plugin.games;
+package com.cda25.springboot.square_games.application.games.plugin.games;
 
-import com.cda25.springboot.square_games.application.plugin.GamePluginImpl;
+import com.cda25.springboot.square_games.application.games.plugin.GamePluginImpl;
 import fr.le_campus_numerique.square_games.engine.tictactoe.TicTacToeGameFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;

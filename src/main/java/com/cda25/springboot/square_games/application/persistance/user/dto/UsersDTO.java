@@ -7,10 +7,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
 
-public record UsersDTO (Collection<UserDTO> userDTOCollection) {
-    public static Collection<UserDTO> createUsersDTO (Map<UserDomObj, AddressDomObj> UserDomObjS) {
+public record UsersDTO(Collection<UserDTO> userDTOCollection) {
+    public static Collection<UserDTO> createUsersDTO(Map<UserDomObj, AddressDomObj> UserDomObjS) {
         Collection<UserDTO> userDTOS = new ArrayList<>();
-        UserDomObjS.forEach((userDomObj, addressDomObj) ->  userDTOS.add(UserDTO.createUserDTO(userDomObj, addressDomObj)));
+        UserDomObjS.forEach((userDomObj, addressDomObj) -> userDTOS.add(UserDTO.createUserDTO(userDomObj, addressDomObj)));
         return userDTOS;
     }
 }

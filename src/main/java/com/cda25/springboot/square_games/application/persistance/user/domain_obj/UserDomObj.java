@@ -116,6 +116,10 @@ public class UserDomObj {
         return addressId;
     }
 
+    public void setAddressId(UUID addressId) {
+        this.addressId = addressId;
+    }
+
     public void setAll(UserDTO userDTO, AddressDTO addressDTO) {
         this.avatar = userDTO.avatar();
         this.birthDate = userDTO.birthDate();

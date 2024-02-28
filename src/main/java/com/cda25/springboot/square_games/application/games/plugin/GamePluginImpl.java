@@ -1,6 +1,6 @@
-package com.cda25.springboot.square_games.application.plugin;
+package com.cda25.springboot.square_games.application.games.plugin;
 
-import com.cda25.springboot.square_games.application.controller.parameters.GameParams;
+import com.cda25.springboot.square_games.application.games.controller.parameters.GameParams;
 import fr.le_campus_numerique.square_games.engine.Game;
 import fr.le_campus_numerique.square_games.engine.GameFactory;
 import org.springframework.beans.factory.annotation.Autowired;

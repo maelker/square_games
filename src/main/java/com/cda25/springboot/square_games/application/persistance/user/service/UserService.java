@@ -8,9 +8,12 @@ import java.util.UUID;
 
 public interface UserService {
     Map<UserDomObj, AddressDomObj> findAll();
+
     UserDomObj save(UserDomObj userDomObj, AddressDomObj addressDomObj);
+
     UserDomObj findUserById(UUID userId);
 
     AddressDomObj findAddressById(UUID addressId);
+
     void deleteById(UUID userId);
 }

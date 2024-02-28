@@ -10,7 +10,7 @@ import java.util.UUID;
 public class AddressDomObj {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "id")
+    @Column(name = "id_address")
     private UUID id;
     @Column(name = "address_city")
     private String city;

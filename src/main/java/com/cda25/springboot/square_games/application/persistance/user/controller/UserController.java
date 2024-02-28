@@ -47,7 +47,7 @@ public class UserController {
             userDomObj.setAll(userDTO, userDTO.address());
             userService.save(userDomObj, addressDomObj);
         }
-        return userDomObj == null ? null :UserDTO.createUserDTO(userDomObj, addressDomObj);
+        return userDomObj == null ? null : UserDTO.createUserDTO(userDomObj, addressDomObj);
     }
 
     @DeleteMapping("/users/{userId}")
@@ -60,6 +60,6 @@ public class UserController {
         } else {
             addressDomObj = null;
         }
-        return userDomObj == null ? null :UserDTO.createUserDTO(userDomObj, addressDomObj);
+        return userDomObj == null ? null : UserDTO.createUserDTO(userDomObj, addressDomObj);
     }
 }
