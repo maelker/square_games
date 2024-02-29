@@ -1,6 +1,6 @@
 package com.cda25.springboot.square_games.application.persistance.user.domain_obj;
 
-import com.cda25.springboot.square_games.application.persistance.user.dto.UserDTO;
+import com.cda25.springboot.square_games.application.persistance.user.dto.UsersDTO;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -62,7 +62,7 @@ public class UserDomObj {
         this.streetNumber = streetNumber;
     }
 
-    public UserDomObj(UserDTO userDTO) {
+    public UserDomObj(UsersDTO userDTO) {
         this.avatar = userDTO.avatar();
         this.birthDate = userDTO.birthDate();
         this.creationDate = userDTO.creationDate();
@@ -143,7 +143,7 @@ public class UserDomObj {
         this.streetNumber = streetNumber;
     }
 
-    public void setAll(UserDTO userDTO) {
+    public void setAll(UsersDTO userDTO) {
         this.avatar = userDTO.avatar();
         this.birthDate = userDTO.birthDate();
         this.creationDate = userDTO.creationDate();
