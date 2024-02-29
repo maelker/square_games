@@ -305,3 +305,139 @@
 2024-02-29T14:28:50.481+01:00  INFO 1452 --- [http-nio-8080-exec-4] c.c.s.s.application.auth.UserController  : GET (/user/{userId) : 10
 2024-02-29T14:28:54.143+01:00  INFO 1452 --- [http-nio-8080-exec-5] c.c.s.s.application.auth.UserController  : GET (/user/{userId) : 1
 2024-02-29T14:29:58.726+01:00  INFO 1452 --- [http-nio-8080-exec-7] c.c.s.s.application.auth.UserController  : GET (/user/{userId) : 1
+2024-02-29T14:31:20.480+01:00  INFO 1452 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Starting SquareGamesApplication using Java 21.0.2 with PID 1452 (C:\Users\molos\Documents\SpringBoot\square_games\target\classes started by molos in C:\Users\molos\Documents\SpringBoot\square_games)
+2024-02-29T14:31:20.481+01:00 DEBUG 1452 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Running with Spring Boot v3.2.2, Spring v6.1.3
+2024-02-29T14:31:20.481+01:00  INFO 1452 --- [restartedMain] c.c.s.s.SquareGamesApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-02-29T14:31:21.608+01:00  INFO 1452 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Started SquareGamesApplication in 1.179 seconds (process running for 173.533)
+2024-02-29T14:31:24.242+01:00  INFO 1452 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Starting SquareGamesApplication using Java 21.0.2 with PID 1452 (C:\Users\molos\Documents\SpringBoot\square_games\target\classes started by molos in C:\Users\molos\Documents\SpringBoot\square_games)
+2024-02-29T14:31:24.242+01:00 DEBUG 1452 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Running with Spring Boot v3.2.2, Spring v6.1.3
+2024-02-29T14:31:24.242+01:00  INFO 1452 --- [restartedMain] c.c.s.s.SquareGamesApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-02-29T14:31:25.213+01:00  INFO 1452 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Started SquareGamesApplication in 1.01 seconds (process running for 177.139)
+2024-02-29T14:31:25.561+01:00  INFO 1452 --- [http-nio-8080-exec-1] c.c.s.s.application.auth.UserController  : POST (/users) : 0 Ernest
+2024-02-29T14:31:34.206+01:00  INFO 1452 --- [http-nio-8080-exec-2] c.c.s.s.application.auth.UserController  : GET (/users) : [1, 2]
+2024-02-29T14:31:49.780+01:00  INFO 1452 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Starting SquareGamesApplication using Java 21.0.2 with PID 1452 (C:\Users\molos\Documents\SpringBoot\square_games\target\classes started by molos in C:\Users\molos\Documents\SpringBoot\square_games)
+2024-02-29T14:31:49.781+01:00 DEBUG 1452 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Running with Spring Boot v3.2.2, Spring v6.1.3
+2024-02-29T14:31:49.781+01:00  INFO 1452 --- [restartedMain] c.c.s.s.SquareGamesApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-02-29T14:31:50.638+01:00  INFO 1452 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Started SquareGamesApplication in 0.897 seconds (process running for 202.564)
+2024-02-29T14:32:06.928+01:00  INFO 1452 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Starting SquareGamesApplication using Java 21.0.2 with PID 1452 (C:\Users\molos\Documents\SpringBoot\square_games\target\classes started by molos in C:\Users\molos\Documents\SpringBoot\square_games)
+2024-02-29T14:32:06.928+01:00 DEBUG 1452 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Running with Spring Boot v3.2.2, Spring v6.1.3
+2024-02-29T14:32:06.928+01:00  INFO 1452 --- [restartedMain] c.c.s.s.SquareGamesApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-02-29T14:32:07.802+01:00  INFO 1452 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Started SquareGamesApplication in 0.913 seconds (process running for 219.728)
+2024-02-29T14:32:30.178+01:00  INFO 1452 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Starting SquareGamesApplication using Java 21.0.2 with PID 1452 (C:\Users\molos\Documents\SpringBoot\square_games\target\classes started by molos in C:\Users\molos\Documents\SpringBoot\square_games)
+2024-02-29T14:32:30.178+01:00 DEBUG 1452 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Running with Spring Boot v3.2.2, Spring v6.1.3
+2024-02-29T14:32:30.178+01:00  INFO 1452 --- [restartedMain] c.c.s.s.SquareGamesApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-02-29T14:32:31.345+01:00  INFO 1452 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Started SquareGamesApplication in 1.204 seconds (process running for 243.271)
+2024-02-29T14:35:02.081+01:00  INFO 1452 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Starting SquareGamesApplication using Java 21.0.2 with PID 1452 (C:\Users\molos\Documents\SpringBoot\square_games\target\classes started by molos in C:\Users\molos\Documents\SpringBoot\square_games)
+2024-02-29T14:35:02.081+01:00 DEBUG 1452 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Running with Spring Boot v3.2.2, Spring v6.1.3
+2024-02-29T14:35:02.081+01:00  INFO 1452 --- [restartedMain] c.c.s.s.SquareGamesApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-02-29T14:35:02.722+01:00  INFO 1452 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Started SquareGamesApplication in 0.688 seconds (process running for 394.648)
+2024-02-29T14:55:31.165+01:00  INFO 10816 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Starting SquareGamesApplication using Java 21.0.2 with PID 10816 (C:\Users\molos\Documents\SpringBoot\square_games\target\classes started by molos in C:\Users\molos\Documents\SpringBoot\square_games)
+2024-02-29T14:55:31.167+01:00 DEBUG 10816 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Running with Spring Boot v3.2.2, Spring v6.1.3
+2024-02-29T14:55:31.168+01:00  INFO 10816 --- [restartedMain] c.c.s.s.SquareGamesApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-02-29T14:55:36.939+01:00  INFO 10816 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Started SquareGamesApplication in 6.227 seconds (process running for 7.331)
+2024-02-29T15:06:18.064+01:00  INFO 10816 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Starting SquareGamesApplication using Java 21.0.2 with PID 10816 (C:\Users\molos\Documents\SpringBoot\square_games\target\classes started by molos in C:\Users\molos\Documents\SpringBoot\square_games)
+2024-02-29T15:06:18.065+01:00 DEBUG 10816 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Running with Spring Boot v3.2.2, Spring v6.1.3
+2024-02-29T15:06:18.065+01:00  INFO 10816 --- [restartedMain] c.c.s.s.SquareGamesApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-02-29T15:06:19.285+01:00  INFO 10816 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Started SquareGamesApplication in 1.269 seconds (process running for 649.677)
+2024-02-29T15:06:33.268+01:00  INFO 10816 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Starting SquareGamesApplication using Java 21.0.2 with PID 10816 (C:\Users\molos\Documents\SpringBoot\square_games\target\classes started by molos in C:\Users\molos\Documents\SpringBoot\square_games)
+2024-02-29T15:06:33.269+01:00 DEBUG 10816 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Running with Spring Boot v3.2.2, Spring v6.1.3
+2024-02-29T15:06:33.269+01:00  INFO 10816 --- [restartedMain] c.c.s.s.SquareGamesApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-02-29T15:06:34.272+01:00  INFO 10816 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Started SquareGamesApplication in 1.043 seconds (process running for 664.664)
+2024-02-29T15:06:44.175+01:00  INFO 10816 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Starting SquareGamesApplication using Java 21.0.2 with PID 10816 (C:\Users\molos\Documents\SpringBoot\square_games\target\classes started by molos in C:\Users\molos\Documents\SpringBoot\square_games)
+2024-02-29T15:06:44.175+01:00 DEBUG 10816 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Running with Spring Boot v3.2.2, Spring v6.1.3
+2024-02-29T15:06:44.175+01:00  INFO 10816 --- [restartedMain] c.c.s.s.SquareGamesApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-02-29T15:06:45.125+01:00  INFO 10816 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Started SquareGamesApplication in 0.988 seconds (process running for 675.517)
+2024-02-29T15:34:38.579+01:00  INFO 11420 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Starting SquareGamesApplication using Java 21.0.2 with PID 11420 (C:\Users\molos\Documents\SpringBoot\square_games\target\classes started by molos in C:\Users\molos\Documents\SpringBoot\square_games)
+2024-02-29T15:34:38.582+01:00 DEBUG 11420 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Running with Spring Boot v3.2.2, Spring v6.1.3
+2024-02-29T15:34:38.583+01:00  INFO 11420 --- [restartedMain] c.c.s.s.SquareGamesApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-02-29T15:34:47.518+01:00  INFO 11420 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Started SquareGamesApplication in 9.484 seconds (process running for 11.172)
+2024-02-29T15:36:01.555+01:00  INFO 1716 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Starting SquareGamesApplication using Java 21.0.2 with PID 1716 (C:\Users\molos\Documents\SpringBoot\square_games\target\classes started by molos in C:\Users\molos\Documents\SpringBoot\square_games)
+2024-02-29T15:36:01.557+01:00 DEBUG 1716 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Running with Spring Boot v3.2.2, Spring v6.1.3
+2024-02-29T15:36:01.558+01:00  INFO 1716 --- [restartedMain] c.c.s.s.SquareGamesApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-02-29T15:36:26.695+01:00  INFO 8492 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Starting SquareGamesApplication using Java 21.0.2 with PID 8492 (C:\Users\molos\Documents\SpringBoot\square_games\target\classes started by molos in C:\Users\molos\Documents\SpringBoot\square_games)
+2024-02-29T15:36:26.696+01:00 DEBUG 8492 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Running with Spring Boot v3.2.2, Spring v6.1.3
+2024-02-29T15:36:26.697+01:00  INFO 8492 --- [restartedMain] c.c.s.s.SquareGamesApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-02-29T15:38:17.564+01:00  INFO 2812 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Starting SquareGamesApplication using Java 21.0.2 with PID 2812 (C:\Users\molos\Documents\SpringBoot\square_games\target\classes started by molos in C:\Users\molos\Documents\SpringBoot\square_games)
+2024-02-29T15:38:17.565+01:00 DEBUG 2812 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Running with Spring Boot v3.2.2, Spring v6.1.3
+2024-02-29T15:38:17.566+01:00  INFO 2812 --- [restartedMain] c.c.s.s.SquareGamesApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-02-29T15:38:23.629+01:00  INFO 2812 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Started SquareGamesApplication in 6.536 seconds (process running for 7.617)
+2024-02-29T15:40:12.214+01:00  INFO 2812 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Starting SquareGamesApplication using Java 21.0.2 with PID 2812 (C:\Users\molos\Documents\SpringBoot\square_games\target\classes started by molos in C:\Users\molos\Documents\SpringBoot\square_games)
+2024-02-29T15:40:12.215+01:00 DEBUG 2812 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Running with Spring Boot v3.2.2, Spring v6.1.3
+2024-02-29T15:40:12.215+01:00  INFO 2812 --- [restartedMain] c.c.s.s.SquareGamesApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-02-29T15:40:13.383+01:00  INFO 2812 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Started SquareGamesApplication in 1.225 seconds (process running for 117.371)
+2024-02-29T15:40:22.274+01:00  INFO 2812 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Starting SquareGamesApplication using Java 21.0.2 with PID 2812 (C:\Users\molos\Documents\SpringBoot\square_games\target\classes started by molos in C:\Users\molos\Documents\SpringBoot\square_games)
+2024-02-29T15:40:22.275+01:00 DEBUG 2812 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Running with Spring Boot v3.2.2, Spring v6.1.3
+2024-02-29T15:40:22.275+01:00  INFO 2812 --- [restartedMain] c.c.s.s.SquareGamesApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-02-29T15:40:23.234+01:00  INFO 2812 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Started SquareGamesApplication in 1.015 seconds (process running for 127.223)
+2024-02-29T15:40:59.051+01:00  INFO 2812 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Starting SquareGamesApplication using Java 21.0.2 with PID 2812 (C:\Users\molos\Documents\SpringBoot\square_games\target\classes started by molos in C:\Users\molos\Documents\SpringBoot\square_games)
+2024-02-29T15:40:59.051+01:00 DEBUG 2812 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Running with Spring Boot v3.2.2, Spring v6.1.3
+2024-02-29T15:40:59.052+01:00  INFO 2812 --- [restartedMain] c.c.s.s.SquareGamesApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-02-29T15:41:00.114+01:00  INFO 2812 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Started SquareGamesApplication in 1.101 seconds (process running for 164.102)
+2024-02-29T15:41:01.689+01:00  INFO 2812 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Starting SquareGamesApplication using Java 21.0.2 with PID 2812 (C:\Users\molos\Documents\SpringBoot\square_games\target\classes started by molos in C:\Users\molos\Documents\SpringBoot\square_games)
+2024-02-29T15:41:01.690+01:00 DEBUG 2812 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Running with Spring Boot v3.2.2, Spring v6.1.3
+2024-02-29T15:41:01.690+01:00  INFO 2812 --- [restartedMain] c.c.s.s.SquareGamesApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-02-29T15:41:02.593+01:00  INFO 2812 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Started SquareGamesApplication in 0.943 seconds (process running for 166.581)
+2024-02-29T15:44:41.378+01:00  INFO 2812 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Starting SquareGamesApplication using Java 21.0.2 with PID 2812 (C:\Users\molos\Documents\SpringBoot\square_games\target\classes started by molos in C:\Users\molos\Documents\SpringBoot\square_games)
+2024-02-29T15:44:41.378+01:00 DEBUG 2812 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Running with Spring Boot v3.2.2, Spring v6.1.3
+2024-02-29T15:44:41.378+01:00  INFO 2812 --- [restartedMain] c.c.s.s.SquareGamesApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-02-29T15:44:42.771+01:00  INFO 2812 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Started SquareGamesApplication in 1.443 seconds (process running for 386.76)
+2024-02-29T15:44:50.624+01:00  INFO 2812 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Starting SquareGamesApplication using Java 21.0.2 with PID 2812 (C:\Users\molos\Documents\SpringBoot\square_games\target\classes started by molos in C:\Users\molos\Documents\SpringBoot\square_games)
+2024-02-29T15:44:50.625+01:00 DEBUG 2812 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Running with Spring Boot v3.2.2, Spring v6.1.3
+2024-02-29T15:44:50.626+01:00  INFO 2812 --- [restartedMain] c.c.s.s.SquareGamesApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-02-29T15:44:51.731+01:00  INFO 2812 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Started SquareGamesApplication in 1.152 seconds (process running for 395.719)
+2024-02-29T16:02:49.871+01:00  INFO 20276 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Starting SquareGamesApplication using Java 21.0.2 with PID 20276 (C:\Users\molos\Documents\SpringBoot\square_games\target\classes started by molos in C:\Users\molos\Documents\SpringBoot\square_games)
+2024-02-29T16:02:49.872+01:00 DEBUG 20276 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Running with Spring Boot v3.2.2, Spring v6.1.3
+2024-02-29T16:02:49.873+01:00  INFO 20276 --- [restartedMain] c.c.s.s.SquareGamesApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-02-29T16:02:55.916+01:00  INFO 20276 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Started SquareGamesApplication in 6.526 seconds (process running for 7.626)
+2024-02-29T16:04:07.726+01:00  INFO 17500 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Starting SquareGamesApplication using Java 21.0.2 with PID 17500 (C:\Users\molos\Documents\SpringBoot\square_games\target\classes started by molos in C:\Users\molos\Documents\SpringBoot\square_games)
+2024-02-29T16:04:07.728+01:00 DEBUG 17500 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Running with Spring Boot v3.2.2, Spring v6.1.3
+2024-02-29T16:04:07.729+01:00  INFO 17500 --- [restartedMain] c.c.s.s.SquareGamesApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-02-29T16:04:15.209+01:00  INFO 17500 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Started SquareGamesApplication in 8.068 seconds (process running for 9.167)
+2024-02-29T16:06:16.515+01:00  INFO 17500 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Starting SquareGamesApplication using Java 21.0.2 with PID 17500 (C:\Users\molos\Documents\SpringBoot\square_games\target\classes started by molos in C:\Users\molos\Documents\SpringBoot\square_games)
+2024-02-29T16:06:16.515+01:00 DEBUG 17500 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Running with Spring Boot v3.2.2, Spring v6.1.3
+2024-02-29T16:06:16.515+01:00  INFO 17500 --- [restartedMain] c.c.s.s.SquareGamesApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-02-29T16:06:18.532+01:00  INFO 17500 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Started SquareGamesApplication in 2.07 seconds (process running for 132.49)
+2024-02-29T16:06:21.188+01:00  INFO 17500 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Starting SquareGamesApplication using Java 21.0.2 with PID 17500 (C:\Users\molos\Documents\SpringBoot\square_games\target\classes started by molos in C:\Users\molos\Documents\SpringBoot\square_games)
+2024-02-29T16:06:21.188+01:00 DEBUG 17500 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Running with Spring Boot v3.2.2, Spring v6.1.3
+2024-02-29T16:06:21.188+01:00  INFO 17500 --- [restartedMain] c.c.s.s.SquareGamesApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-02-29T16:06:22.276+01:00  INFO 17500 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Started SquareGamesApplication in 1.139 seconds (process running for 136.234)
+2024-02-29T16:07:13.670+01:00  INFO 17500 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Starting SquareGamesApplication using Java 21.0.2 with PID 17500 (C:\Users\molos\Documents\SpringBoot\square_games\target\classes started by molos in C:\Users\molos\Documents\SpringBoot\square_games)
+2024-02-29T16:07:13.670+01:00 DEBUG 17500 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Running with Spring Boot v3.2.2, Spring v6.1.3
+2024-02-29T16:07:13.671+01:00  INFO 17500 --- [restartedMain] c.c.s.s.SquareGamesApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-02-29T16:07:15.008+01:00  INFO 17500 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Started SquareGamesApplication in 1.376 seconds (process running for 188.966)
+2024-02-29T16:39:22.267+01:00  INFO 20944 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Starting SquareGamesApplication using Java 21.0.2 with PID 20944 (C:\Users\molos\Documents\SpringBoot\square_games\target\classes started by molos in C:\Users\molos\Documents\SpringBoot\square_games)
+2024-02-29T16:39:22.269+01:00 DEBUG 20944 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Running with Spring Boot v3.2.2, Spring v6.1.3
+2024-02-29T16:39:22.270+01:00  INFO 20944 --- [restartedMain] c.c.s.s.SquareGamesApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-02-29T16:39:28.380+01:00  INFO 20944 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Started SquareGamesApplication in 6.552 seconds (process running for 7.641)
+2024-02-29T16:39:29.550+01:00  INFO 20944 --- [http-nio-8080-exec-2] c.c.s.s.application.auth.UserController  : GET (/users) : [1]
+2024-02-29T16:39:32.913+01:00  INFO 20944 --- [http-nio-8080-exec-1] c.c.s.s.application.auth.UserController  : GET (/users) : [1]
+2024-02-29T16:39:48.225+01:00  INFO 20944 --- [http-nio-8080-exec-4] c.c.s.s.application.auth.UserController  : GET (/user/{userId) : 1
+2024-02-29T16:40:15.195+01:00  INFO 20944 --- [http-nio-8080-exec-5] c.c.s.s.application.auth.UserController  : POST (/users) : 0 Ernest
+2024-02-29T16:40:46.890+01:00  INFO 20944 --- [http-nio-8080-exec-6] c.c.s.s.application.auth.UserController  : GET (/users) : [1, 52]
+2024-02-29T16:40:48.029+01:00  INFO 20944 --- [http-nio-8080-exec-7] c.c.s.s.application.auth.UserController  : GET (/users) : [1, 52]
+2024-02-29T16:40:48.853+01:00  INFO 20944 --- [http-nio-8080-exec-8] c.c.s.s.application.auth.UserController  : GET (/users) : [1, 52]
+2024-02-29T16:40:49.521+01:00  INFO 20944 --- [http-nio-8080-exec-9] c.c.s.s.application.auth.UserController  : GET (/users) : [1, 52]
+2024-02-29T16:40:50.222+01:00  INFO 20944 --- [http-nio-8080-exec-10] c.c.s.s.application.auth.UserController  : GET (/users) : [1, 52]
+2024-02-29T16:40:51.013+01:00  INFO 20944 --- [http-nio-8080-exec-2] c.c.s.s.application.auth.UserController  : GET (/users) : [1, 52]
+2024-02-29T16:40:51.718+01:00  INFO 20944 --- [http-nio-8080-exec-1] c.c.s.s.application.auth.UserController  : GET (/users) : [1, 52]
+2024-02-29T16:41:07.040+01:00  INFO 6812 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Starting SquareGamesApplication using Java 21.0.2 with PID 6812 (C:\Users\molos\Documents\SpringBoot\square_games\target\classes started by molos in C:\Users\molos\Documents\SpringBoot\square_games)
+2024-02-29T16:41:07.041+01:00 DEBUG 6812 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Running with Spring Boot v3.2.2, Spring v6.1.3
+2024-02-29T16:41:07.042+01:00  INFO 6812 --- [restartedMain] c.c.s.s.SquareGamesApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-02-29T16:41:12.593+01:00  INFO 6812 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Started SquareGamesApplication in 6.005 seconds (process running for 7.063)
+2024-02-29T16:41:14.477+01:00  INFO 6812 --- [http-nio-8080-exec-1] c.c.s.s.application.auth.UserController  : GET (/users) : [1, 52]
+2024-02-29T16:41:51.545+01:00  INFO 6812 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Starting SquareGamesApplication using Java 21.0.2 with PID 6812 (C:\Users\molos\Documents\SpringBoot\square_games\target\classes started by molos in C:\Users\molos\Documents\SpringBoot\square_games)
+2024-02-29T16:41:51.545+01:00 DEBUG 6812 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Running with Spring Boot v3.2.2, Spring v6.1.3
+2024-02-29T16:41:51.545+01:00  INFO 6812 --- [restartedMain] c.c.s.s.SquareGamesApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-02-29T16:41:52.764+01:00  INFO 6812 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Started SquareGamesApplication in 1.27 seconds (process running for 47.234)
+2024-02-29T16:41:54.340+01:00  INFO 6812 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Starting SquareGamesApplication using Java 21.0.2 with PID 6812 (C:\Users\molos\Documents\SpringBoot\square_games\target\classes started by molos in C:\Users\molos\Documents\SpringBoot\square_games)
+2024-02-29T16:41:54.341+01:00 DEBUG 6812 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Running with Spring Boot v3.2.2, Spring v6.1.3
+2024-02-29T16:41:54.341+01:00  INFO 6812 --- [restartedMain] c.c.s.s.SquareGamesApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-02-29T16:41:55.366+01:00  INFO 6812 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Started SquareGamesApplication in 1.066 seconds (process running for 49.836)
+2024-02-29T16:43:41.972+01:00  INFO 6812 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Starting SquareGamesApplication using Java 21.0.2 with PID 6812 (C:\Users\molos\Documents\SpringBoot\square_games\target\classes started by molos in C:\Users\molos\Documents\SpringBoot\square_games)
+2024-02-29T16:43:41.972+01:00 DEBUG 6812 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Running with Spring Boot v3.2.2, Spring v6.1.3
+2024-02-29T16:43:41.972+01:00  INFO 6812 --- [restartedMain] c.c.s.s.SquareGamesApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-02-29T16:43:42.901+01:00  INFO 6812 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Started SquareGamesApplication in 0.968 seconds (process running for 157.371)
+2024-02-29T16:43:57.008+01:00  INFO 6812 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Starting SquareGamesApplication using Java 21.0.2 with PID 6812 (C:\Users\molos\Documents\SpringBoot\square_games\target\classes started by molos in C:\Users\molos\Documents\SpringBoot\square_games)
+2024-02-29T16:43:57.009+01:00 DEBUG 6812 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Running with Spring Boot v3.2.2, Spring v6.1.3
+2024-02-29T16:43:57.009+01:00  INFO 6812 --- [restartedMain] c.c.s.s.SquareGamesApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-02-29T16:43:58.249+01:00  INFO 6812 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Started SquareGamesApplication in 1.301 seconds (process running for 172.72)

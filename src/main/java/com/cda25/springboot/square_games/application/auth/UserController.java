@@ -34,19 +34,19 @@ public class UserController {
     }
 
     @GetMapping("/user/{userId}/id")
-    public UserDTO getUserFromId(@Valid @PathVariable String userId) {
+    public UserDTO getUserFromId(@PathVariable String userId) {
         log.info("GET (/user/{userId) : " + userId);
         return UserDTO.createUserDTO(userRepository.findById(parseLong(userId)).orElse(null));
     }
 
     @GetMapping("/user/{username}/username")
-    public UserDTO getUserFromUsername(@Valid @PathVariable String username) {
+    public UserDTO getUserFromUsername(@PathVariable String username) {
         log.info("GET (/user/{username) : " + username);
         return UserDTO.createUserDTO(userRepository.findByUsername(username).orElse(null));
     }
 
     @PutMapping("/user/{userId}/id")
-    public UserDTO updateUserPassword(@Valid @PathVariable String userId,
+    public UserDTO updateUserPassword(@PathVariable String userId,
                                       @Valid @RequestBody String password) {
         log.info("PUT (/user/{userId) : " + userId);
         Optional<UserEntity> userEntity = userRepository.findById(parseLong(userId));
@@ -59,7 +59,7 @@ public class UserController {
     }
 
     @DeleteMapping("/user/{userId}")
-    public UserDTO deleteUser(@Valid @PathVariable String userId) {
+    public UserDTO deleteUser(@PathVariable String userId) {
         log.info("DELETE (/user/{userId) : " + userId);
         Optional<UserEntity> userEntity = userRepository.findById(parseLong(userId));
         boolean isPresent = userEntity.isPresent();

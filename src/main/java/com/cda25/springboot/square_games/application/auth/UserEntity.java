@@ -1,17 +1,23 @@
 package com.cda25.springboot.square_games.application.auth;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-//import org.springframework.security.core.GrantedAuthority;
-//import org.springframework.security.core.authority.SimpleGrantedAuthority;
-//import org.springframework.security.core.userdetails.UserDetails;
+import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "user")
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
-public class UserEntity {//implements UserDetails {
+public class UserEntity implements UserDetails {
 
     @Id
     @Column(name = "id_user", nullable = false, unique = true)
@@ -32,9 +38,6 @@ public class UserEntity {//implements UserDetails {
     @Column(name = "is_enabled", nullable = false)
     private boolean isEnabled;
 
-    public UserEntity() {
-
-    }
 
     public UserEntity(UserDTO userDTO) {
         id = userDTO.id();
@@ -47,39 +50,39 @@ public class UserEntity {//implements UserDetails {
         isEnabled = userDTO.isEnabled();
     }
 
-//    @Override
-//    public Collection<? extends GrantedAuthority> getAuthorities() {
-//        Set<GrantedAuthority> authorities = new HashSet<GrantedAuthority>();
-//        authorities.add(new SimpleGrantedAuthority(this.role));
-//        return authorities;
-//    }
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        Set<GrantedAuthority> authorities = new HashSet<GrantedAuthority>();
+        authorities.add(new SimpleGrantedAuthority(this.role));
+        return authorities;
+    }
 
-//    @Override
+    @Override
     public String getPassword() {
         return password;
     }
 
-//    @Override
+    @Override
     public String getUsername() {
         return username;
     }
 
-//    @Override
+    @Override
     public boolean isAccountNonExpired() {
         return isAccountNonExpired;
     }
 
-//    @Override
+    @Override
     public boolean isAccountNonLocked() {
         return isAccountNonLocked;
     }
 
-//    @Override
+    @Override
     public boolean isCredentialsNonExpired() {
         return isCredentialsNonExpired;
     }
 
-//    @Override
+    @Override
     public boolean isEnabled() {
         return isEnabled;
     }
