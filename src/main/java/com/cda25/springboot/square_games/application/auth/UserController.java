@@ -1,5 +1,6 @@
 package com.cda25.springboot.square_games.application.auth;
 
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -27,26 +28,26 @@ public class UserController {
     }
 
     @PostMapping("/user")
-    public UserDTO createUser(@RequestBody UserDTO userDTO) {
+    public UserDTO createUser(@Valid @RequestBody UserDTO userDTO) {
         log.info("POST (/users) : " + userDTO.id() + " " + userDTO.username());
         return UserDTO.createUserDTO(userRepository.save(new UserEntity(userDTO)));
     }
 
-    @GetMapping("/user/{userId}")
-    public UserDTO getUserFromId(@PathVariable String userId) {
+    @GetMapping("/user/{userId}/id")
+    public UserDTO getUserFromId(@Valid @PathVariable String userId) {
         log.info("GET (/user/{userId) : " + userId);
         return UserDTO.createUserDTO(userRepository.findById(parseLong(userId)).orElse(null));
     }
 
-    @GetMapping("/user/{username}")
-    public UserDTO getUserFromUsername(@PathVariable String username) {
+    @GetMapping("/user/{username}/username")
+    public UserDTO getUserFromUsername(@Valid @PathVariable String username) {
         log.info("GET (/user/{username) : " + username);
         return UserDTO.createUserDTO(userRepository.findByUsername(username).orElse(null));
     }
 
-    @PutMapping("/user/{userId}")
-    public UserDTO updateUserPassword(@PathVariable String userId,
-                                      @RequestBody String password) {
+    @PutMapping("/user/{userId}/id")
+    public UserDTO updateUserPassword(@Valid @PathVariable String userId,
+                                      @Valid @RequestBody String password) {
         log.info("PUT (/user/{userId) : " + userId);
         Optional<UserEntity> userEntity = userRepository.findById(parseLong(userId));
         boolean isPresent = userEntity.isPresent();
@@ -58,7 +59,7 @@ public class UserController {
     }
 
     @DeleteMapping("/user/{userId}")
-    public UserDTO deleteUser(@PathVariable String userId) {
+    public UserDTO deleteUser(@Valid @PathVariable String userId) {
         log.info("DELETE (/user/{userId) : " + userId);
         Optional<UserEntity> userEntity = userRepository.findById(parseLong(userId));
         boolean isPresent = userEntity.isPresent();
