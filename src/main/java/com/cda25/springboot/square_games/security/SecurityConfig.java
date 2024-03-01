@@ -1,5 +1,6 @@
 package com.cda25.springboot.square_games.security;
 
+import com.cda25.springboot.square_games.services.MyUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -35,7 +36,6 @@ public class SecurityConfig {
         return authenticationConfiguration.getAuthenticationManager();
     }
 
-
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable).cors(Customizer.withDefaults());
@@ -44,19 +44,16 @@ public class SecurityConfig {
 
         http.sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 
-        http.userDetailsService(userDetailsService);
-
-        http.authenticationManager(authenticationConfiguration.getAuthenticationManager());
+//        http.userDetailsService(userDetailsService).authenticationManager(authenticationConfiguration.getAuthenticationManager());
 
         http.authorizeHttpRequests((requests) -> requests
-                .requestMatchers("/login").permitAll()
                 .anyRequest().authenticated()
         );
 
 
 
         http.formLogin((form) -> form
-                        .loginPage("/login").permitAll()
+                        .loginPage("/api/public/login").permitAll()
                 )
                 .logout(LogoutConfigurer::permitAll);
 

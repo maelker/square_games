@@ -1,4 +1,4 @@
-package com.cda25.springboot.square_games.security;
+package com.cda25.springboot.square_games.services;
 
 import com.cda25.springboot.square_games.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

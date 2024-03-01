@@ -20,7 +20,7 @@ public class GameController {
     @Autowired
     private GameService gameService;
 
-    @GetMapping("/")
+    @GetMapping("")
     public CatalogGamesDTO getGameCatalog() {
         return new CatalogGamesDTO(
                 gameService.getCatalog().stream()
@@ -31,36 +31,36 @@ public class GameController {
     }
 
 
-    @PostMapping("/")
+    @PostMapping("")
     public GameCreatedDTO createGame(@RequestBody GameParams gameCreationParams) {
         Game game = gameService.createGame(gameCreationParams);
         return game == null ? null : new GameCreatedDTO(game.getId().toString(), new GameParams(game.getFactoryId(), game.getPlayerIds().size(), game.getBoardSize()));
     }
 
-    @GetMapping("/ongoing")
+    @GetMapping("ongoing")
     public OngoingOrFinishedGamesDTO getGamesOngoing() {
         return OngoingOrFinishedGamesDTO.createGamesOngoingOrFinishedGames(gameService.getGamesOngoing());
     }
 
-    @GetMapping("/finished")
+    @GetMapping("finished")
     public OngoingOrFinishedGamesDTO getGamesFinished() {
         return OngoingOrFinishedGamesDTO.createGamesOngoingOrFinishedGames(gameService.getGamesFinished());
     }
 
-    @GetMapping("/{gameId}")
+    @GetMapping("{gameId}")
     public GameDTO getGame(@PathVariable(value = "gameId") String gameId) {
         return GameDTO.createGameDTO(gameService.getGameWithGameId(gameId));
     }
 
     @Deprecated
-    @GetMapping("/{gameId}")
+    @GetMapping("{gameId}/default")
     public GameParamsDTO getDefaultValues(@RequestHeader(value = "Accept-Language", required = false) Locale locale,
                                           @PathVariable(value = "gameId") String gameId) {
         GameParams gameParams = gameService.getDefaultValues(gameId, locale);
         return new GameParamsDTO(gameParams.game(), gameParams.playerCount(), gameParams.boardSize());
     }
 
-    @GetMapping("/{gameId}/board")
+    @GetMapping("{gameId}/board")
     public BoardDTO getGameBoard(@PathVariable(value = "gameId") String gameId) {
         BoardDTO result = null;
         Game game = gameService.getGameWithGameId(gameId);
@@ -70,7 +70,7 @@ public class GameController {
         return result;
     }
 
-    @GetMapping("/{gameId}/playable_tokens")
+    @GetMapping("{gameId}/playable_tokens")
     public Collection<TokenDTO> getGameTokens(@PathVariable(value = "gameId") String gameId) {
         Collection<TokenDTO> tokenDTOs = new ArrayList<>();
         Game game = gameService.getGameWithGameId(gameId);
@@ -80,13 +80,13 @@ public class GameController {
         return tokenDTOs;
     }
 
-    @PutMapping("/{gameId}/update")
+    @PutMapping("{gameId}/update")
     public GameDTO makeMove(@PathVariable String gameId,
                             @RequestBody TokenPosMove tokenPosMove) {
         return GameDTO.createGameDTO(gameService.makeMove(gameId, tokenPosMove));
     }
 
-    @DeleteMapping("/{gameId}/delete")
+    @DeleteMapping("{gameId}/delete")
     public GameDTO deleteGame(@PathVariable String gameId) {
         return GameDTO.createGameDTO(gameService.deleteGame(gameId));
     }

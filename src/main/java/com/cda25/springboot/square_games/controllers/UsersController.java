@@ -20,26 +20,26 @@ public class UsersController {
     @Autowired
     private UsersRepository usersRepository;
 
-    @GetMapping("/")
+    @GetMapping("")
     public Iterable<UsersDTO> getAllUsers() {
         Collection<UsersEntity> usersEntities = usersRepository.findAll();
         log.info("GET (/users) : " + usersEntities.stream().map(UsersEntity::getId).toList());
         return UsersDTOs.createUsersDTO(usersEntities);
     }
 
-    @PostMapping("/")
+    @PostMapping("")
     public UsersDTO createUser(@RequestBody UsersDTO userDTO) {
         log.info("POST (/users) : " + userDTO.firstName() + " " + userDTO.lastName());
         return UsersDTO.createUserDTO(usersRepository.save(new UsersEntity(userDTO)));
     }
 
-    @GetMapping("/{userId}")
+    @GetMapping("{userId}")
     public UsersDTO getUserFromId(@PathVariable String userId) {
         log.info("GET (/users/{userId) : " + userId);
         return UsersDTO.createUserDTO(usersRepository.findById(UUID.fromString(userId)).orElse(null));
     }
 
-    @PutMapping("/{userId}")
+    @PutMapping("{userId}")
     public UsersDTO updateUser(@PathVariable String userId,
                                @RequestBody UsersDTO userDTO) {
         log.info("PUT (/users/{userId) : " + userId);
@@ -50,7 +50,7 @@ public class UsersController {
         return UsersDTO.createUserDTO(usersEntity.get());
     }
 
-    @DeleteMapping("/{userId}")
+    @DeleteMapping("{userId}")
     public UsersDTO deleteUser(@PathVariable String userId) {
         log.info("DELETE (/users/{userId) : " + userId);
         Optional<UsersEntity> usersEntity = usersRepository.findById(UUID.fromString(userId));

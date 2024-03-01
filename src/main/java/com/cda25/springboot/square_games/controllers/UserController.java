@@ -22,7 +22,7 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
-    @GetMapping("/")
+    @GetMapping("")
     public Iterable<UserDTO> getAllUsers() {
         Iterable<UserEntity> userEntities = userRepository.findAll();
         Collection<UserEntity> users = new ArrayList<>();
@@ -31,19 +31,19 @@ public class UserController {
         return UserDTOs.createUsersDTO(users);
     }
 
-    @PostMapping("/")
+    @PostMapping("")
     public UserDTO createUser(@Valid @RequestBody UserDTO userDTO) {
         log.info("POST (/user) : " + userDTO.id() + " " + userDTO.username());
         return UserDTO.createUserDTO(userRepository.save(new UserEntity(userDTO)));
     }
 
-    @GetMapping("/{userId}")
+    @GetMapping("{userId}")
     public UserDTO getUserFromId(@PathVariable String userId) {
         log.info("GET (/user/{userId) : " + userId);
         return UserDTO.createUserDTO(userRepository.findById(parseLong(userId)).orElse(null));
     }
 
-    @PutMapping("/{userId}")
+    @PutMapping("{userId}")
     public UserDTO updateUserPassword(@PathVariable String userId,
                                       @Valid @RequestBody String password) {
         log.info("PUT (/user/{userId) : " + userId);
@@ -56,7 +56,7 @@ public class UserController {
         return isPresent ? UserDTO.createUserDTO(userEntity.get()) : null;
     }
 
-    @DeleteMapping("/{userId}")
+    @DeleteMapping("{userId}")
     public UserDTO deleteUser(@PathVariable String userId) {
         log.info("DELETE (/user/{userId) : " + userId);
         Optional<UserEntity> userEntity = userRepository.findById(parseLong(userId));
