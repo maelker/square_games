@@ -432,3 +432,12 @@
 2024-03-01T11:57:03.900+01:00  INFO 14528 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Starting SquareGamesApplication using Java 21.0.2 with PID 14528 (C:\Users\molos\Documents\SpringBoot\square_games\target\classes started by molos in C:\Users\molos\Documents\SpringBoot\square_games)
 2024-03-01T11:57:03.902+01:00 DEBUG 14528 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Running with Spring Boot v3.2.2, Spring v6.1.3
 2024-03-01T11:57:03.903+01:00  INFO 14528 --- [restartedMain] c.c.s.s.SquareGamesApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-03-01T11:58:27.910+01:00  INFO 2008 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Starting SquareGamesApplication using Java 21.0.2 with PID 2008 (C:\Users\molos\Documents\SpringBoot\square_games\target\classes started by molos in C:\Users\molos\Documents\SpringBoot\square_games)
+2024-03-01T11:58:27.912+01:00 DEBUG 2008 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Running with Spring Boot v3.2.2, Spring v6.1.3
+2024-03-01T11:58:27.912+01:00  INFO 2008 --- [restartedMain] c.c.s.s.SquareGamesApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-03-01T12:00:43.999+01:00  INFO 5648 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Starting SquareGamesApplication using Java 21.0.2 with PID 5648 (C:\Users\molos\Documents\SpringBoot\square_games\target\classes started by molos in C:\Users\molos\Documents\SpringBoot\square_games)
+2024-03-01T12:00:44.000+01:00 DEBUG 5648 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Running with Spring Boot v3.2.2, Spring v6.1.3
+2024-03-01T12:00:44.001+01:00  INFO 5648 --- [restartedMain] c.c.s.s.SquareGamesApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-03-01T12:02:04.686+01:00  INFO 21700 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Starting SquareGamesApplication using Java 21.0.2 with PID 21700 (C:\Users\molos\Documents\SpringBoot\square_games\target\classes started by molos in C:\Users\molos\Documents\SpringBoot\square_games)
+2024-03-01T12:02:04.687+01:00 DEBUG 21700 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Running with Spring Boot v3.2.2, Spring v6.1.3
+2024-03-01T12:02:04.688+01:00  INFO 21700 --- [restartedMain] c.c.s.s.SquareGamesApplication           : No active profile set, falling back to 1 default profile: "default"
