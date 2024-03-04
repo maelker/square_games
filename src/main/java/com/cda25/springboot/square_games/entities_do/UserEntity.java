@@ -33,24 +33,19 @@ public class UserEntity implements UserDetails {
     @Column(name = "role")
     private String role;
     @Column(name = "is_account_non_expired", nullable = false, columnDefinition = "boolean default true")
-    private boolean isAccountNonExpired;
+    private boolean isAccountNonExpired = true;
     @Column(name = "is_account _non_locked", nullable = false, columnDefinition = "boolean default true")
-    private boolean isAccountNonLocked;
+    private boolean isAccountNonLocked = true;
     @Column(name = "is_credentials_non_expired", nullable = false, columnDefinition = "boolean default true")
-    private boolean isCredentialsNonExpired;
+    private boolean isCredentialsNonExpired = true;
     @Column(name = "is_enabled", nullable = false, columnDefinition = "boolean default true")
-    private boolean isEnabled;
+    private boolean isEnabled = true;
 
 
     public UserEntity(UserDTO userDTO) {
-        id = userDTO.id();
         password = userDTO.password();
         username = userDTO.username();
         role = userDTO.role();
-        isAccountNonExpired = userDTO.isAccountNonExpired();
-        isAccountNonLocked = userDTO.isAccountNonLocked();
-        isCredentialsNonExpired = userDTO.isCredentialsNonExpired();
-        isEnabled = userDTO.isEnabled();
     }
 
     @Override

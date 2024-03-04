@@ -56,6 +56,7 @@ class JwtTokenAuthenticationFilter extends OncePerRequestFilter {
                 usernamePasswordAuthenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
 
                 SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
+
                 log.info("Successfully authenticated.");
             } else {
                 log.error("JWT Token expired. Log-in again.");

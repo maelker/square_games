@@ -37,7 +37,7 @@ public class UserController {
 
     @PostMapping("")
     public UserDTO createUser(@Valid @RequestBody UserDTO userDTO) {
-        log.info("POST (/user) : " + userDTO.id() + " " + userDTO.username());
+        log.info("POST (/user) : " + userDTO.username());
         UserEntity userEntity = new UserEntity(userDTO);
         userEntity.setPassword(passwordEncoder.encode(userEntity.getPassword()));
         return UserDTO.createUserDTO(userRepository.save(userEntity));

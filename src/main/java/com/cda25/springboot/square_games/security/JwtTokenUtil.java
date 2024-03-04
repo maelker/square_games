@@ -4,6 +4,7 @@ package com.cda25.springboot.square_games.security;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
@@ -23,7 +24,8 @@ public class JwtTokenUtil implements Serializable {
 
     public static final long JWT_TOKEN_VALIDITY = 60 * 60;
 
-    private final String secret = "e3172e51b2f84cb4745ce828ef4707791fe7143a0b3d3a450eec07fac16a1040cf734c09b9466072a82a2e5e99e4332cfac407f00140553b69469c95177233b2";
+    @Value("${secret}")
+    private String secret;
 
     public String getUsernameFromToken(String token) {
         return getClaimFromToken(token, Claims::getSubject);

@@ -902,3 +902,465 @@ java.lang.IllegalArgumentException: JWT String argument cannot be null or empty.
 2024-03-04T15:52:08.396+01:00  WARN 16972 --- [http-nio-8080-exec-2] c.c.s.s.s.JwtTokenAuthenticationFilter   : JWT Token does not begin with Bearer String
 2024-03-04T15:52:08.397+01:00  INFO 16972 --- [http-nio-8080-exec-2] c.c.s.s.s.JwtTokenAuthenticationFilter   : Please authenticate.
 2024-03-04T15:52:08.408+01:00  WARN 16972 --- [http-nio-8080-exec-2] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2024-03-04T15:55:06.397+01:00  INFO 16972 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-03-04T15:55:06.411+01:00  INFO 16972 --- [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-04T15:55:06.414+01:00  INFO 16972 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-03-04T15:55:06.432+01:00  INFO 16972 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-03-04T15:55:06.531+01:00  INFO 16972 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Starting SquareGamesApplication using Java 21.0.2 with PID 16972 (C:\Users\molos\Documents\SpringBoot\square_games\target\classes started by molos in C:\Users\molos\Documents\SpringBoot\square_games)
+2024-03-04T15:55:06.531+01:00  INFO 16972 --- [restartedMain] c.c.s.s.SquareGamesApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-03-04T15:55:06.930+01:00  INFO 16972 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-04T15:55:06.961+01:00  INFO 16972 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 29 ms. Found 2 JPA repository interfaces.
+2024-03-04T15:55:07.186+01:00  INFO 16972 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-03-04T15:55:07.188+01:00  INFO 16972 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-03-04T15:55:07.188+01:00  INFO 16972 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-04T15:55:07.223+01:00  INFO 16972 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-03-04T15:55:07.223+01:00  INFO 16972 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 689 ms
+2024-03-04T15:55:07.275+01:00  INFO 16972 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-04T15:55:07.280+01:00  INFO 16972 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-03-04T15:55:07.287+01:00  INFO 16972 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-04T15:55:07.289+01:00  INFO 16972 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2024-03-04T15:55:07.315+01:00  INFO 16972 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6b00ea44
+2024-03-04T15:55:07.316+01:00  INFO 16972 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2024-03-04T15:55:07.399+01:00  INFO 16972 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-03-04T15:55:07.426+01:00  INFO 16972 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-04T15:55:07.877+01:00  INFO 16972 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@12bc8bac, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@155cd83e, org.springframework.security.web.context.SecurityContextHolderFilter@5c3115a2, org.springframework.security.web.header.HeaderWriterFilter@1af290e, org.springframework.web.filter.CorsFilter@661837b1, org.springframework.security.web.authentication.logout.LogoutFilter@d63d8a2, com.cda25.springboot.square_games.security.JwtTokenAuthenticationFilter@2d54b630, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@6555da58, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@68d0c3e6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@10cf60ab, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5b43b9dd, org.springframework.security.web.session.SessionManagementFilter@435c97cc, org.springframework.security.web.access.ExceptionTranslationFilter@2a93c8da, org.springframework.security.web.access.intercept.AuthorizationFilter@76e0baee]
+2024-03-04T15:55:08.012+01:00  INFO 16972 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-03-04T15:55:08.040+01:00  INFO 16972 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-03-04T15:55:08.043+01:00  INFO 16972 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Started SquareGamesApplication in 1.549 seconds (process running for 216.935)
+2024-03-04T15:55:08.045+01:00  INFO 16972 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-03-04T16:04:41.037+01:00  INFO 16972 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-03-04T16:04:41.053+01:00  INFO 16972 --- [Thread-7] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-04T16:04:41.054+01:00  INFO 16972 --- [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2024-03-04T16:04:41.110+01:00  INFO 16972 --- [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2024-03-04T16:04:41.211+01:00  INFO 16972 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Starting SquareGamesApplication using Java 21.0.2 with PID 16972 (C:\Users\molos\Documents\SpringBoot\square_games\target\classes started by molos in C:\Users\molos\Documents\SpringBoot\square_games)
+2024-03-04T16:04:41.211+01:00  INFO 16972 --- [restartedMain] c.c.s.s.SquareGamesApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-03-04T16:04:41.514+01:00  INFO 16972 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-04T16:04:41.535+01:00  INFO 16972 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20 ms. Found 2 JPA repository interfaces.
+2024-03-04T16:04:41.661+01:00  INFO 16972 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-03-04T16:04:41.661+01:00  INFO 16972 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-03-04T16:04:41.662+01:00  INFO 16972 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-04T16:04:41.693+01:00  INFO 16972 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-03-04T16:04:41.694+01:00  INFO 16972 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 480 ms
+2024-03-04T16:04:41.783+01:00  INFO 16972 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-04T16:04:41.799+01:00  INFO 16972 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-03-04T16:04:41.809+01:00  INFO 16972 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-04T16:04:41.812+01:00  INFO 16972 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2024-03-04T16:04:41.845+01:00  INFO 16972 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6925cd95
+2024-03-04T16:04:41.845+01:00  INFO 16972 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2024-03-04T16:04:41.923+01:00  INFO 16972 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-03-04T16:04:41.941+01:00  INFO 16972 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-04T16:04:42.393+01:00  INFO 16972 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@531e4190, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@10a29874, org.springframework.security.web.context.SecurityContextHolderFilter@75361e1b, org.springframework.security.web.header.HeaderWriterFilter@771b937f, org.springframework.web.filter.CorsFilter@54ab51ec, org.springframework.security.web.authentication.logout.LogoutFilter@7a4efdbe, com.cda25.springboot.square_games.security.JwtTokenAuthenticationFilter@d650040, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@5e30f4e5, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@303b48b4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1b10b5a7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2cd6c2bd, org.springframework.security.web.session.SessionManagementFilter@33d2f57a, org.springframework.security.web.access.ExceptionTranslationFilter@7084809, org.springframework.security.web.access.intercept.AuthorizationFilter@e79568a]
+2024-03-04T16:04:42.499+01:00  INFO 16972 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-03-04T16:04:42.515+01:00  INFO 16972 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-03-04T16:04:42.518+01:00  INFO 16972 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Started SquareGamesApplication in 1.341 seconds (process running for 791.41)
+2024-03-04T16:04:42.520+01:00  INFO 16972 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-03-04T16:04:56.468+01:00  INFO 16972 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-03-04T16:04:56.486+01:00  INFO 16972 --- [Thread-11] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-04T16:04:56.487+01:00  INFO 16972 --- [Thread-11] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2024-03-04T16:04:56.506+01:00  INFO 16972 --- [Thread-11] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2024-03-04T16:04:56.620+01:00  INFO 16972 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Starting SquareGamesApplication using Java 21.0.2 with PID 16972 (C:\Users\molos\Documents\SpringBoot\square_games\target\classes started by molos in C:\Users\molos\Documents\SpringBoot\square_games)
+2024-03-04T16:04:56.621+01:00  INFO 16972 --- [restartedMain] c.c.s.s.SquareGamesApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-03-04T16:04:57.043+01:00  INFO 16972 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-04T16:04:57.070+01:00  INFO 16972 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 25 ms. Found 2 JPA repository interfaces.
+2024-03-04T16:04:57.227+01:00  INFO 16972 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-03-04T16:04:57.228+01:00  INFO 16972 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-03-04T16:04:57.228+01:00  INFO 16972 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-04T16:04:57.268+01:00  INFO 16972 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-03-04T16:04:57.268+01:00  INFO 16972 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 643 ms
+2024-03-04T16:04:57.322+01:00  INFO 16972 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-04T16:04:57.326+01:00  INFO 16972 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-03-04T16:04:57.332+01:00  INFO 16972 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-04T16:04:57.333+01:00  INFO 16972 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2024-03-04T16:04:57.358+01:00  INFO 16972 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-4 - Added connection com.mysql.cj.jdbc.ConnectionImpl@42780d83
+2024-03-04T16:04:57.359+01:00  INFO 16972 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2024-03-04T16:04:57.417+01:00  INFO 16972 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-03-04T16:04:57.434+01:00  INFO 16972 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-04T16:04:57.833+01:00  INFO 16972 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@779b3ef5, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@18b929f1, org.springframework.security.web.context.SecurityContextHolderFilter@100ab9de, org.springframework.security.web.header.HeaderWriterFilter@77a62658, org.springframework.web.filter.CorsFilter@29e7caa5, org.springframework.security.web.authentication.logout.LogoutFilter@6bbe34ba, com.cda25.springboot.square_games.security.JwtTokenAuthenticationFilter@1226391d, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@6d1acc08, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3d3b69ef, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7be91cf6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3c64d13a, org.springframework.security.web.session.SessionManagementFilter@5fa1444d, org.springframework.security.web.access.ExceptionTranslationFilter@74eb3efe, org.springframework.security.web.access.intercept.AuthorizationFilter@3e11efcc]
+2024-03-04T16:04:57.955+01:00  INFO 16972 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-03-04T16:04:57.973+01:00  INFO 16972 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-03-04T16:04:57.978+01:00  INFO 16972 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Started SquareGamesApplication in 1.409 seconds (process running for 806.87)
+2024-03-04T16:04:57.980+01:00  INFO 16972 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-03-04T16:10:09.986+01:00  INFO 16972 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-03-04T16:10:09.997+01:00  INFO 16972 --- [Thread-15] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-04T16:10:09.998+01:00  INFO 16972 --- [Thread-15] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
+2024-03-04T16:10:10.017+01:00  INFO 16972 --- [Thread-15] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
+2024-03-04T16:10:10.117+01:00  INFO 16972 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Starting SquareGamesApplication using Java 21.0.2 with PID 16972 (C:\Users\molos\Documents\SpringBoot\square_games\target\classes started by molos in C:\Users\molos\Documents\SpringBoot\square_games)
+2024-03-04T16:10:10.117+01:00  INFO 16972 --- [restartedMain] c.c.s.s.SquareGamesApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-03-04T16:10:10.488+01:00  INFO 16972 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-04T16:10:10.509+01:00  INFO 16972 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20 ms. Found 2 JPA repository interfaces.
+2024-03-04T16:10:10.670+01:00  INFO 16972 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-03-04T16:10:10.672+01:00  INFO 16972 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-03-04T16:10:10.672+01:00  INFO 16972 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-04T16:10:10.708+01:00  INFO 16972 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-03-04T16:10:10.709+01:00  INFO 16972 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 589 ms
+2024-03-04T16:10:10.762+01:00  INFO 16972 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-04T16:10:10.767+01:00  INFO 16972 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-03-04T16:10:10.773+01:00  INFO 16972 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-04T16:10:10.774+01:00  INFO 16972 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Starting...
+2024-03-04T16:10:10.812+01:00  INFO 16972 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-5 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7a281829
+2024-03-04T16:10:10.812+01:00  INFO 16972 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Start completed.
+2024-03-04T16:10:10.888+01:00  INFO 16972 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-03-04T16:10:10.909+01:00  INFO 16972 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-04T16:10:11.604+01:00  INFO 16972 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1eb98e0d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@54c3c723, org.springframework.security.web.context.SecurityContextHolderFilter@38f351b0, org.springframework.security.web.header.HeaderWriterFilter@f8720a7, org.springframework.web.filter.CorsFilter@5e85c956, org.springframework.security.web.authentication.logout.LogoutFilter@709a1059, com.cda25.springboot.square_games.security.JwtTokenAuthenticationFilter@32fc934f, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@45753c1d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5f63f556, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@69d77405, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6067bafb, org.springframework.security.web.session.SessionManagementFilter@3a082d62, org.springframework.security.web.access.ExceptionTranslationFilter@72d2a4bc, org.springframework.security.web.access.intercept.AuthorizationFilter@65cde025]
+2024-03-04T16:10:11.934+01:00  INFO 16972 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-03-04T16:10:11.989+01:00  INFO 16972 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-03-04T16:10:12.002+01:00  INFO 16972 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Started SquareGamesApplication in 1.924 seconds (process running for 1120.894)
+2024-03-04T16:10:12.006+01:00  INFO 16972 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-03-04T16:16:01.037+01:00  INFO 16972 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 2 class path changes (0 additions, 1 deletion, 1 modification)
+2024-03-04T16:16:01.047+01:00  INFO 16972 --- [Thread-19] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-04T16:16:01.048+01:00  INFO 16972 --- [Thread-19] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown initiated...
+2024-03-04T16:16:01.064+01:00  INFO 16972 --- [Thread-19] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown completed.
+2024-03-04T16:16:01.167+01:00  INFO 16972 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Starting SquareGamesApplication using Java 21.0.2 with PID 16972 (C:\Users\molos\Documents\SpringBoot\square_games\target\classes started by molos in C:\Users\molos\Documents\SpringBoot\square_games)
+2024-03-04T16:16:01.168+01:00  INFO 16972 --- [restartedMain] c.c.s.s.SquareGamesApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-03-04T16:16:01.658+01:00  INFO 16972 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-04T16:16:01.684+01:00  INFO 16972 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 25 ms. Found 2 JPA repository interfaces.
+2024-03-04T16:16:01.968+01:00  INFO 16972 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-03-04T16:16:01.969+01:00  INFO 16972 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-03-04T16:16:01.969+01:00  INFO 16972 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-04T16:16:02.003+01:00  INFO 16972 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-03-04T16:16:02.003+01:00  INFO 16972 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 832 ms
+2024-03-04T16:16:02.047+01:00  INFO 16972 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-04T16:16:02.051+01:00  INFO 16972 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-03-04T16:16:02.056+01:00  INFO 16972 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-04T16:16:02.058+01:00  INFO 16972 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Starting...
+2024-03-04T16:16:02.081+01:00  INFO 16972 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-6 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7eef62da
+2024-03-04T16:16:02.081+01:00  INFO 16972 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Start completed.
+2024-03-04T16:16:02.164+01:00  INFO 16972 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-03-04T16:16:02.182+01:00  INFO 16972 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-04T16:16:03.215+01:00  INFO 16972 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@26244fe0, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6a3d1f1c, org.springframework.security.web.context.SecurityContextHolderFilter@2351272e, org.springframework.security.web.header.HeaderWriterFilter@60ca37c3, org.springframework.web.filter.CorsFilter@262a6343, org.springframework.security.web.authentication.logout.LogoutFilter@6c56198, com.cda25.springboot.square_games.security.JwtTokenAuthenticationFilter@2cd53c19, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@bc036a1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4ebcc9a0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7ff99b9b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@280a2d2c, org.springframework.security.web.session.SessionManagementFilter@17a4af7, org.springframework.security.web.access.ExceptionTranslationFilter@4d541a8e, org.springframework.security.web.access.intercept.AuthorizationFilter@1d0a2a22]
+2024-03-04T16:16:03.391+01:00  INFO 16972 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-03-04T16:16:03.420+01:00  INFO 16972 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-03-04T16:16:03.433+01:00  INFO 16972 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Started SquareGamesApplication in 2.303 seconds (process running for 1472.325)
+2024-03-04T16:16:03.435+01:00  INFO 16972 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-03-04T16:16:05.906+01:00  INFO 16972 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (1 addition, 0 deletions, 0 modifications)
+2024-03-04T16:16:05.914+01:00  INFO 16972 --- [Thread-23] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-04T16:16:05.914+01:00  INFO 16972 --- [Thread-23] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown initiated...
+2024-03-04T16:16:05.929+01:00  INFO 16972 --- [Thread-23] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown completed.
+2024-03-04T16:16:06.022+01:00  INFO 16972 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Starting SquareGamesApplication using Java 21.0.2 with PID 16972 (C:\Users\molos\Documents\SpringBoot\square_games\target\classes started by molos in C:\Users\molos\Documents\SpringBoot\square_games)
+2024-03-04T16:16:06.022+01:00  INFO 16972 --- [restartedMain] c.c.s.s.SquareGamesApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-03-04T16:16:06.394+01:00  INFO 16972 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-04T16:16:06.427+01:00  INFO 16972 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 31 ms. Found 2 JPA repository interfaces.
+2024-03-04T16:16:06.591+01:00  INFO 16972 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-03-04T16:16:06.592+01:00  INFO 16972 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-03-04T16:16:06.592+01:00  INFO 16972 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-04T16:16:06.631+01:00  INFO 16972 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-03-04T16:16:06.631+01:00  INFO 16972 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 607 ms
+2024-03-04T16:16:06.680+01:00  INFO 16972 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-04T16:16:06.685+01:00  INFO 16972 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-03-04T16:16:06.691+01:00  INFO 16972 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-04T16:16:06.693+01:00  INFO 16972 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Starting...
+2024-03-04T16:16:06.724+01:00  INFO 16972 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Added connection com.mysql.cj.jdbc.ConnectionImpl@36e24658
+2024-03-04T16:16:06.724+01:00  INFO 16972 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Start completed.
+2024-03-04T16:16:06.814+01:00  INFO 16972 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-03-04T16:16:06.831+01:00  INFO 16972 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-04T16:16:07.216+01:00  INFO 16972 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7df27306, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1330cb51, org.springframework.security.web.context.SecurityContextHolderFilter@18096ec4, org.springframework.security.web.header.HeaderWriterFilter@124b9d0a, org.springframework.web.filter.CorsFilter@119ad720, org.springframework.security.web.authentication.logout.LogoutFilter@6a09cfa1, com.cda25.springboot.square_games.security.JwtTokenAuthenticationFilter@5e2d462c, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@59a2cb54, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6e5a4319, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@20b73015, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@30a964ac, org.springframework.security.web.session.SessionManagementFilter@713d06da, org.springframework.security.web.access.ExceptionTranslationFilter@f3f3357, org.springframework.security.web.access.intercept.AuthorizationFilter@4f59ae31]
+2024-03-04T16:16:07.327+01:00  INFO 16972 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-03-04T16:16:07.341+01:00  INFO 16972 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-03-04T16:16:07.345+01:00  INFO 16972 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Started SquareGamesApplication in 1.355 seconds (process running for 1476.237)
+2024-03-04T16:16:07.346+01:00  INFO 16972 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-03-04T16:17:16.441+01:00  INFO 16972 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-03-04T16:17:16.450+01:00  INFO 16972 --- [Thread-27] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-04T16:17:16.451+01:00  INFO 16972 --- [Thread-27] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown initiated...
+2024-03-04T16:17:16.469+01:00  INFO 16972 --- [Thread-27] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown completed.
+2024-03-04T16:17:16.601+01:00  INFO 16972 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Starting SquareGamesApplication using Java 21.0.2 with PID 16972 (C:\Users\molos\Documents\SpringBoot\square_games\target\classes started by molos in C:\Users\molos\Documents\SpringBoot\square_games)
+2024-03-04T16:17:16.602+01:00  INFO 16972 --- [restartedMain] c.c.s.s.SquareGamesApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-03-04T16:17:16.912+01:00  INFO 16972 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-04T16:17:16.934+01:00  INFO 16972 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 21 ms. Found 2 JPA repository interfaces.
+2024-03-04T16:17:17.061+01:00  INFO 16972 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-03-04T16:17:17.062+01:00  INFO 16972 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-03-04T16:17:17.062+01:00  INFO 16972 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-04T16:17:17.096+01:00  INFO 16972 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-03-04T16:17:17.096+01:00  INFO 16972 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 491 ms
+2024-03-04T16:17:17.187+01:00  INFO 16972 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-04T16:17:17.193+01:00  INFO 16972 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-03-04T16:17:17.199+01:00  INFO 16972 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-04T16:17:17.200+01:00  INFO 16972 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Starting...
+2024-03-04T16:17:17.224+01:00  INFO 16972 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-8 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6357deab
+2024-03-04T16:17:17.224+01:00  INFO 16972 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Start completed.
+2024-03-04T16:17:17.275+01:00  INFO 16972 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-03-04T16:17:17.289+01:00  INFO 16972 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-04T16:17:17.668+01:00  INFO 16972 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@11900486, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@283375e2, org.springframework.security.web.context.SecurityContextHolderFilter@705101f1, org.springframework.security.web.header.HeaderWriterFilter@ef3e546, org.springframework.web.filter.CorsFilter@5a2ae84e, org.springframework.security.web.authentication.logout.LogoutFilter@e65aa15, com.cda25.springboot.square_games.security.JwtTokenAuthenticationFilter@5901e6f7, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@328635c1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2d844f21, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3c4c5602, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@48247d65, org.springframework.security.web.session.SessionManagementFilter@133b3fd9, org.springframework.security.web.access.ExceptionTranslationFilter@1bc8c802, org.springframework.security.web.access.intercept.AuthorizationFilter@5f35bbd9]
+2024-03-04T16:17:17.763+01:00  INFO 16972 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-03-04T16:17:17.784+01:00  INFO 16972 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-03-04T16:17:17.787+01:00  INFO 16972 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Started SquareGamesApplication in 1.238 seconds (process running for 1546.68)
+2024-03-04T16:17:17.789+01:00  INFO 16972 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-03-04T16:20:15.068+01:00  INFO 16972 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-03-04T16:20:15.077+01:00  INFO 16972 --- [Thread-31] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-04T16:20:15.078+01:00  INFO 16972 --- [Thread-31] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown initiated...
+2024-03-04T16:20:15.092+01:00  INFO 16972 --- [Thread-31] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown completed.
+2024-03-04T16:20:15.182+01:00  INFO 16972 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Starting SquareGamesApplication using Java 21.0.2 with PID 16972 (C:\Users\molos\Documents\SpringBoot\square_games\target\classes started by molos in C:\Users\molos\Documents\SpringBoot\square_games)
+2024-03-04T16:20:15.182+01:00  INFO 16972 --- [restartedMain] c.c.s.s.SquareGamesApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-03-04T16:20:15.528+01:00  INFO 16972 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-04T16:20:15.547+01:00  INFO 16972 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 2 JPA repository interfaces.
+2024-03-04T16:20:15.695+01:00  INFO 16972 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-03-04T16:20:15.696+01:00  INFO 16972 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-03-04T16:20:15.696+01:00  INFO 16972 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-04T16:20:15.735+01:00  INFO 16972 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-03-04T16:20:15.735+01:00  INFO 16972 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 551 ms
+2024-03-04T16:20:15.797+01:00  INFO 16972 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-04T16:20:15.801+01:00  INFO 16972 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-03-04T16:20:15.806+01:00  INFO 16972 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-04T16:20:15.807+01:00  INFO 16972 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Starting...
+2024-03-04T16:20:15.826+01:00  INFO 16972 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-9 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4eab9def
+2024-03-04T16:20:15.827+01:00  INFO 16972 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Start completed.
+2024-03-04T16:20:15.873+01:00  INFO 16972 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-03-04T16:20:15.885+01:00  INFO 16972 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-04T16:20:16.210+01:00  INFO 16972 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7d26e761, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@40d47c0, org.springframework.security.web.context.SecurityContextHolderFilter@2f2e64da, org.springframework.security.web.header.HeaderWriterFilter@1d2f230a, org.springframework.web.filter.CorsFilter@756fef5a, org.springframework.security.web.authentication.logout.LogoutFilter@7acd4a33, com.cda25.springboot.square_games.security.JwtTokenAuthenticationFilter@4d5c665e, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@6d2aa425, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@d88e6c4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@69dbb30c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@78b9d7b, org.springframework.security.web.session.SessionManagementFilter@5b0281f8, org.springframework.security.web.access.ExceptionTranslationFilter@581f4378, org.springframework.security.web.access.intercept.AuthorizationFilter@4cebba0]
+2024-03-04T16:20:16.296+01:00  INFO 16972 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-03-04T16:20:16.308+01:00  INFO 16972 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-03-04T16:20:16.311+01:00  INFO 16972 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Started SquareGamesApplication in 1.157 seconds (process running for 1725.202)
+2024-03-04T16:20:16.312+01:00  INFO 16972 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-03-04T16:20:17.770+01:00  INFO 16972 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-04T16:20:17.770+01:00  INFO 16972 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-03-04T16:20:17.772+01:00  INFO 16972 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-03-04T16:20:17.774+01:00  WARN 16972 --- [http-nio-8080-exec-1] c.c.s.s.s.JwtTokenAuthenticationFilter   : JWT Token does not begin with Bearer String
+2024-03-04T16:20:17.774+01:00  INFO 16972 --- [http-nio-8080-exec-1] c.c.s.s.s.JwtTokenAuthenticationFilter   : Please authenticate.
+2024-03-04T16:20:17.937+01:00  WARN 16972 --- [http-nio-8080-exec-1] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2024-03-04T16:20:29.414+01:00  WARN 16972 --- [http-nio-8080-exec-2] c.c.s.s.s.JwtTokenAuthenticationFilter   : JWT Token does not begin with Bearer String
+2024-03-04T16:20:29.414+01:00  INFO 16972 --- [http-nio-8080-exec-2] c.c.s.s.s.JwtTokenAuthenticationFilter   : Please authenticate.
+2024-03-04T16:20:29.589+01:00  INFO 16972 --- [http-nio-8080-exec-2] c.c.s.s.c.AuthenticationController       : Token generated
+2024-03-04T16:20:47.367+01:00  INFO 16972 --- [http-nio-8080-exec-3] c.c.s.s.s.JwtTokenAuthenticationFilter   : User found.
+2024-03-04T16:20:47.376+01:00  INFO 16972 --- [http-nio-8080-exec-3] c.c.s.s.s.JwtTokenAuthenticationFilter   : Successfully authenticated.
+2024-03-04T16:20:47.413+01:00  INFO 16972 --- [http-nio-8080-exec-3] c.c.s.s.controllers.UserController       : GET (/user) : [1, 2, 102]
+2024-03-04T16:23:56.233+01:00  INFO 16972 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-04T16:23:56.234+01:00  INFO 16972 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown initiated...
+2024-03-04T16:23:56.249+01:00  INFO 16972 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown completed.
+2024-03-04T16:27:44.823+01:00  INFO 17072 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Starting SquareGamesApplication using Java 21.0.2 with PID 17072 (C:\Users\molos\Documents\SpringBoot\square_games\target\classes started by molos in C:\Users\molos\Documents\SpringBoot\square_games)
+2024-03-04T16:27:44.826+01:00  INFO 17072 --- [restartedMain] c.c.s.s.SquareGamesApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-03-04T16:27:44.899+01:00  INFO 17072 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-03-04T16:27:44.899+01:00  INFO 17072 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-03-04T16:27:46.126+01:00  INFO 17072 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-04T16:27:46.206+01:00  INFO 17072 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 71 ms. Found 2 JPA repository interfaces.
+2024-03-04T16:27:47.041+01:00  INFO 17072 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-03-04T16:27:47.056+01:00  INFO 17072 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-03-04T16:27:47.056+01:00  INFO 17072 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-04T16:27:47.123+01:00  INFO 17072 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-03-04T16:27:47.123+01:00  INFO 17072 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2223 ms
+2024-03-04T16:27:47.317+01:00  INFO 17072 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-04T16:27:47.413+01:00  INFO 17072 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.1.Final
+2024-03-04T16:27:47.502+01:00  INFO 17072 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-03-04T16:27:47.899+01:00  INFO 17072 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-04T16:27:47.937+01:00  INFO 17072 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-03-04T16:27:48.317+01:00  INFO 17072 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6197fd50
+2024-03-04T16:27:48.320+01:00  INFO 17072 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-03-04T16:27:49.586+01:00  INFO 17072 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-03-04T16:27:49.660+01:00  INFO 17072 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-04T16:27:50.765+01:00  INFO 17072 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6e144c40, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6c20e963, org.springframework.security.web.context.SecurityContextHolderFilter@7a6a82aa, org.springframework.security.web.header.HeaderWriterFilter@369633f3, org.springframework.web.filter.CorsFilter@11313f06, org.springframework.security.web.authentication.logout.LogoutFilter@1bb1912f, com.cda25.springboot.square_games.security.JwtTokenAuthenticationFilter@56a58a8c, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@4d560756, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@18bd1587, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@590ddd6c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1a9faa54, org.springframework.security.web.session.SessionManagementFilter@1170fb25, org.springframework.security.web.access.ExceptionTranslationFilter@7aa46f98, org.springframework.security.web.access.intercept.AuthorizationFilter@6bfc7c78]
+2024-03-04T16:27:51.135+01:00  INFO 17072 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-03-04T16:27:51.179+01:00  INFO 17072 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-03-04T16:27:51.187+01:00  INFO 17072 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Started SquareGamesApplication in 6.857 seconds (process running for 7.81)
+2024-03-04T16:28:05.129+01:00  INFO 17072 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-04T16:28:05.129+01:00  INFO 17072 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-03-04T16:28:05.134+01:00  INFO 17072 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2024-03-04T16:28:05.176+01:00  WARN 17072 --- [http-nio-8080-exec-1] c.c.s.s.s.JwtTokenAuthenticationFilter   : JWT Token does not begin with Bearer String
+2024-03-04T16:28:05.176+01:00  INFO 17072 --- [http-nio-8080-exec-1] c.c.s.s.s.JwtTokenAuthenticationFilter   : Please authenticate.
+2024-03-04T16:28:05.787+01:00  INFO 17072 --- [http-nio-8080-exec-1] c.c.s.s.c.AuthenticationController       : Token generated
+2024-03-04T16:28:13.590+01:00  INFO 17072 --- [http-nio-8080-exec-2] c.c.s.s.s.JwtTokenAuthenticationFilter   : User found.
+2024-03-04T16:28:13.601+01:00  INFO 17072 --- [http-nio-8080-exec-2] c.c.s.s.s.JwtTokenAuthenticationFilter   : Successfully authenticated.
+2024-03-04T16:28:13.613+01:00  INFO 17072 --- [http-nio-8080-exec-2] c.c.s.s.controllers.UserController       : POST (/user) : userrAhAhaHaHAHah
+2024-03-04T16:28:30.404+01:00  WARN 17072 --- [http-nio-8080-exec-3] c.c.s.s.s.JwtTokenAuthenticationFilter   : JWT Token does not begin with Bearer String
+2024-03-04T16:28:30.405+01:00  INFO 17072 --- [http-nio-8080-exec-3] c.c.s.s.s.JwtTokenAuthenticationFilter   : Please authenticate.
+2024-03-04T16:28:30.418+01:00  INFO 17072 --- [http-nio-8080-exec-3] c.c.s.s.entities_do.UserEntity           : Account locked !
+2024-03-04T16:29:20.113+01:00  WARN 17072 --- [http-nio-8080-exec-4] c.c.s.s.s.JwtTokenAuthenticationFilter   : JWT Token does not begin with Bearer String
+2024-03-04T16:29:20.113+01:00  INFO 17072 --- [http-nio-8080-exec-4] c.c.s.s.s.JwtTokenAuthenticationFilter   : Please authenticate.
+2024-03-04T16:29:20.122+01:00 ERROR 17072 --- [http-nio-8080-exec-4] c.c.s.s.c.AuthenticationController       : Username or password incorrect
+2024-03-04T16:29:20.160+01:00  INFO 17072 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 2 class path changes (0 additions, 2 deletions, 0 modifications)
+2024-03-04T16:29:20.183+01:00  INFO 17072 --- [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-04T16:29:20.191+01:00  INFO 17072 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-03-04T16:29:20.235+01:00  INFO 17072 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-03-04T16:29:20.446+01:00  INFO 17072 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Starting SquareGamesApplication using Java 21.0.2 with PID 17072 (C:\Users\molos\Documents\SpringBoot\square_games\target\classes started by molos in C:\Users\molos\Documents\SpringBoot\square_games)
+2024-03-04T16:29:20.446+01:00  INFO 17072 --- [restartedMain] c.c.s.s.SquareGamesApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-03-04T16:29:20.778+01:00  INFO 17072 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-04T16:29:20.791+01:00  WARN 17072 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: java.lang.TypeNotPresentException: Type com.cda25.springboot.square_games.entities_do.UserEntity not present
+2024-03-04T16:29:20.794+01:00  INFO 17072 --- [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-03-04T16:29:20.819+01:00 ERROR 17072 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.TypeNotPresentException: Type com.cda25.springboot.square_games.entities_do.UserEntity not present
+	at java.base/sun.reflect.generics.factory.CoreReflectionFactory.makeNamedType(CoreReflectionFactory.java:117) ~[na:na]
+	at java.base/sun.reflect.generics.visitor.Reifier.visitClassTypeSignature(Reifier.java:125) ~[na:na]
+	at java.base/sun.reflect.generics.tree.ClassTypeSignature.accept(ClassTypeSignature.java:49) ~[na:na]
+	at java.base/sun.reflect.generics.visitor.Reifier.reifyTypeArguments(Reifier.java:68) ~[na:na]
+	at java.base/sun.reflect.generics.visitor.Reifier.visitClassTypeSignature(Reifier.java:138) ~[na:na]
+	at java.base/sun.reflect.generics.tree.ClassTypeSignature.accept(ClassTypeSignature.java:49) ~[na:na]
+	at java.base/sun.reflect.generics.repository.ClassRepository.computeSuperInterfaces(ClassRepository.java:117) ~[na:na]
+	at java.base/sun.reflect.generics.repository.ClassRepository.getSuperInterfaces(ClassRepository.java:95) ~[na:na]
+	at java.base/java.lang.Class.getGenericInterfaces(Class.java:1296) ~[na:na]
+	at org.springframework.core.ResolvableType.getInterfaces(ResolvableType.java:517) ~[spring-core-6.1.3.jar:6.1.3]
+	at org.springframework.core.ResolvableType.as(ResolvableType.java:465) ~[spring-core-6.1.3.jar:6.1.3]
+	at org.springframework.data.util.TypeDiscoverer.getSuperTypeInformation(TypeDiscoverer.java:254) ~[spring-data-commons-3.2.2.jar:3.2.2]
+	at org.springframework.data.util.ClassTypeInformation.getSuperTypeInformation(ClassTypeInformation.java:36) ~[spring-data-commons-3.2.2.jar:3.2.2]
+	at org.springframework.data.util.TypeInformation.getRequiredSuperTypeInformation(TypeInformation.java:327) ~[spring-data-commons-3.2.2.jar:3.2.2]
+	at org.springframework.data.repository.core.support.DefaultRepositoryMetadata.<init>(DefaultRepositoryMetadata.java:55) ~[spring-data-commons-3.2.2.jar:3.2.2]
+	at org.springframework.data.repository.core.support.AbstractRepositoryMetadata.getMetadata(AbstractRepositoryMetadata.java:77) ~[spring-data-commons-3.2.2.jar:3.2.2]
+	at org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport.getRepositoryConfigurations(RepositoryConfigurationExtensionSupport.java:91) ~[spring-data-commons-3.2.2.jar:3.2.2]
+	at org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:164) ~[spring-data-commons-3.2.2.jar:3.2.2]
+	at org.springframework.boot.autoconfigure.data.AbstractRepositoryConfigurationSourceSupport.registerBeanDefinitions(AbstractRepositoryConfigurationSourceSupport.java:62) ~[spring-boot-autoconfigure-3.2.2.jar:3.2.2]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.lambda$loadBeanDefinitionsFromRegistrars$1(ConfigurationClassBeanDefinitionReader.java:376) ~[spring-context-6.1.3.jar:6.1.3]
+	at java.base/java.util.LinkedHashMap.forEach(LinkedHashMap.java:986) ~[na:na]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsFromRegistrars(ConfigurationClassBeanDefinitionReader.java:375) ~[spring-context-6.1.3.jar:6.1.3]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:148) ~[spring-context-6.1.3.jar:6.1.3]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:120) ~[spring-context-6.1.3.jar:6.1.3]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:428) ~[spring-context-6.1.3.jar:6.1.3]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:289) ~[spring-context-6.1.3.jar:6.1.3]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:349) ~[spring-context-6.1.3.jar:6.1.3]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:118) ~[spring-context-6.1.3.jar:6.1.3]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:788) ~[spring-context-6.1.3.jar:6.1.3]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:606) ~[spring-context-6.1.3.jar:6.1.3]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.2.2.jar:3.2.2]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.2.2.jar:3.2.2]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.2.2.jar:3.2.2]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334) ~[spring-boot-3.2.2.jar:3.2.2]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-3.2.2.jar:3.2.2]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343) ~[spring-boot-3.2.2.jar:3.2.2]
+	at com.cda25.springboot.square_games.SquareGamesApplication.main(SquareGamesApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.2.2.jar:3.2.2]
+Caused by: java.lang.ClassNotFoundException: com.cda25.springboot.square_games.entities_do.UserEntity
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:534) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:513) ~[na:na]
+	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:121) ~[spring-boot-devtools-3.2.2.jar:3.2.2]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:534) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:513) ~[na:na]
+	at java.base/sun.reflect.generics.factory.CoreReflectionFactory.makeNamedType(CoreReflectionFactory.java:114) ~[na:na]
+	... 39 common frames omitted
+
+2024-03-04T16:29:23.364+01:00  INFO 17072 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Starting SquareGamesApplication using Java 21.0.2 with PID 17072 (C:\Users\molos\Documents\SpringBoot\square_games\target\classes started by molos in C:\Users\molos\Documents\SpringBoot\square_games)
+2024-03-04T16:29:23.365+01:00  INFO 17072 --- [restartedMain] c.c.s.s.SquareGamesApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-03-04T16:29:23.732+01:00  INFO 17072 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-04T16:29:23.757+01:00  INFO 17072 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 23 ms. Found 2 JPA repository interfaces.
+2024-03-04T16:29:23.922+01:00  INFO 17072 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-03-04T16:29:23.923+01:00  INFO 17072 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-03-04T16:29:23.923+01:00  INFO 17072 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-04T16:29:23.962+01:00  INFO 17072 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-03-04T16:29:23.962+01:00  INFO 17072 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 594 ms
+2024-03-04T16:29:24.011+01:00  INFO 17072 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-04T16:29:24.016+01:00  INFO 17072 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-03-04T16:29:24.022+01:00  INFO 17072 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-04T16:29:24.023+01:00  INFO 17072 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2024-03-04T16:29:24.050+01:00  INFO 17072 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3eae5aa2
+2024-03-04T16:29:24.051+01:00  INFO 17072 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2024-03-04T16:29:24.117+01:00  INFO 17072 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-03-04T16:29:24.134+01:00  INFO 17072 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-04T16:29:24.550+01:00  INFO 17072 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7b0f93c0, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1ec719c9, org.springframework.security.web.context.SecurityContextHolderFilter@7d642284, org.springframework.security.web.header.HeaderWriterFilter@2c86adcd, org.springframework.web.filter.CorsFilter@5c1b5712, org.springframework.security.web.authentication.logout.LogoutFilter@548e1576, com.cda25.springboot.square_games.security.JwtTokenAuthenticationFilter@73fd0deb, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@5f0e18f2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7bd7699, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1ecc5b66, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@746b11c7, org.springframework.security.web.session.SessionManagementFilter@730cbe8d, org.springframework.security.web.access.ExceptionTranslationFilter@7721b049, org.springframework.security.web.access.intercept.AuthorizationFilter@4480c3c0]
+2024-03-04T16:29:24.657+01:00  INFO 17072 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-03-04T16:29:24.674+01:00  INFO 17072 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-03-04T16:29:24.678+01:00  INFO 17072 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Started SquareGamesApplication in 1.349 seconds (process running for 101.3)
+2024-03-04T16:29:24.680+01:00  INFO 17072 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-03-04T16:29:24.755+01:00  INFO 17072 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-04T16:29:24.755+01:00  INFO 17072 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-03-04T16:29:24.757+01:00  INFO 17072 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-03-04T16:29:24.759+01:00  WARN 17072 --- [http-nio-8080-exec-1] c.c.s.s.s.JwtTokenAuthenticationFilter   : JWT Token does not begin with Bearer String
+2024-03-04T16:29:24.759+01:00  INFO 17072 --- [http-nio-8080-exec-1] c.c.s.s.s.JwtTokenAuthenticationFilter   : Please authenticate.
+2024-03-04T16:29:24.811+01:00 ERROR 17072 --- [http-nio-8080-exec-1] c.c.s.s.c.AuthenticationController       : Username or password incorrect
+2024-03-04T16:29:29.855+01:00  WARN 17072 --- [http-nio-8080-exec-2] c.c.s.s.s.JwtTokenAuthenticationFilter   : JWT Token does not begin with Bearer String
+2024-03-04T16:29:29.855+01:00  INFO 17072 --- [http-nio-8080-exec-2] c.c.s.s.s.JwtTokenAuthenticationFilter   : Please authenticate.
+2024-03-04T16:29:29.862+01:00 ERROR 17072 --- [http-nio-8080-exec-2] c.c.s.s.c.AuthenticationController       : Username or password incorrect
+2024-03-04T16:29:34.355+01:00  INFO 17072 --- [http-nio-8080-exec-3] c.c.s.s.s.JwtTokenAuthenticationFilter   : User found.
+2024-03-04T16:29:34.366+01:00  INFO 17072 --- [http-nio-8080-exec-3] c.c.s.s.s.JwtTokenAuthenticationFilter   : Successfully authenticated.
+2024-03-04T16:29:34.369+01:00  INFO 17072 --- [http-nio-8080-exec-3] c.c.s.s.controllers.UserController       : POST (/user) : userrAhAhaHaHAHah
+2024-03-04T16:29:43.695+01:00  WARN 17072 --- [http-nio-8080-exec-4] c.c.s.s.s.JwtTokenAuthenticationFilter   : JWT Token does not begin with Bearer String
+2024-03-04T16:29:43.695+01:00  INFO 17072 --- [http-nio-8080-exec-4] c.c.s.s.s.JwtTokenAuthenticationFilter   : Please authenticate.
+2024-03-04T16:29:43.930+01:00  INFO 17072 --- [http-nio-8080-exec-4] c.c.s.s.c.AuthenticationController       : Token generated
+2024-03-04T16:29:51.655+01:00  INFO 17072 --- [http-nio-8080-exec-5] c.c.s.s.s.JwtTokenAuthenticationFilter   : User found.
+2024-03-04T16:29:51.667+01:00  INFO 17072 --- [http-nio-8080-exec-5] c.c.s.s.s.JwtTokenAuthenticationFilter   : Successfully authenticated.
+2024-03-04T16:29:55.799+01:00  INFO 17072 --- [http-nio-8080-exec-6] c.c.s.s.s.JwtTokenAuthenticationFilter   : User found.
+2024-03-04T16:29:55.807+01:00  INFO 17072 --- [http-nio-8080-exec-6] c.c.s.s.s.JwtTokenAuthenticationFilter   : Successfully authenticated.
+2024-03-04T16:29:55.865+01:00  INFO 17072 --- [http-nio-8080-exec-6] c.c.s.s.controllers.UsersController      : GET (/users) : [39e29f9e-e5e9-4808-8dec-33bcfea374b2, ff6ae0a8-6b90-4714-9754-4008bd40a1eb]
+2024-03-04T16:30:01.183+01:00  INFO 17072 --- [http-nio-8080-exec-7] c.c.s.s.s.JwtTokenAuthenticationFilter   : User found.
+2024-03-04T16:30:01.192+01:00  INFO 17072 --- [http-nio-8080-exec-7] c.c.s.s.s.JwtTokenAuthenticationFilter   : Successfully authenticated.
+2024-03-04T16:30:04.475+01:00  WARN 17072 --- [http-nio-8080-exec-8] c.c.s.s.s.JwtTokenAuthenticationFilter   : JWT Token does not begin with Bearer String
+2024-03-04T16:30:04.475+01:00  INFO 17072 --- [http-nio-8080-exec-8] c.c.s.s.s.JwtTokenAuthenticationFilter   : Please authenticate.
+2024-03-04T16:30:04.594+01:00  INFO 17072 --- [http-nio-8080-exec-8] c.c.s.s.c.AuthenticationController       : Token generated
+2024-03-04T16:30:09.138+01:00  INFO 17072 --- [http-nio-8080-exec-10] c.c.s.s.s.JwtTokenAuthenticationFilter   : User found.
+2024-03-04T16:30:09.148+01:00  INFO 17072 --- [http-nio-8080-exec-10] c.c.s.s.s.JwtTokenAuthenticationFilter   : Successfully authenticated.
+2024-03-04T16:30:09.164+01:00  INFO 17072 --- [http-nio-8080-exec-10] c.c.s.s.controllers.UserController       : GET (/user) : [1, 2, 102, 202]
+2024-03-04T16:30:11.331+01:00  INFO 17072 --- [http-nio-8080-exec-9] c.c.s.s.s.JwtTokenAuthenticationFilter   : User found.
+2024-03-04T16:30:11.341+01:00  INFO 17072 --- [http-nio-8080-exec-9] c.c.s.s.s.JwtTokenAuthenticationFilter   : Successfully authenticated.
+2024-03-04T16:30:11.357+01:00  INFO 17072 --- [http-nio-8080-exec-9] c.c.s.s.controllers.UsersController      : GET (/users) : [39e29f9e-e5e9-4808-8dec-33bcfea374b2, ff6ae0a8-6b90-4714-9754-4008bd40a1eb]
+2024-03-04T16:31:01.531+01:00  INFO 17072 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-03-04T16:31:01.542+01:00  INFO 17072 --- [Thread-7] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-04T16:31:01.542+01:00  INFO 17072 --- [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2024-03-04T16:31:01.556+01:00  INFO 17072 --- [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2024-03-04T16:31:01.657+01:00  INFO 17072 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Starting SquareGamesApplication using Java 21.0.2 with PID 17072 (C:\Users\molos\Documents\SpringBoot\square_games\target\classes started by molos in C:\Users\molos\Documents\SpringBoot\square_games)
+2024-03-04T16:31:01.658+01:00  INFO 17072 --- [restartedMain] c.c.s.s.SquareGamesApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-03-04T16:31:01.969+01:00  INFO 17072 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-04T16:31:01.990+01:00  INFO 17072 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20 ms. Found 2 JPA repository interfaces.
+2024-03-04T16:31:02.121+01:00  INFO 17072 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-03-04T16:31:02.121+01:00  INFO 17072 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-03-04T16:31:02.122+01:00  INFO 17072 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-04T16:31:02.158+01:00  INFO 17072 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-03-04T16:31:02.158+01:00  INFO 17072 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 498 ms
+2024-03-04T16:31:02.209+01:00  INFO 17072 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-04T16:31:02.216+01:00  INFO 17072 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-03-04T16:31:02.222+01:00  INFO 17072 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-04T16:31:02.224+01:00  INFO 17072 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2024-03-04T16:31:02.251+01:00  INFO 17072 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@525571ab
+2024-03-04T16:31:02.251+01:00  INFO 17072 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2024-03-04T16:31:02.311+01:00  INFO 17072 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-03-04T16:31:02.327+01:00  INFO 17072 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-04T16:31:02.693+01:00  INFO 17072 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@25b7f1ca, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@11132d32, org.springframework.security.web.context.SecurityContextHolderFilter@b27c3ab, org.springframework.security.web.header.HeaderWriterFilter@f45e89d, org.springframework.web.filter.CorsFilter@369315d4, org.springframework.security.web.authentication.logout.LogoutFilter@45644e42, com.cda25.springboot.square_games.security.JwtTokenAuthenticationFilter@41ae9849, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@42c6b18e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6827d830, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4886d4a9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5b0d0817, org.springframework.security.web.session.SessionManagementFilter@7cd891bf, org.springframework.security.web.access.ExceptionTranslationFilter@392b5916, org.springframework.security.web.access.intercept.AuthorizationFilter@6d0945c9]
+2024-03-04T16:31:02.777+01:00  INFO 17072 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-03-04T16:31:02.790+01:00  INFO 17072 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-03-04T16:31:02.793+01:00  INFO 17072 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Started SquareGamesApplication in 1.171 seconds (process running for 199.416)
+2024-03-04T16:31:02.795+01:00  INFO 17072 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-03-04T16:31:08.404+01:00  INFO 17072 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-03-04T16:31:08.417+01:00  INFO 17072 --- [Thread-14] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-04T16:31:08.417+01:00  INFO 17072 --- [Thread-14] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2024-03-04T16:31:08.448+01:00  INFO 17072 --- [Thread-14] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2024-03-04T16:31:08.626+01:00  INFO 17072 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Starting SquareGamesApplication using Java 21.0.2 with PID 17072 (C:\Users\molos\Documents\SpringBoot\square_games\target\classes started by molos in C:\Users\molos\Documents\SpringBoot\square_games)
+2024-03-04T16:31:08.626+01:00  INFO 17072 --- [restartedMain] c.c.s.s.SquareGamesApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-03-04T16:31:08.973+01:00  INFO 17072 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-04T16:31:08.995+01:00  INFO 17072 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 21 ms. Found 2 JPA repository interfaces.
+2024-03-04T16:31:09.155+01:00  INFO 17072 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-03-04T16:31:09.156+01:00  INFO 17072 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-03-04T16:31:09.156+01:00  INFO 17072 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-04T16:31:09.194+01:00  INFO 17072 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-03-04T16:31:09.194+01:00  INFO 17072 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 563 ms
+2024-03-04T16:31:09.245+01:00  INFO 17072 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-04T16:31:09.249+01:00  INFO 17072 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-03-04T16:31:09.254+01:00  INFO 17072 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-04T16:31:09.255+01:00  INFO 17072 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2024-03-04T16:31:09.278+01:00  INFO 17072 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-4 - Added connection com.mysql.cj.jdbc.ConnectionImpl@671c3c4c
+2024-03-04T16:31:09.278+01:00  INFO 17072 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2024-03-04T16:31:09.333+01:00  INFO 17072 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-03-04T16:31:09.349+01:00  INFO 17072 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-04T16:31:09.907+01:00  INFO 17072 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@488e58a4, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2ce0b9e2, org.springframework.security.web.context.SecurityContextHolderFilter@1e0e06c7, org.springframework.security.web.header.HeaderWriterFilter@1150f54d, org.springframework.web.filter.CorsFilter@5c7e98f6, org.springframework.security.web.authentication.logout.LogoutFilter@63667601, com.cda25.springboot.square_games.security.JwtTokenAuthenticationFilter@3372610, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@1888f3ca, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7d641098, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6b8868e4, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@39c615aa, org.springframework.security.web.session.SessionManagementFilter@104ed201, org.springframework.security.web.access.ExceptionTranslationFilter@fed9c92, org.springframework.security.web.access.intercept.AuthorizationFilter@163cda42]
+2024-03-04T16:31:10.002+01:00  INFO 17072 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-03-04T16:31:10.016+01:00  INFO 17072 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-03-04T16:31:10.020+01:00  INFO 17072 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Started SquareGamesApplication in 1.433 seconds (process running for 206.642)
+2024-03-04T16:31:10.021+01:00  INFO 17072 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-03-04T16:32:00.949+01:00  INFO 17072 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-03-04T16:32:00.958+01:00  INFO 17072 --- [Thread-18] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-04T16:32:00.959+01:00  INFO 17072 --- [Thread-18] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
+2024-03-04T16:32:00.972+01:00  INFO 17072 --- [Thread-18] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
+2024-03-04T16:32:01.060+01:00  INFO 17072 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Starting SquareGamesApplication using Java 21.0.2 with PID 17072 (C:\Users\molos\Documents\SpringBoot\square_games\target\classes started by molos in C:\Users\molos\Documents\SpringBoot\square_games)
+2024-03-04T16:32:01.060+01:00  INFO 17072 --- [restartedMain] c.c.s.s.SquareGamesApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-03-04T16:32:01.351+01:00  INFO 17072 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-04T16:32:01.372+01:00  INFO 17072 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20 ms. Found 2 JPA repository interfaces.
+2024-03-04T16:32:01.486+01:00  INFO 17072 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-03-04T16:32:01.486+01:00  INFO 17072 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-03-04T16:32:01.486+01:00  INFO 17072 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-04T16:32:01.517+01:00  INFO 17072 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-03-04T16:32:01.517+01:00  INFO 17072 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 455 ms
+2024-03-04T16:32:01.554+01:00  INFO 17072 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-04T16:32:01.559+01:00  INFO 17072 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-03-04T16:32:01.565+01:00  INFO 17072 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-04T16:32:01.566+01:00  INFO 17072 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Starting...
+2024-03-04T16:32:01.597+01:00  INFO 17072 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-5 - Added connection com.mysql.cj.jdbc.ConnectionImpl@67a9900e
+2024-03-04T16:32:01.597+01:00  INFO 17072 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Start completed.
+2024-03-04T16:32:01.660+01:00  INFO 17072 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-03-04T16:32:01.676+01:00  INFO 17072 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-04T16:32:02.016+01:00  INFO 17072 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@bc7cd3c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@41dbf2a8, org.springframework.security.web.context.SecurityContextHolderFilter@2512575b, org.springframework.security.web.header.HeaderWriterFilter@779e05c4, org.springframework.web.filter.CorsFilter@be0091d, org.springframework.security.web.authentication.logout.LogoutFilter@7e5f1d66, com.cda25.springboot.square_games.security.JwtTokenAuthenticationFilter@2c1cdea5, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@df545c9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1d677198, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1a50f7d5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@19875837, org.springframework.security.web.session.SessionManagementFilter@4f239c11, org.springframework.security.web.access.ExceptionTranslationFilter@34319f8e, org.springframework.security.web.access.intercept.AuthorizationFilter@4561e20c]
+2024-03-04T16:32:02.106+01:00  INFO 17072 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-03-04T16:32:02.124+01:00  INFO 17072 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-03-04T16:32:02.128+01:00  INFO 17072 --- [restartedMain] c.c.s.s.SquareGamesApplication           : Started SquareGamesApplication in 1.099 seconds (process running for 258.75)
+2024-03-04T16:32:02.129+01:00  INFO 17072 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
