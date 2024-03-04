@@ -13,7 +13,8 @@ import java.util.Optional;
 import java.util.UUID;
 
 @CrossOrigin
-@RestController @RequestMapping("users")
+@RestController
+@RequestMapping("users")
 @Slf4j
 public class UsersController {
 

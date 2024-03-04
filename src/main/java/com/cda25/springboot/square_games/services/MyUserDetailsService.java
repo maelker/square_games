@@ -16,7 +16,7 @@ public class MyUserDetailsService implements UserDetailsService {
 
     /**
      * @param username the username identifying the user whose data is required.
-     * @return  UserEntity or null
+     * @return UserEntity or null
      * @throws UsernameNotFoundException
      */
     @Override

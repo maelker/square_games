@@ -30,8 +30,8 @@ public class SecurityConfig {
     @Autowired
     private AuthenticationConfiguration authenticationConfiguration;
 
-
-    private AuthenticationManager authenticationManager() throws Exception {
+    @Bean
+    protected AuthenticationManager authenticationManager() throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
     }
 
@@ -48,10 +48,12 @@ public class SecurityConfig {
 
         http.sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 
-        http.addFilterBefore(new JwtAuthenticationFilter(authenticationManager(), myUserDetailsService, jwtTokenUtil), UsernamePasswordAuthenticationFilter.class);
+        http.addFilterBefore(new JwtTokenAuthenticationFilter(authenticationManager(), myUserDetailsService, jwtTokenUtil), UsernamePasswordAuthenticationFilter.class);
 
         http.authorizeHttpRequests((request) -> request
                 .requestMatchers("/public/**").permitAll()
+                .requestMatchers("/games/**").hasRole("USER")
+                .requestMatchers("/user/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
         );
 

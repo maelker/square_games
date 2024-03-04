@@ -14,7 +14,8 @@ import java.util.Locale;
 import java.util.Objects;
 
 @CrossOrigin
-@RestController @RequestMapping("games")
+@RestController
+@RequestMapping("games")
 public class GameController {
 
     @Autowired

@@ -3,6 +3,7 @@ package com.cda25.springboot.square_games.entities_do;
 import com.cda25.springboot.square_games.dto.user.UserDTO;
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -18,6 +19,7 @@ import java.util.Set;
 @AllArgsConstructor
 @Getter
 @Setter
+@Slf4j
 public class UserEntity implements UserDetails {
 
     @Id
@@ -30,13 +32,13 @@ public class UserEntity implements UserDetails {
     private String username;
     @Column(name = "role")
     private String role;
-    @Column(name = "is_account_non_expired", nullable = false)
+    @Column(name = "is_account_non_expired", nullable = false, columnDefinition = "boolean default true")
     private boolean isAccountNonExpired;
-    @Column(name = "is_account _non_locked", nullable = false)
+    @Column(name = "is_account _non_locked", nullable = false, columnDefinition = "boolean default true")
     private boolean isAccountNonLocked;
-    @Column(name = "is_credentials_non_expired", nullable = false)
+    @Column(name = "is_credentials_non_expired", nullable = false, columnDefinition = "boolean default true")
     private boolean isCredentialsNonExpired;
-    @Column(name = "is_enabled", nullable = false)
+    @Column(name = "is_enabled", nullable = false, columnDefinition = "boolean default true")
     private boolean isEnabled;
 
 
@@ -70,21 +72,33 @@ public class UserEntity implements UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
+        if (!isAccountNonExpired) {
+            log.info("Account expired !");
+        }
         return isAccountNonExpired;
     }
 
     @Override
     public boolean isAccountNonLocked() {
+        if (!isAccountNonLocked) {
+            log.info("Account locked !");
+        }
         return isAccountNonLocked;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
+        if (!isCredentialsNonExpired) {
+            log.info("Credentials expired !");
+        }
         return isCredentialsNonExpired;
     }
 
     @Override
     public boolean isEnabled() {
+        if (!isEnabled) {
+            log.info("Account disabled !");
+        }
         return isEnabled;
     }
 }

@@ -7,6 +7,7 @@ import com.cda25.springboot.square_games.repositories.UserRepository;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -16,11 +17,14 @@ import java.util.Optional;
 import static java.lang.Long.parseLong;
 
 @CrossOrigin
-@RestController @RequestMapping("user")
+@RestController
+@RequestMapping("user")
 @Slf4j
 public class UserController {
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @GetMapping("")
     public Iterable<UserDTO> getAllUsers() {
@@ -34,7 +38,9 @@ public class UserController {
     @PostMapping("")
     public UserDTO createUser(@Valid @RequestBody UserDTO userDTO) {
         log.info("POST (/user) : " + userDTO.id() + " " + userDTO.username());
-        return UserDTO.createUserDTO(userRepository.save(new UserEntity(userDTO)));
+        UserEntity userEntity = new UserEntity(userDTO);
+        userEntity.setPassword(passwordEncoder.encode(userEntity.getPassword()));
+        return UserDTO.createUserDTO(userRepository.save(userEntity));
     }
 
     @GetMapping("{userId}")

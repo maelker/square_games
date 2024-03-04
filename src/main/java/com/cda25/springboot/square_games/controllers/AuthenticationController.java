@@ -6,18 +6,25 @@ import com.cda25.springboot.square_games.repositories.UserRepository;
 import com.cda25.springboot.square_games.security.JwtTokenUtil;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin
 @RestController
 @RequestMapping("public")
+@Slf4j
 public class AuthenticationController {
 
     @Autowired
     private UserRepository userRepository;
     @Autowired
     private JwtTokenUtil jwtTokenUtil;
+    @Autowired
+    private AuthenticationManager authenticationManager;
 
     @GetMapping("login")
     public String login() {
@@ -25,12 +32,40 @@ public class AuthenticationController {
     }
 
     @PostMapping("login")
-    public String login(@Valid @RequestBody AuthenticationParamsDTO authenticationParamsDTO, HttpServletResponse response) throws Exception {
-        UserEntity user = userRepository.findByUsername(authenticationParamsDTO.getUsername()).orElse(null);
-        assert user != null;
-        String jwtToken = jwtTokenUtil.generateToken(user.getUsername());
-        response.addHeader("Authorization", "Bearer " + jwtToken);
+    public String login(@Valid @RequestBody AuthenticationParamsDTO authenticationParamsDTO, HttpServletResponse response) {
 
-        return "Token created.\nExpiration date : " + jwtTokenUtil.getExpirationDateFromToken(jwtToken);
+        UserEntity user = userRepository.findByUsername(authenticationParamsDTO.getUsername()).orElse(null);
+
+        String jwtToken = "";
+        String result = "";
+
+        if (user != null) {
+            Authentication authenticationRequest =
+                    UsernamePasswordAuthenticationToken.unauthenticated(
+                            authenticationParamsDTO.getUsername(),
+                            authenticationParamsDTO.getPassword()
+                    );
+
+            Authentication authenticationResponse =
+                    this.authenticationManager.authenticate(authenticationRequest);
+
+            if (authenticationResponse.isAuthenticated()
+                    && user.isAccountNonExpired()
+                    && user.isAccountNonLocked()
+                    && user.isCredentialsNonExpired()
+                    && user.isEnabled()) {
+                jwtToken = jwtTokenUtil.generateToken(user.getUsername());
+                log.info("Token generated");
+                result = "Token created.\nExpiration date : " + jwtTokenUtil.getExpirationDateFromToken(jwtToken);
+                response.addHeader("Authorization", "Bearer " + jwtToken);
+            } else if (!authenticationResponse.isAuthenticated()) {
+                log.error("User not authenticated");
+            }
+        } else {
+            log.error("Username or password incorrect");
+        }
+
+
+        return result;
     }
 }
