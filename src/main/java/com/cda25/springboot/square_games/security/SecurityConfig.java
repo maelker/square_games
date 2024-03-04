@@ -46,14 +46,13 @@ public class SecurityConfig {
 
 //        http.userDetailsService(userDetailsService).authenticationManager(authenticationConfiguration.getAuthenticationManager());
 
-        http.authorizeHttpRequests((requests) -> requests
+        http.authorizeHttpRequests((request) -> request
+                .requestMatchers("/public/**").permitAll()
                 .anyRequest().authenticated()
         );
 
-
-
         http.formLogin((form) -> form
-                        .loginPage("/api/public/login").permitAll()
+                        .loginPage("/public/login").permitAll()
                 )
                 .logout(LogoutConfigurer::permitAll);
 

@@ -1,5 +1,6 @@
 package com.cda25.springboot.square_games.services;
 
+import com.cda25.springboot.square_games.entities_do.UserEntity;
 import com.cda25.springboot.square_games.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -20,6 +21,6 @@ public class MyUserDetailsService implements UserDetailsService {
      */
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return userRepository.findByUsername(username).orElse(null);
+        return userRepository.findByUsername(username).orElse(new UserEntity());
     }
 }
