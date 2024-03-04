@@ -10,51 +10,50 @@ import org.springframework.security.config.annotation.authentication.configurati
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
-import org.springframework.security.config.annotation.web.configurers.LogoutConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
 
-    @Autowired
-    private MyUserDetailsService userDetailsService;
 
     @Autowired
-    AuthenticationConfiguration authenticationConfiguration;
+    private JwtTokenUtil jwtTokenUtil;
+
+    @Autowired
+    private MyUserDetailsService myUserDetailsService;
+
+    @Autowired
+    private AuthenticationConfiguration authenticationConfiguration;
+
+
+    private AuthenticationManager authenticationManager() throws Exception {
+        return authenticationConfiguration.getAuthenticationManager();
+    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
-    @Bean
-    public AuthenticationManager authenticationManager() throws Exception {
-        return authenticationConfiguration.getAuthenticationManager();
-    }
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.csrf(AbstractHttpConfigurer::disable).cors(Customizer.withDefaults());
 
-//      http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
+        http.csrf(AbstractHttpConfigurer::disable).cors(Customizer.withDefaults());
 
         http.sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 
-//        http.userDetailsService(userDetailsService).authenticationManager(authenticationConfiguration.getAuthenticationManager());
+        http.addFilterBefore(new JwtAuthenticationFilter(authenticationManager(), myUserDetailsService, jwtTokenUtil), UsernamePasswordAuthenticationFilter.class);
 
         http.authorizeHttpRequests((request) -> request
                 .requestMatchers("/public/**").permitAll()
                 .anyRequest().authenticated()
         );
-
-        http.formLogin((form) -> form
-                        .loginPage("/public/login").permitAll()
-                )
-                .logout(LogoutConfigurer::permitAll);
 
         http.httpBasic(Customizer.withDefaults());
 
