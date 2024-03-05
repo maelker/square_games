@@ -11,6 +11,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.UUID;
 
 @Entity
 @Table(name = "user")
@@ -24,21 +25,21 @@ public class UserEntity implements UserDetails {
 
     @Id
     @Column(name = "id_user", nullable = false, unique = true)
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
     @Column(name = "password", nullable = false)
     private String password;
     @Column(name = "username", nullable = false, unique = true)
     private String username;
     @Column(name = "role")
     private String role;
-    @Column(name = "is_account_non_expired", nullable = false, columnDefinition = "boolean default true")
+    @Column(name = "is_account_non_expired", nullable = false)
     private boolean isAccountNonExpired = true;
-    @Column(name = "is_account _non_locked", nullable = false, columnDefinition = "boolean default true")
+    @Column(name = "is_account _non_locked", nullable = false)
     private boolean isAccountNonLocked = true;
-    @Column(name = "is_credentials_non_expired", nullable = false, columnDefinition = "boolean default true")
+    @Column(name = "is_credentials_non_expired", nullable = false)
     private boolean isCredentialsNonExpired = true;
-    @Column(name = "is_enabled", nullable = false, columnDefinition = "boolean default true")
+    @Column(name = "is_enabled", nullable = false)
     private boolean isEnabled = true;
 
 
@@ -96,4 +97,5 @@ public class UserEntity implements UserDetails {
         }
         return isEnabled;
     }
+
 }

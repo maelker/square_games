@@ -6,7 +6,6 @@ import com.cda25.springboot.square_games.entities_do.UsersEntity;
 import com.cda25.springboot.square_games.repositories.UsersRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
@@ -17,7 +16,6 @@ import java.util.UUID;
 @RestController
 @RequestMapping("users")
 @Slf4j
-@Secured(value = "ROLE_USER")
 public class UsersController {
 
     @Autowired

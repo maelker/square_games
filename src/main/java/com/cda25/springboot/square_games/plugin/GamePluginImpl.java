@@ -3,6 +3,7 @@ package com.cda25.springboot.square_games.plugin;
 import com.cda25.springboot.square_games.entities_do.GameParams;
 import fr.le_campus_numerique.square_games.engine.Game;
 import fr.le_campus_numerique.square_games.engine.GameFactory;
+import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 
@@ -15,6 +16,7 @@ public abstract class GamePluginImpl implements GamePlugin {
     protected Integer playerCount;
     protected Integer boardSize;
 
+    @Getter
     @Autowired
     private MessageSource messageSource;
 
@@ -27,20 +29,16 @@ public abstract class GamePluginImpl implements GamePlugin {
         return gameFactory;
     }
 
-    public MessageSource getMessageSource() {
-        return messageSource;
-    }
-
     @Override
     public GameParams getDefaultValues(Locale locale) {
         return new GameParams(getName(locale), playerCount, boardSize);
     }
 
     @Override
-    public Game createGame(Integer playerCount, Integer boardSize) {
+    public Game createGame(GameParams gameParams) {
         return getGameFactory().createGame(
-                playerCount == null ? this.playerCount : playerCount,
-                Optional.ofNullable(boardSize).orElse(this.boardSize)
+                Optional.ofNullable(gameParams.playerCount()).orElse(this.playerCount),
+                Optional.ofNullable(gameParams.boardSize()).orElse(this.boardSize)
         );
     }
 

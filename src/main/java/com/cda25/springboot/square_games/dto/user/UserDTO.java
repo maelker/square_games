@@ -8,6 +8,7 @@ public record UserDTO(
         String password,
         @NotNull
         String username,
+        @NotNull
         String role
 ) {
 

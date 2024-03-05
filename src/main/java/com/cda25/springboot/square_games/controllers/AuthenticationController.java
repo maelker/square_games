@@ -1,6 +1,7 @@
 package com.cda25.springboot.square_games.controllers;
 
 import com.cda25.springboot.square_games.dto.user.AuthenticationParamsDTO;
+import com.cda25.springboot.square_games.dto.user.UserDTO;
 import com.cda25.springboot.square_games.entities_do.UserEntity;
 import com.cda25.springboot.square_games.repositories.UserRepository;
 import com.cda25.springboot.square_games.security.JwtTokenUtil;
@@ -11,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin
@@ -25,6 +27,8 @@ public class AuthenticationController {
     private JwtTokenUtil jwtTokenUtil;
     @Autowired
     private AuthenticationManager authenticationManager;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @GetMapping("login")
     public String login() {
@@ -67,5 +71,13 @@ public class AuthenticationController {
 
 
         return result;
+    }
+
+    @PostMapping("user")
+    public UserDTO createUser(@Valid @RequestBody UserDTO userDTO) {
+        log.info("POST (/user) : " + userDTO.username());
+        UserEntity userEntity = new UserEntity(userDTO);
+        userEntity.setPassword(passwordEncoder.encode(userEntity.getPassword()));
+        return UserDTO.createUserDTO(userRepository.save(userEntity));
     }
 }

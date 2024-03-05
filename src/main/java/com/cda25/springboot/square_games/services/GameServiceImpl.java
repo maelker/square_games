@@ -35,7 +35,7 @@ public class GameServiceImpl implements GameService {
         final GamePlugin gamePlugin = getGamePluginFromId(gameCreationParams.game());
         Game game = null;
         if (gamePlugin != null) {
-            game = gamePlugin.createGame(gameCreationParams.playerCount(), gameCreationParams.boardSize());
+            game = gamePlugin.createGame(gameCreationParams);
             games.put(game.getId().toString(), game);
         }
         return game;

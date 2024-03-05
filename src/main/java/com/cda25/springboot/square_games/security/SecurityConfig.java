@@ -48,12 +48,17 @@ public class SecurityConfig {
 
         http.sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 
+        http.formLogin(formLogin ->
+                        formLogin
+                                .loginPage("/login")
+                .loginProcessingUrl("/public/login")
+        );
+
         http.addFilterBefore(new JwtTokenAuthenticationFilter(authenticationManager(), myUserDetailsService, jwtTokenUtil), UsernamePasswordAuthenticationFilter.class);
 
         http.authorizeHttpRequests((request) -> request
                 .requestMatchers("/public/**").permitAll()
-                .requestMatchers("/games/**").hasRole("USER")
-                .requestMatchers("/user/**").hasRole("ADMIN")
+                .requestMatchers("/login").permitAll()
                 .anyRequest().authenticated()
         );
 
@@ -61,5 +66,6 @@ public class SecurityConfig {
 
         return http.build();
     }
+
 
 }

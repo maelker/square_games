@@ -7,6 +7,7 @@ import com.cda25.springboot.square_games.repositories.UserRepository;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,6 +28,7 @@ public class UserController {
     private PasswordEncoder passwordEncoder;
 
     @GetMapping("")
+    @PreAuthorize("hasRole('ADMIN')")
     public Iterable<UserDTO> getAllUsers() {
         Iterable<UserEntity> userEntities = userRepository.findAll();
         Collection<UserEntity> users = new ArrayList<>();

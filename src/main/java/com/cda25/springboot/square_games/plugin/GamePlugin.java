@@ -18,6 +18,6 @@ public interface GamePlugin {
 
     GameParams getDefaultValues(Locale locale);
 
-    Game createGame(Integer playerCount, Integer boardSize);
+    Game createGame(GameParams gameCreationParams);
 
 }
